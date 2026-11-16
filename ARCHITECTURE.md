@@ -20,7 +20,18 @@ flowchart LR
     F["Frontends (1 par membre)"] -->|HTTP JSON| API["FastAPI - backend d'équipe"]
     API -->|"candidats, projets"| M[("MongoDB")]
     API -->|"graphe de compétences"| N[("Neo4j")]
-    %% TODO : complétez / corrigez ce schéma selon VOS choix
+    Roles des bases :
+- MongoDB : stocke les données structurées du portfolio (profils des candidats, formations, expériences professionnelles et projets réalisés)
+- Neo4j : stocke les relations entre les candidats, leurs compétences, leurs projets, les domaines d'expertise. Elle permet d'explorer le graphe 
+	  de compétences et d'identifier les liens entre les différentes entités.
+ 
+MVP (6 entités utiles à garder ) :
+- Candidat 
+- Formations
+- Expériences
+- Compétentes
+- Domaines de compétences
+- Projet
 ```
 
 # le rôle de chaque base dans votre portfolio.
@@ -224,15 +235,18 @@ db.projets.aggregate([
 graph LR
     %% TODO : vos nœuds et relations orientées, ex. (Candidat)-[:A_REALISE]->(Projet)-[:UTILISE]->(Competence)-[:APPARTIENT_A]->(Domaine)
     A[TODO] --> B[TODO]
+```
 
+```mermaid
 graph LR
     A[Candidat] -->|A_REALISE| B[Projet]
-    A[Candidat] -->|MAITRISE| C[Competence]
-    A[Candidat] -->|A_TRAVAILLE_CHEZ| E[Entreprise]
-    B[Projet] -->|UTILISE| C[Competence]
-    C[Competence] -->|APPARTIENT_A| D[Domaine]
-    B[Projet] -->|REALISE_POUR| E[Entreprise]
+    A -->|MAITRISE| C[Competence]
+    A -->|A_TRAVAILLE_CHEZ| E[Entreprise]
+    B -->|UTILISE| C
+    C -->|APPARTIENT_A| D[Domaine]
+    B -->|REALISE_POUR| E
 ```
+
 
 | Label | Propriétés | Clé unique |
 |---|---|---|
@@ -382,8 +396,8 @@ Les slugs pivots permettent d'identifier une même entité dans MongoDB et Neo4j
 
 | Membre (pseudo GitHub) | Backend (couches / routes) | Frontend |
 |---|---|---|
-| HE020215 | MongoDB candidats : modèles Pydantic, repository, services et routes R1, R7 | frontends/frontend-/ |
-| Loiclr12 | MongoDB projets : modèles Pydantic, repository, filtres et routes R2, R6, R8 |frontends/frontend-<pseudo-2>/|
-| Tahirou111 | Neo4j : modèles du graphe, repository Cypher, relations et routes R4, R5 | frontends/frontend-<pseudo-3>/ |
-| ZHONXucan | Agrégations MongoDB R3, intégration FastAPI, orchestration MongoDB/Neo4j, script seed.py et tests | frontends/frontend-<pseudo-4>/ |
+| HE020215 | MongoDB candidats : modèles Pydantic, repository, services et routes R1, R7 | frontends/frontend-HE020215/ |
+| Loiclr12 | MongoDB projets : modèles Pydantic, repository, filtres et routes R2, R6, R8 |frontends/frontend-Loiclr12/|
+| Tahirou111 | Neo4j : modèles du graphe, repository Cypher, relations et routes R4, R5 | frontends/frontend-Tahirou111/ |
+| ZHONXucan | Agrégations MongoDB R3, intégration FastAPI, orchestration MongoDB/Neo4j, script seed.py et tests | frontends/frontend-ZHONXucan/ |
 
