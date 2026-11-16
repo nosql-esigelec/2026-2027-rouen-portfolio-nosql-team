@@ -1,4 +1,4 @@
-# 🧠 ARCHITECTURE - Équipe `TODO-nom-equipe`
+# 🧠 ARCHITECTURE - Équipe `NoSqlteam`
 
 > **Jalon 1** : ce document est votre **spécification**. Il doit être **complet** : toute l'équipe va coder dessus.
 > Toutes les sections sont obligatoires. Remplacez **tous** les `TODO` (la CI « Livrables » les compte).
