@@ -33,9 +33,9 @@ MVP (6 entités utiles à garder ) :
 | R3 | Statistiques d'un candidat par compétence | `GET /api/candidats/{slug}/stats` | Agrégation MongoDB, enrichie par competences|
 | R4 | Projets similaires à un projet | `GET /api/graph/projets/{slug}/similaires` | Neo4j |
 | R5 | Graphe de compétences d'un candidat | `GET /api/graph/competences/{slug}` | Neo4j |
-| R6 | Consulter le détail d'un projet (description, technologies utilisées, résultats, lien GitHub) |GET /api/projets/{slug} |MongoDB + Neo4j |
-| R7 | Quelle est l’expérience professionnelle la plus récente du candidat ? |GET /api/candidats/{slug}/experiences/recente| MongoDB candidats |
-| R8 | Quels projets du candidat démontrent ses compétences dans un domaine donné ? |GET /api/candidats/{slug}/projets?domaine_slug=data|MongoDB projets (filtre domaine_slugs)|
+| R6 | Consulter le détail d'un projet (description, technologies utilisées, résultats, lien GitHub) |`GET /api/projets/{slug}` |MongoDB + Neo4j |
+| R7 | Quelle est l’expérience professionnelle la plus récente du candidat ? |`GET /api/candidats/{slug}/experiences/recente`| MongoDB candidats |
+| R8 | Quels projets du candidat démontrent ses compétences dans un domaine donné ? |`GET /api/candidats/{slug}/projets?domaine_slug=data`|MongoDB projets (filtre domaine_slugs)|
 
 ## 3. Modèle MongoDB
 
