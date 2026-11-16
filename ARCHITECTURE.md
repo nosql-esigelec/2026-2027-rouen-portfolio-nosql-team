@@ -24,10 +24,6 @@ MVP (6 entités utiles à garder ) :
 - Compétentes
 - Domaines de compétences
 - Projet
-
-# le rôle de chaque base dans votre portfolio.
-MongoDB centralise les profils, projets et compétences, tandis que Neo4j gère les relations et les similitudes. FastAPI assure la communication entre les bases et les frontends, ainsi que la synchronisation des données. Cette architecture facilite l’exploration des relations, mais nécessite une gestion plus complexe qu’une solution basée uniquement sur MongoDB.
-
 ## 2. Les requêtes à servir
 
 | # | Besoin (vu par un recruteur) | Route API | Base(s) interrogée(s) |
