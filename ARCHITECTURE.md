@@ -53,6 +53,8 @@ MongoDB centralise les profils, projets et compétences, tandis que Neo4j gère 
 ## 3. Modèle MongoDB
 
 ### 3.1 Collection `candidats` - pattern TODO (*Embedding* ? *Referencing* ?)
+<img width="407" height="158" alt="image" src="https://github.com/user-attachments/assets/d3e5c40c-637d-45e6-a511-7d0195e46b7b" />
+
 
 # un document d'exemple complet
 ```json
