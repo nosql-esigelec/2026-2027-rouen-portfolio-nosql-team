@@ -19,8 +19,9 @@ L'image reste modifiable : rouvrez-la dans Excalidraw (ou dans VS Code avec l'ex
 flowchart LR
     F["Frontends (1 par membre)"] -->|HTTP JSON| API["FastAPI - backend d'équipe"]
     API -->|"candidats, projets"| M[("MongoDB")]
-    API -->|"graphe de compétences"| N[("Neo4j")]
-    Roles des bases :
+    API -->|"graphe de compétences"| N[("Neo4j")]  
+```
+### Roles des bases :
 - MongoDB : stocke les données structurées du portfolio (profils des candidats, formations, expériences professionnelles et projets réalisés)
 - Neo4j : stocke les relations entre les candidats, leurs compétences, leurs projets, les domaines d'expertise. Elle permet d'explorer le graphe 
 	  de compétences et d'identifier les liens entre les différentes entités.
@@ -32,7 +33,6 @@ MVP (6 entités utiles à garder ) :
 - Compétentes
 - Domaines de compétences
 - Projet
-```
 
 # le rôle de chaque base dans votre portfolio.
 MongoDB centralise les profils, projets et compétences, tandis que Neo4j gère les relations et les similitudes. FastAPI assure la communication entre les bases et les frontends, ainsi que la synchronisation des données. Cette architecture facilite l’exploration des relations, mais nécessite une gestion plus complexe qu’une solution basée uniquement sur MongoDB.
