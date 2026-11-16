@@ -1,0 +1,25 @@
+{
+  "candidat_slug": "exemple-candidat",
+  "prenom": "Alice",
+  "nom": "Martin",
+  "titre": "Élève-ingénieure Big Data — ESIGELEC",
+  "bio": "Passionnée par les architectures de données et le graphe.",
+  "liens": { "github": "https://github.com/exemple", "linkedin": "https://www.linkedin.com/in/exemple" },
+  "experiences": [
+    {
+      "entreprise": "Entreprise X",
+      "poste": "Stagiaire Data Engineer",
+      "debut": "2026-04",
+      "fin": "2026-08",
+      "description": "Pipeline d'ingestion…",
+      "competences": ["python", "mongodb", "airflow"]
+    }
+  ],
+  "formations": [
+    { "ecole": "ESIGELEC", "diplome": "Cycle ingénieur — Big Data (BDTN)", "debut": "2024-09", "fin": "2027-06" }
+  ],
+  "competences": [
+    { "skill_slug": "mongodb", "nom": "MongoDB", "domaine": "bases-de-donnees", "niveau": 3 },
+    { "skill_slug": "python", "nom": "Python", "domaine": "langages", "niveau": 4 }
+  ]
+}

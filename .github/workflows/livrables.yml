@@ -1,0 +1,43 @@
+name: Livrables
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  livrables:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Jalon 1 — ARCHITECTURE.md & API_ROUTES.md complétés
+        run: |
+          status=0
+          for f in ARCHITECTURE.md API_ROUTES.md; do
+            n=$(grep -c "TODO" "$f" || true)
+            if [ "$n" -gt 0 ]; then
+              echo "::warning file=$f::$n TODO restant(s) dans $f"
+              status=1
+            else
+              echo "✅ $f complété"
+            fi
+          done
+          {
+            echo "## 📋 Livrables"
+            for f in ARCHITECTURE.md API_ROUTES.md; do
+              n=$(grep -c "TODO" "$f" || true)
+              [ "$n" -gt 0 ] && echo "- ❌ \`$f\` : $n TODO restant(s)" || echo "- ✅ \`$f\` complété"
+            done
+            echo "- Frontends : $(ls -d frontends/frontend-*/ 2>/dev/null | wc -l) dossier(s) \`frontend-*\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+          # Non bloquant : les TODO restants apparaissent en avertissements et dans le résumé
+          exit 0
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Backend — installation & tests
+        if: always()
+        working-directory: backend
+        run: |
+          uv sync
+          uv run pytest -q

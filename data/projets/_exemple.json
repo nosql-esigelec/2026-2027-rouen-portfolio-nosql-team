@@ -1,0 +1,13 @@
+[
+  {
+    "projet_slug": "smartcity-explorer",
+    "candidat_slugs": ["exemple-candidat"],
+    "titre": "SmartCity Explorer",
+    "contexte": "TP fil rouge NoSQL — ESIGELEC",
+    "description": "API FastAPI polyglotte MongoDB + Neo4j…",
+    "competences": ["python", "mongodb", "neo4j", "fastapi"],
+    "metriques": { "tests_verts": 58, "score_ci": "200/200" },
+    "liens": { "github": "https://github.com/exemple/smartcity" },
+    "images": []
+  }
+]
