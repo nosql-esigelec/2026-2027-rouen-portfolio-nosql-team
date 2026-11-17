@@ -11,12 +11,15 @@ from portfolio_api.core.config import get_settings
 
 _driver: AsyncDriver | None = None
 
-def get_neo4j_driver():
+def get_neo4j_driver() -> AsyncDriver:
     """Retourne le driver Neo4j asynchrone (instance unique)."""
     global _driver
     if _driver is None:
         settings = get_settings()
-        _driver = AsyncGraphDatabase.driver(settings.neo4j_uri, auth=(settings.neo4j_user, settings.neo4j_password))
+        _driver = AsyncGraphDatabase.driver(
+            settings.neo4j_uri, 
+            auth=(settings.neo4j_user, settings.neo4j_password),
+        )
     return _driver
 
 

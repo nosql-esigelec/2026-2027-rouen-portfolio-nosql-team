@@ -8,12 +8,13 @@ Commande :
 
 Fichier à implémenter pour le test :
     packages/backend/src/backend/db/neo4j.py
-    
+
 """
 
 from __future__ import annotations
 
-from unittest.mock import MagicMock, patch
+import asyncio
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
@@ -37,21 +38,21 @@ class TestGetNeo4jDriver:
         from portfolio_api.db import neo4j
 
         mock_settings = MagicMock()
-        mock_settings.neo4j_uri = "bolt://localhost:7688"
+        mock_settings.neo4j_uri = "bolt://localhost:7687"
         mock_settings.neo4j_user = "neo4j"
         mock_settings.neo4j_password = "secret"
         mock_driver = MagicMock()
 
         with (
             patch("portfolio_api.db.neo4j.get_settings", return_value=mock_settings),
-            patch("portfolio_api.db.neo4j.AsyncGraphDatabase") as graph_mock,
+            patch("portfolio_api.db.neo4j.AsyncGraphDatabase", ) as graph_mock,
         ):
             graph_mock.driver = MagicMock(return_value=mock_driver)
             driver = neo4j.get_neo4j_driver()
 
         assert driver is mock_driver
         graph_mock.driver.assert_called_once_with(
-            "bolt://localhost:7688",
+            "bolt://localhost:7687",
             auth=("neo4j", "secret"),
         )
 
@@ -61,16 +62,41 @@ class TestGetNeo4jDriver:
 
         mock_driver = MagicMock()
         mock_settings = MagicMock()
-        mock_settings.neo4j_uri = "bolt://localhost:7688"
+        mock_settings.neo4j_uri = "bolt://localhost:7687"
         mock_settings.neo4j_user = "neo4j"
         mock_settings.neo4j_password = "pass"
 
         with (
             patch("portfolio_api.db.neo4j.get_settings", return_value=mock_settings),
-            patch("portfolio_api.db.neo4j.AsyncGraphDatabase") as graph_mock,
+            patch("portfolio_api.db.neo4j.AsyncGraphDatabase", ) as graph_mock,
         ):
             graph_mock.driver = MagicMock(return_value=mock_driver)
             first = neo4j.get_neo4j_driver()
             second = neo4j.get_neo4j_driver()
 
         assert first is second
+
+
+class TestCloseNeo4j:
+    """Tests de close_neo4j()."""
+
+    def test_closes_driver_and_resets_singleton(self):
+        """Ferme le driver et le remet à None."""
+        from portfolio_api.db import neo4j
+
+        mock_driver = MagicMock()
+        mock_driver.close = AsyncMock()
+        neo4j._driver = mock_driver
+
+        asyncio.run(neo4j.close_neo4j())
+
+        mock_driver.close.assert_awaited_once_with()
+        assert neo4j._driver is None
+
+    def test_close_without_driver_does_nothing(self):
+        """N'échoue pas si aucun driver n'a été créé."""
+        from portfolio_api.db import neo4j
+
+        asyncio.run(neo4j.close_neo4j())
+
+        assert neo4j._driver is None

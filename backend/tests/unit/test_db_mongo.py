@@ -87,59 +87,6 @@ class TestGetMongoDb:
         mock_client.__getitem__.assert_called_once_with("portfolio")
 
 
-class TestGetMongoDb:
-    """Tests de get_mongo_db()."""
-
-    def test_creates_client_with_url_and_returns_db(self):
-        """Crée AsyncMongoClient avec l'URL et sélectionne la bonne base."""
-        from portfolio_api.db import mongo
-
-        mock_settings = MagicMock()
-        mock_settings.mongo_url = "mongodb://localhost:27017"
-        mock_settings.mongo_db = "portfolio"
-
-        mock_db = MagicMock()
-        mock_client = MagicMock()
-        mock_client.__getitem__.return_value = mock_db
-
-        with (
-            patch("portfolio_api.db.mongo.get_settings", return_value=mock_settings) as settings_mock,
-            patch("portfolio_api.db.mongo.AsyncMongoClient", return_value=mock_client) as client_mock,
-        ):
-            db = mongo.get_mongo_db()
-
-        assert db is mock_db
-        assert mongo._client is mock_client
-        assert mongo._database is mock_db
-        settings_mock.assert_called_once_with()
-        client_mock.assert_called_once_with("mongodb://localhost:27017")
-        mock_client.__getitem__.assert_called_once_with("portfolio")
-
-    def test_returns_same_db_on_second_call(self):
-        """Réutilise la même base sans recréer le client ou relire la config."""
-        from portfolio_api.db import mongo
-
-        mock_settings = MagicMock(
-            mongo_url="mongodb://localhost:27017",
-            mongo_db="portfolio",
-        )
-        mock_db = MagicMock()
-        mock_client = MagicMock()
-        mock_client.__getitem__.return_value = mock_db
-
-        with (
-            patch("portfolio_api.db.mongo.get_settings", return_value=mock_settings) as settings_mock,
-            patch("portfolio_api.db.mongo.AsyncMongoClient", return_value=mock_client) as client_mock,
-        ):
-            first = mongo.get_mongo_db()
-            second = mongo.get_mongo_db()
-
-        assert first is second is mock_db
-        settings_mock.assert_called_once_with()
-        client_mock.assert_called_once_with("mongodb://localhost:27017")
-        mock_client.__getitem__.assert_called_once_with("portfolio")
-
-
 class TestCloseMongo:
     """Tests de close_mongo()."""
 
