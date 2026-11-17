@@ -13,9 +13,8 @@ Fichier à implementer pour le test :
 
 from __future__ import annotations
 
-from unittest.mock import AsyncMock, MagicMock, patch
-
 import asyncio
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
@@ -47,7 +46,7 @@ class TestGetMongoDb:
 
         mock_db = MagicMock()
         mock_client = MagicMock()
-        """mock_client.__getitem__ = MagicMock(return_value = mock_db)"""
+        #mock_client.__getitem__ = MagicMock(return_value = mock_db)"""
         mock_client.__getitem__.return_value = mock_db
 
         with (
