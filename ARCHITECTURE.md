@@ -116,7 +116,7 @@ MVP (6 entités utiles à garder ) :
 }
 ```
 
-**Justification** (cardinalité bornée ou non, lecture en une requête, fréquence de mise à jour) : TODO
+**Justification** (cardinalité bornée ou non, lecture en une requête, fréquence de mise à jour) :
 
 ### 3.2 Collection `projets` - pattern TODO
 
@@ -231,7 +231,6 @@ db.projets.aggregate([
 ```mermaid
 graph LR
     %% TODO : vos nœuds et relations orientées, ex. (Candidat)-[:A_REALISE]->(Projet)-[:UTILISE]->(Competence)-[:APPARTIENT_A]->(Domaine)
-    A[TODO] --> B[TODO]
 ```
 
 ```mermaid
@@ -265,14 +264,6 @@ graph LR
 ### 4.2 Les 3 requêtes Cypher clés
 
 ```cypher
-// R4 - projets similaires
-TODO
-
-// R5 - graphe de compétences d'un candidat
-TODO
-
-// Compétences communes aux membres de l'équipe (ou requête de votre choix)
-TODO
 
  // R4 - Projets similaires
  // Retrouver les projets partageant des compétences
@@ -350,7 +341,6 @@ ORDER BY nombre_competences_communes DESC;
 ### 4.3 Contraintes
 
 ```cypher
-TODO : CREATE CONSTRAINT ... IF NOT EXISTS
 
 
 CREATE CONSTRAINT candidat_slug_unique IF NOT EXISTS
