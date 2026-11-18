@@ -12,6 +12,14 @@ Montrez **qui stocke quoi** et **quels flux** : frontends → API → MongoDB / 
 enregistrez dans `docs/architecture.excalidraw.png`, puis remplacez le schéma Mermaid ci-dessous par :
 
 `![Architecture](docs/architecture.excalidraw.png)`
+L'image reste modifiable : rouvrez-la dans Excalidraw (ou dans VS Code avec l'extension *Excalidraw*).
+
+```mermaid
+flowchart LR
+    F["Frontends (1 par membre)"] -->|HTTP JSON| API["FastAPI - backend d'équipe"]
+    API -->|"candidats, projets"| M[("MongoDB")]
+    API -->|"graphe de compétences"| N[("Neo4j")]
+```
 ### Roles des bases :
 - MongoDB : stocke les données structurées du portfolio (profils des candidats, formations, expériences professionnelles et projets réalisés)
 - Neo4j : stocke les relations entre les candidats, leurs compétences, leurs projets, les domaines d'expertise. Elle permet d'explorer le graphe 
