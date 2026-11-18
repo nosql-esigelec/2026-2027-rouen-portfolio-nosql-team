@@ -13,7 +13,7 @@ async def _query(query: str, **parameters) -> list[dict]:
 
 
 async def create_constraints() -> None:
-    """Crée les contraintes définies dans ARCHITECTURE.md."""
+    """Crée une contrainte d'unicité sur le slug de chaque label."""
     for label in (
         "Candidat",
         "Projet",
@@ -33,12 +33,12 @@ async def upsert_candidat(document: dict) -> None:
     """Crée ou met à jour un candidat et ses relations."""
     await _query(
         """
-        MERGE (c:Candidat {slug: $slug})
+        MERGE (c:Candidat {slug: $candidat_slug})
         SET c.nom = $nom,
             c.prenom = $prenom,
             c.titre = $titre
         """,
-        slug=document["slug"],
+        candidat_slug=document["candidat_slug"],
         nom=document["nom"],
         prenom=document["prenom"],
         titre=document.get("titre", ""),
@@ -49,19 +49,17 @@ async def upsert_candidat(document: dict) -> None:
             """
             MATCH (c:Candidat {slug: $candidat_slug})
             MERGE (s:Competence {slug: $skill_slug})
-            SET s.nom = $nom,
-                s.type = $type
+            SET s.nom = $nom
             MERGE (d:Domaine {slug: $domaine_slug})
             ON CREATE SET d.nom = $domaine_slug
             MERGE (c)-[r:MAITRISE]->(s)
             SET r.niveau = $niveau
             MERGE (s)-[:APPARTIENT_A]->(d)
             """,
-            candidat_slug=document["slug"],
-            skill_slug=competence["slug"],
+            candidat_slug=document["candidat_slug"],
+            skill_slug=competence["skill_slug"],
             nom=competence["nom"],
-            type=competence.get("type", "technique"),
-            domaine_slug=competence["domaine_slug"],
+            domaine_slug=competence["domaine"],
             niveau=competence.get("niveau"),
         )
 
@@ -70,7 +68,7 @@ async def upsert_candidat(document: dict) -> None:
         if not nom:
             continue
 
-        slug = (
+        entreprise_slug = (
             experience.get("entreprise_slug")
             or nom.lower().replace(" ", "-")
         )
@@ -86,12 +84,12 @@ async def upsert_candidat(document: dict) -> None:
             }]->(e)
             SET r.date_fin = $date_fin
             """,
-            candidat_slug=document["slug"],
-            entreprise_slug=slug,
+            candidat_slug=document["candidat_slug"],
+            entreprise_slug=entreprise_slug,
             nom=nom,
             poste=experience.get("poste", ""),
-            date_debut=experience.get("date_debut", ""),
-            date_fin=experience.get("date_fin"),
+            date_debut=experience.get("debut", ""),
+            date_fin=experience.get("fin"),
         )
 
 
@@ -99,10 +97,10 @@ async def upsert_projet(document: dict) -> None:
     """Crée ou met à jour un projet, ses auteurs et ses compétences."""
     await _query(
         """
-        MERGE (p:Projet {slug: $slug})
+        MERGE (p:Projet {slug: $projet_slug})
         SET p.titre = $titre
         """,
-        slug=document["slug"],
+        projet_slug=document["projet_slug"],
         titre=document["titre"],
     )
 
@@ -114,7 +112,7 @@ async def upsert_projet(document: dict) -> None:
             MERGE (c)-[:A_REALISE]->(p)
             """,
             candidat_slug=candidat_slug,
-            projet_slug=document["slug"],
+            projet_slug=document["projet_slug"],
         )
 
     for skill_slug in document.get("competence_slugs", []):
@@ -122,18 +120,17 @@ async def upsert_projet(document: dict) -> None:
             """
             MATCH (p:Projet {slug: $projet_slug})
             MERGE (s:Competence {slug: $skill_slug})
-            ON CREATE SET s.nom = $skill_slug,
-                          s.type = 'technique'
+            ON CREATE SET s.nom = $skill_slug
             MERGE (p)-[:UTILISE]->(s)
             """,
-            projet_slug=document["slug"],
+            projet_slug=document["projet_slug"],
             skill_slug=skill_slug,
         )
 
-    # Champ optionnel pour les projets réalisés pour une entreprise.
+    # Champ optionnel, absent des fichiers JSON actuels.
     nom = document.get("entreprise")
     if nom:
-        slug = (
+        entreprise_slug = (
             document.get("entreprise_slug")
             or nom.lower().replace(" ", "-")
         )
@@ -146,8 +143,8 @@ async def upsert_projet(document: dict) -> None:
             MERGE (p)-[r:REALISE_POUR]->(e)
             SET r.contexte = $contexte
             """,
-            projet_slug=document["slug"],
-            entreprise_slug=slug,
+            projet_slug=document["projet_slug"],
+            entreprise_slug=entreprise_slug,
             nom=nom,
             contexte=document.get("contexte"),
         )
@@ -165,12 +162,10 @@ async def find_similar_projets(
             (p)-[:UTILISE]->(c:Competence)
                <-[:UTILISE]-(similaire:Projet)
         WHERE similaire <> p
-
         WITH p, similaire,
              collect(DISTINCT c.slug) AS competences,
              count(DISTINCT c) AS nombre
         ORDER BY nombre DESC, similaire.slug ASC
-
         WITH p, [
             item IN collect(
                 CASE WHEN similaire IS NOT NULL THEN {
@@ -182,7 +177,6 @@ async def find_similar_projets(
             )
             WHERE item IS NOT NULL
         ] AS similaires
-
         RETURN p.slug AS projet_source,
                size(similaires) AS total,
                similaires[..$limit] AS projets_similaires
@@ -204,7 +198,6 @@ async def find_competence_graph(slug: str) -> dict | None:
         OPTIONAL MATCH (c)-[r3:A_REALISE]->(p:Projet)
         OPTIONAL MATCH (p)-[r4:UTILISE]->(ps:Competence)
         OPTIONAL MATCH (ps)-[r5:APPARTIENT_A]->(pd:Domaine)
-
         WITH c,
              [c] + collect(DISTINCT s)
                  + collect(DISTINCT d)
@@ -216,7 +209,6 @@ async def find_competence_graph(slug: str) -> dict | None:
                  + collect(DISTINCT r3)
                  + collect(DISTINCT r4)
                  + collect(DISTINCT r5) AS raw_links
-
         WITH c,
              reduce(acc = [], n IN raw_nodes |
                  CASE WHEN n IS NULL OR n IN acc
@@ -226,7 +218,6 @@ async def find_competence_graph(slug: str) -> dict | None:
                  CASE WHEN r IS NULL OR r IN acc
                  THEN acc ELSE acc + [r] END
              ) AS links
-
         RETURN c.slug AS candidat_slug,
                [n IN nodes | {
                    id: toLower(labels(n)[0]) + ':' + n.slug,

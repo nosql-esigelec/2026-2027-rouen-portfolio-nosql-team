@@ -38,25 +38,31 @@ def graph_mocks():
 async def test_seed_neo4j_imports_data_in_order(graph_mocks):
     """Crée les contraintes, puis tous les candidats, puis les projets."""
     candidats = [
-        {"slug": "alice", "nom": "Martin"},
-        {"slug": "bob", "nom": "Dupont"},
+        {"candidat_slug": "alice", "nom": "Martin"},
+        {"candidat_slug": "bob", "nom": "Dupont"},
     ]
     projets = [
-        {"slug": "smartcity", "candidat_slugs": ["alice", "bob"]},
-        {"slug": "portfolio", "candidat_slugs": ["alice"]},
+        {
+            "projet_slug": "smartcity",
+            "candidat_slugs": ["alice", "bob"],
+        },
+        {
+            "projet_slug": "portfolio",
+            "candidat_slugs": ["alice"],
+        },
     ]
 
-    # Enregistrer l'ordre réel des appels attendus.
+    # Enregistrer l'ordre réel des appels.
     operations = []
 
     async def create_constraints():
         operations.append(("constraints",))
 
     async def upsert_candidat(document):
-        operations.append(("candidat", document["slug"]))
+        operations.append(("candidat", document["candidat_slug"]))
 
     async def upsert_projet(document):
-        operations.append(("projet", document["slug"]))
+        operations.append(("projet", document["projet_slug"]))
 
     graph_mocks["constraints"].side_effect = create_constraints
     graph_mocks["candidat"].side_effect = upsert_candidat
@@ -70,6 +76,7 @@ async def test_seed_neo4j_imports_data_in_order(graph_mocks):
         call(candidats[0]),
         call(candidats[1]),
     ]
+
     assert graph_mocks["projet"].await_args_list == [
         call(projets[0]),
         call(projets[1]),
@@ -103,8 +110,8 @@ async def test_seed_neo4j_stops_if_constraints_fail(graph_mocks):
 
     with pytest.raises(RuntimeError, match="Constraint creation failed"):
         await seed.seed_neo4j(
-            [{"slug": "alice"}],
-            [{"slug": "smartcity"}],
+            [{"candidat_slug": "alice"}],
+            [{"projet_slug": "smartcity"}],
         )
 
     graph_mocks["candidat"].assert_not_awaited()
@@ -120,9 +127,12 @@ async def test_seed_neo4j_stops_if_candidat_import_fails(graph_mocks):
 
     with pytest.raises(RuntimeError, match="Candidate import failed"):
         await seed.seed_neo4j(
-            [{"slug": "alice"}],
-            [{"slug": "smartcity"}],
+            [{"candidat_slug": "alice"}],
+            [{"projet_slug": "smartcity"}],
         )
 
     graph_mocks["constraints"].assert_awaited_once_with()
+    graph_mocks["candidat"].assert_awaited_once_with(
+        {"candidat_slug": "alice"}
+    )
     graph_mocks["projet"].assert_not_awaited()
