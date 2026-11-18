@@ -50,12 +50,12 @@ def mongo_mocks():
 async def test_seed_mongo_imports_data(mongo_mocks):
     """Crée les index, vide les collections et importe les documents."""
     candidats = [
-        {"slug": "alice", "nom": "Martin"},
-        {"slug": "bob", "nom": "Dupont"},
+        {"candidat_slug": "alice", "nom": "Martin"},
+        {"candidat_slug": "bob", "nom": "Dupont"},
     ]
     projets = [
         {
-            "slug": "smartcity",
+            "projet_slug": "smartcity",
             "candidat_slugs": ["alice", "bob"],
         }
     ]
@@ -103,7 +103,7 @@ async def test_seed_mongo_stops_if_index_creation_fails(mongo_mocks):
     )
 
     with pytest.raises(RuntimeError, match="Index creation failed"):
-        await seed.seed_mongo([{"slug": "alice"}], [])
+        await seed.seed_mongo([{"candidat_slug": "alice"}], [])
 
     mongo_mocks["db"].candidats.delete_many.assert_not_awaited()
     mongo_mocks["db"].projets.delete_many.assert_not_awaited()
