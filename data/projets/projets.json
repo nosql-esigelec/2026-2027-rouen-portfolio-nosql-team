@@ -1,0 +1,2062 @@
+[
+  {
+    "projet_slug": "smartcity-explorer",
+    "titre": "SmartCity Explorer",
+    "description": "Application d'exploration et d'analyse de données urbaines",
+    "contexte": "Projet académique NoSQL",
+    "architecture": "FastAPI, MongoDB et Neo4j",
+    "date_debut": "2026-09",
+    "date_fin": "2026-11",
+    "candidat_slugs": [
+      "hugo-lefebvre",
+      "lea-bernard"
+    ],
+    "competence_slugs": [
+      "python",
+      "fastapi",
+      "mongodb",
+      "neo4j"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "MongoDB",
+      "Neo4j"
+    ],
+    "réalisation": [
+      "Développement d'une API REST",
+      "Intégration de plusieurs bases de données",
+      "Visualisation et exploration de données"
+    ],
+    "liens": {
+      "github": "https://github.com/hugo-lefebvre/smartcity-explorer",
+      "demo": "https://smartcity-explorer.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/smartcity-explorer.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "portfolio-polyglotte",
+    "titre": "Portfolio Polyglotte",
+    "description": "Portfolio d'équipe interrogeant candidats, projets et compétences sur plusieurs bases",
+    "contexte": "Projet académique NoSQL",
+    "architecture": "FastAPI, MongoDB et Neo4j orchestrés avec Docker",
+    "date_debut": "2026-10",
+    "date_fin": "2026-12",
+    "candidat_slugs": [
+      "lea-bernard",
+      "hugo-lefebvre",
+      "jade-simon",
+      "maxime-girard"
+    ],
+    "competence_slugs": [
+      "python",
+      "fastapi",
+      "mongodb",
+      "neo4j",
+      "docker"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees",
+      "devops"
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "MongoDB",
+      "Neo4j",
+      "Docker Compose"
+    ],
+    "réalisation": [
+      "Modélisation documentaire des candidats et des projets",
+      "Modélisation en graphe des compétences",
+      "Script de seed idempotent"
+    ],
+    "liens": {
+      "github": "https://github.com/lea-bernard/portfolio-polyglotte",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/portfolio-polyglotte.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/portfolio-polyglotte-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "streaming-capteurs-iot",
+    "titre": "Streaming Capteurs IoT",
+    "description": "Traitement en temps réel de mesures de capteurs industriels",
+    "contexte": "Projet de spécialité Big Data",
+    "architecture": "Kafka, Flink et Spark",
+    "date_debut": "2026-03",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "antoine-lambert",
+      "lea-bernard",
+      "yanis-haddad"
+    ],
+    "competence_slugs": [
+      "kafka",
+      "flink",
+      "spark",
+      "docker"
+    ],
+    "domaine_slugs": [
+      "big-data",
+      "devops"
+    ],
+    "technologies": [
+      "Apache Kafka",
+      "Apache Flink",
+      "Apache Spark",
+      "Docker"
+    ],
+    "réalisation": [
+      "Ingestion de flux simulés de capteurs",
+      "Détection d'anomalies par fenêtres glissantes",
+      "Comparaison des performances Flink et Spark Streaming"
+    ],
+    "liens": {
+      "github": "https://github.com/antoine-lambert/streaming-capteurs-iot",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/streaming-capteurs-iot.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/streaming-capteurs-iot-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/streaming-capteurs-iot-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "recommandation-produits-graphe",
+    "titre": "Recommandation de produits par graphe",
+    "description": "Moteur de recommandation basé sur un graphe de co-achats",
+    "contexte": "Projet de fin de module Graphes",
+    "architecture": "Neo4j et scikit-learn",
+    "date_debut": "2026-01",
+    "date_fin": "2026-04",
+    "candidat_slugs": [
+      "jade-simon",
+      "sofia-moreau"
+    ],
+    "competence_slugs": [
+      "neo4j",
+      "python",
+      "scikit-learn",
+      "pandas"
+    ],
+    "domaine_slugs": [
+      "bases-de-donnees",
+      "langages",
+      "data-science"
+    ],
+    "technologies": [
+      "Neo4j",
+      "Python",
+      "scikit-learn",
+      "Pandas"
+    ],
+    "réalisation": [
+      "Construction du graphe produits-clients",
+      "Calcul de similarités entre produits",
+      "Évaluation hors ligne des recommandations"
+    ],
+    "liens": {
+      "github": "https://github.com/jade-simon/recommandation-produits-graphe",
+      "demo": "https://recommandation-produits-graphe.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/recommandation-produits-graphe.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "chatbot-rag-administratif",
+    "titre": "Chatbot RAG administratif",
+    "description": "Assistant conversationnel répondant sur des documents administratifs français",
+    "contexte": "Projet R&D",
+    "architecture": "FastAPI, LLM et base vectorielle",
+    "date_debut": "2026-05",
+    "date_fin": "2026-09",
+    "candidat_slugs": [
+      "ethan-blanc",
+      "sofia-moreau"
+    ],
+    "competence_slugs": [
+      "llm",
+      "nlp",
+      "fastapi",
+      "python",
+      "docker"
+    ],
+    "domaine_slugs": [
+      "data-science",
+      "web",
+      "langages",
+      "devops"
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "LLM",
+      "Docker"
+    ],
+    "réalisation": [
+      "Découpage et indexation de documents",
+      "Pipeline de génération augmentée par récupération",
+      "Évaluation de la pertinence des réponses"
+    ],
+    "liens": {
+      "github": "https://github.com/ethan-blanc/chatbot-rag-administratif",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/chatbot-rag-administratif.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/chatbot-rag-administratif-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "plateforme-qualite-donnees",
+    "titre": "Plateforme de qualité des données",
+    "description": "Contrôle automatisé de la qualité de jeux de données énergétiques",
+    "contexte": "Mission en entreprise",
+    "architecture": "dbt, Airflow et Azure",
+    "date_debut": "2025-09",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "manon-perrin",
+      "amina-benali"
+    ],
+    "competence_slugs": [
+      "dbt",
+      "airflow",
+      "sql",
+      "azure",
+      "python"
+    ],
+    "domaine_slugs": [
+      "big-data",
+      "langages",
+      "cloud"
+    ],
+    "technologies": [
+      "dbt",
+      "Apache Airflow",
+      "Azure",
+      "SQL",
+      "Python"
+    ],
+    "réalisation": [
+      "Tests de qualité automatisés avec dbt",
+      "Orchestration quotidienne des contrôles",
+      "Tableau de suivi des anomalies"
+    ],
+    "liens": {
+      "github": "https://github.com/manon-perrin/plateforme-qualite-donnees",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/plateforme-qualite-donnees.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/plateforme-qualite-donnees-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/plateforme-qualite-donnees-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "dashboard-energie",
+    "titre": "Dashboard Énergie",
+    "description": "Suivi de la consommation énergétique de bâtiments publics",
+    "contexte": "Projet de conseil en BI",
+    "architecture": "Power BI, SQL et Python",
+    "date_debut": "2025-10",
+    "date_fin": "2026-02",
+    "candidat_slugs": [
+      "chloe-dubois",
+      "clara-vidal",
+      "camille-roux"
+    ],
+    "competence_slugs": [
+      "power-bi",
+      "sql",
+      "tableau",
+      "python"
+    ],
+    "domaine_slugs": [
+      "data-viz",
+      "langages"
+    ],
+    "technologies": [
+      "Power BI",
+      "Tableau",
+      "SQL",
+      "Python"
+    ],
+    "réalisation": [
+      "Modèle de données en étoile",
+      "Tableaux de bord interactifs par bâtiment",
+      "Ateliers de recueil des besoins métiers"
+    ],
+    "liens": {
+      "github": "https://github.com/chloe-dubois/dashboard-energie",
+      "demo": "https://dashboard-energie.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/dashboard-energie.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "infra-as-code-multicloud",
+    "titre": "Infra as Code Multicloud",
+    "description": "Déploiement reproductible d'une infrastructure applicative sur le cloud",
+    "contexte": "Projet DevOps",
+    "architecture": "Terraform, AWS et Kubernetes",
+    "date_debut": "2026-02",
+    "date_fin": "2026-05",
+    "candidat_slugs": [
+      "nathan-fournier",
+      "lucas-petit"
+    ],
+    "competence_slugs": [
+      "terraform",
+      "aws",
+      "kubernetes",
+      "github-actions",
+      "docker"
+    ],
+    "domaine_slugs": [
+      "devops",
+      "cloud"
+    ],
+    "technologies": [
+      "Terraform",
+      "AWS",
+      "Kubernetes",
+      "GitHub Actions",
+      "Docker"
+    ],
+    "réalisation": [
+      "Modules Terraform réutilisables",
+      "Chaîne CI/CD de déploiement",
+      "Gestion des environnements dev et prod"
+    ],
+    "liens": {
+      "github": "https://github.com/nathan-fournier/infra-as-code-multicloud",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/infra-as-code-multicloud.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/infra-as-code-multicloud-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "moteur-recherche-offres-emploi",
+    "titre": "Moteur de recherche d'offres d'emploi",
+    "description": "Recherche plein texte et filtrage d'offres d'emploi",
+    "contexte": "Projet académique NoSQL",
+    "architecture": "FastAPI, MongoDB et Elasticsearch",
+    "date_debut": "2025-11",
+    "date_fin": "2026-02",
+    "candidat_slugs": [
+      "maxime-girard",
+      "rayan-chevalier"
+    ],
+    "competence_slugs": [
+      "elasticsearch",
+      "mongodb",
+      "python",
+      "fastapi"
+    ],
+    "domaine_slugs": [
+      "bases-de-donnees",
+      "langages",
+      "web"
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "MongoDB",
+      "Elasticsearch"
+    ],
+    "réalisation": [
+      "Indexation des offres avec analyseurs français",
+      "API de recherche à facettes",
+      "Synchronisation MongoDB vers Elasticsearch"
+    ],
+    "liens": {
+      "github": "https://github.com/maxime-girard/moteur-recherche-offres-emploi",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-recherche-offres-emploi.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-recherche-offres-emploi-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-recherche-offres-emploi-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "data-lake-spark",
+    "titre": "Data Lake Spark",
+    "description": "Lac de données distribué pour l'analyse de journaux applicatifs",
+    "contexte": "Projet de spécialité Big Data",
+    "architecture": "Hadoop et Spark en Scala",
+    "date_debut": "2025-09",
+    "date_fin": "2026-01",
+    "candidat_slugs": [
+      "yanis-haddad",
+      "lea-bernard"
+    ],
+    "competence_slugs": [
+      "spark",
+      "hadoop",
+      "scala",
+      "python"
+    ],
+    "domaine_slugs": [
+      "big-data",
+      "langages"
+    ],
+    "technologies": [
+      "Apache Spark",
+      "Hadoop",
+      "Scala",
+      "Python"
+    ],
+    "réalisation": [
+      "Ingestion de journaux volumineux",
+      "Traitements batch optimisés",
+      "Partitionnement et format Parquet"
+    ],
+    "liens": {
+      "github": "https://github.com/yanis-haddad/data-lake-spark",
+      "demo": "https://data-lake-spark.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/data-lake-spark.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "prediction-retention-patients",
+    "titre": "Prédiction de rétention patients",
+    "description": "Modèles prédictifs d'abandon de parcours de soin",
+    "contexte": "Projet Data Science",
+    "architecture": "Python, scikit-learn et TensorFlow",
+    "date_debut": "2026-03",
+    "date_fin": "2026-08",
+    "candidat_slugs": [
+      "ines-mercier",
+      "sofia-moreau"
+    ],
+    "competence_slugs": [
+      "python",
+      "scikit-learn",
+      "pandas",
+      "tensorflow"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science"
+    ],
+    "technologies": [
+      "Python",
+      "scikit-learn",
+      "Pandas",
+      "TensorFlow"
+    ],
+    "réalisation": [
+      "Préparation de données cliniques anonymisées",
+      "Comparaison de plusieurs modèles",
+      "Analyse de l'importance des variables"
+    ],
+    "liens": {
+      "github": "https://github.com/ines-mercier/prediction-retention-patients",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/prediction-retention-patients.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/prediction-retention-patients-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "api-reservation-microservices",
+    "titre": "API de réservation en microservices",
+    "description": "Système de réservation de créneaux découpé en microservices",
+    "contexte": "Projet de génie logiciel",
+    "architecture": "Spring Boot, PostgreSQL et Kubernetes",
+    "date_debut": "2026-01",
+    "date_fin": "2026-05",
+    "candidat_slugs": [
+      "tom-garnier",
+      "lucas-petit"
+    ],
+    "competence_slugs": [
+      "java",
+      "spring-boot",
+      "postgresql",
+      "docker",
+      "kubernetes"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees",
+      "devops"
+    ],
+    "technologies": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Kubernetes"
+    ],
+    "réalisation": [
+      "Découpage en services indépendants",
+      "Tests d'intégration automatisés",
+      "Déploiement sur un cluster Kubernetes"
+    ],
+    "liens": {
+      "github": "https://github.com/tom-garnier/api-reservation-microservices",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/api-reservation-microservices.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/api-reservation-microservices-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/api-reservation-microservices-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "portfolio-react-mongodb",
+    "titre": "Portfolio React et MongoDB",
+    "description": "Site de présentation dynamique de profils et de réalisations",
+    "contexte": "Projet web",
+    "architecture": "React, Node.js et MongoDB",
+    "date_debut": "2026-02",
+    "date_fin": "2026-04",
+    "candidat_slugs": [
+      "emma-roussel",
+      "hugo-lefebvre"
+    ],
+    "competence_slugs": [
+      "react",
+      "typescript",
+      "nodejs",
+      "mongodb"
+    ],
+    "domaine_slugs": [
+      "web",
+      "langages",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "MongoDB"
+    ],
+    "réalisation": [
+      "Interface responsive en React",
+      "API Node.js sécurisée",
+      "Stockage documentaire des profils"
+    ],
+    "liens": {
+      "github": "https://github.com/emma-roussel/portfolio-react-mongodb",
+      "demo": "https://portfolio-react-mongodb.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/portfolio-react-mongodb.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "cartographie-mobilite",
+    "titre": "Cartographie de la mobilité",
+    "description": "Analyse et cartographie des flux de déplacements dans une métropole",
+    "contexte": "Projet partenaire collectivité",
+    "architecture": "Python, PostgreSQL et Tableau",
+    "date_debut": "2026-04",
+    "date_fin": "2026-07",
+    "candidat_slugs": [
+      "camille-roux",
+      "chloe-dubois"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "postgresql",
+      "tableau"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "bases-de-donnees",
+      "data-viz"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "PostgreSQL",
+      "Tableau"
+    ],
+    "réalisation": [
+      "Nettoyage de données de mobilité",
+      "Agrégation par zone géographique",
+      "Cartes interactives de flux"
+    ],
+    "liens": {
+      "github": "https://github.com/camille-roux/cartographie-mobilite",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/cartographie-mobilite.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/cartographie-mobilite-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "simulation-calcul-haute-perf",
+    "titre": "Simulation haute performance",
+    "description": "Optimisation d'un code de simulation numérique",
+    "contexte": "Projet de calcul scientifique",
+    "architecture": "C++ sous Linux",
+    "date_debut": "2026-03",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "theo-marchand",
+      "lucas-petit"
+    ],
+    "competence_slugs": [
+      "cpp",
+      "linux",
+      "bash",
+      "grafana"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "devops",
+      "data-viz"
+    ],
+    "technologies": [
+      "C++",
+      "Linux",
+      "Bash",
+      "Grafana"
+    ],
+    "réalisation": [
+      "Profilage et optimisation du code",
+      "Scripts de lancement automatisés",
+      "Suivi des performances dans Grafana"
+    ],
+    "liens": {
+      "github": "https://github.com/theo-marchand/simulation-calcul-haute-perf",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/simulation-calcul-haute-perf.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/simulation-calcul-haute-perf-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/simulation-calcul-haute-perf-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "detection-fraude-graphe",
+    "titre": "Détection de fraude par graphe",
+    "description": "Repérage de comportements suspects via l'analyse de réseaux de transactions",
+    "contexte": "Projet de fin de module Graphes",
+    "architecture": "Neo4j, Python et scikit-learn",
+    "date_debut": "2026-02",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "hugo-lefebvre",
+      "jade-simon",
+      "ines-mercier"
+    ],
+    "competence_slugs": [
+      "neo4j",
+      "python",
+      "sql",
+      "scikit-learn"
+    ],
+    "domaine_slugs": [
+      "bases-de-donnees",
+      "langages",
+      "data-science"
+    ],
+    "technologies": [
+      "Neo4j",
+      "Python",
+      "SQL",
+      "scikit-learn"
+    ],
+    "réalisation": [
+      "Modélisation des transactions en graphe",
+      "Détection de communautés suspectes",
+      "Classification supervisée des comptes"
+    ],
+    "liens": {
+      "github": "https://github.com/hugo-lefebvre/detection-fraude-graphe",
+      "demo": "https://detection-fraude-graphe.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/detection-fraude-graphe.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "pipeline-elt-gcp",
+    "titre": "Pipeline ELT sur GCP",
+    "description": "Chaîne d'ingestion et de transformation de données commerciales",
+    "contexte": "Mission en entreprise",
+    "architecture": "Airflow, dbt et Google Cloud",
+    "date_debut": "2025-09",
+    "date_fin": "2026-03",
+    "candidat_slugs": [
+      "amina-benali",
+      "manon-perrin"
+    ],
+    "competence_slugs": [
+      "gcp",
+      "airflow",
+      "dbt",
+      "sql",
+      "terraform"
+    ],
+    "domaine_slugs": [
+      "cloud",
+      "big-data",
+      "langages",
+      "devops"
+    ],
+    "technologies": [
+      "Google Cloud",
+      "Apache Airflow",
+      "dbt",
+      "SQL",
+      "Terraform"
+    ],
+    "réalisation": [
+      "Provisionnement de l'infrastructure avec Terraform",
+      "DAG Airflow d'orchestration",
+      "Modèles dbt documentés et testés"
+    ],
+    "liens": {
+      "github": "https://github.com/amina-benali/pipeline-elt-gcp",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/pipeline-elt-gcp.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/pipeline-elt-gcp-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "outil-suivi-agile",
+    "titre": "Outil de suivi agile",
+    "description": "Application de suivi de sprints et de backlog pour équipes étudiantes",
+    "contexte": "Projet de gestion de projet",
+    "architecture": "Django et PostgreSQL",
+    "date_debut": "2026-01",
+    "date_fin": "2026-05",
+    "candidat_slugs": [
+      "clara-vidal",
+      "rayan-chevalier"
+    ],
+    "competence_slugs": [
+      "scrum",
+      "gestion-de-projet",
+      "django",
+      "postgresql"
+    ],
+    "domaine_slugs": [
+      "methodes",
+      "web",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "Python",
+      "Django",
+      "PostgreSQL"
+    ],
+    "réalisation": [
+      "Gestion du backlog et des sprints",
+      "Tableau de bord d'avancement",
+      "Rédaction de la documentation utilisateur"
+    ],
+    "liens": {
+      "github": "https://github.com/clara-vidal/outil-suivi-agile",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/outil-suivi-agile.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/outil-suivi-agile-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/outil-suivi-agile-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "supervision-metriques-grafana",
+    "titre": "Supervision de métriques",
+    "description": "Plateforme de supervision d'applications conteneurisées",
+    "contexte": "Projet DevOps",
+    "architecture": "Kafka, Grafana et Docker",
+    "date_debut": "2026-04",
+    "date_fin": "2026-07",
+    "candidat_slugs": [
+      "lucas-petit",
+      "theo-marchand",
+      "antoine-lambert"
+    ],
+    "competence_slugs": [
+      "grafana",
+      "docker",
+      "linux",
+      "kafka"
+    ],
+    "domaine_slugs": [
+      "data-viz",
+      "devops",
+      "big-data"
+    ],
+    "technologies": [
+      "Docker",
+      "Grafana",
+      "Apache Kafka",
+      "Linux"
+    ],
+    "réalisation": [
+      "Collecte des métriques via Kafka",
+      "Tableaux de bord Grafana par service",
+      "Alertes sur seuils critiques"
+    ],
+    "liens": {
+      "github": "https://github.com/lucas-petit/supervision-metriques-grafana",
+      "demo": "https://supervision-metriques-grafana.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/supervision-metriques-grafana.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "analyse-sentiment-avis-clients",
+    "titre": "Analyse de sentiment des avis clients",
+    "description": "Classification automatique d'avis clients en français",
+    "contexte": "Projet R&D",
+    "architecture": "PyTorch et MongoDB",
+    "date_debut": "2026-03",
+    "date_fin": "2026-07",
+    "candidat_slugs": [
+      "sofia-moreau",
+      "ethan-blanc",
+      "jade-simon"
+    ],
+    "competence_slugs": [
+      "nlp",
+      "pytorch",
+      "python",
+      "pandas",
+      "mongodb"
+    ],
+    "domaine_slugs": [
+      "data-science",
+      "langages",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Pandas",
+      "MongoDB"
+    ],
+    "réalisation": [
+      "Constitution d'un corpus annoté",
+      "Fine-tuning d'un modèle de classification",
+      "Stockage et exploration des résultats"
+    ],
+    "liens": {
+      "github": "https://github.com/sofia-moreau/analyse-sentiment-avis-clients",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/analyse-sentiment-avis-clients.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/analyse-sentiment-avis-clients-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "api-meteo-fastapi",
+    "titre": "API Météo FastAPI",
+    "description": "API de collecte et d'exposition de données météorologiques historiques",
+    "contexte": "Projet personnel",
+    "architecture": "FastAPI et PostgreSQL",
+    "date_debut": "2025-10",
+    "date_fin": "2026-01",
+    "candidat_slugs": [
+      "rayan-chevalier"
+    ],
+    "competence_slugs": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "docker"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees",
+      "devops"
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "réalisation": [
+      "Collecte quotidienne de données ouvertes",
+      "Endpoints d'agrégation par période",
+      "Conteneurisation de l'API"
+    ],
+    "liens": {
+      "github": "https://github.com/rayan-chevalier/api-meteo-fastapi",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/api-meteo-fastapi.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/api-meteo-fastapi-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/api-meteo-fastapi-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "classification-images-medicales",
+    "titre": "Classification d'images médicales",
+    "description": "Détection automatique d'anomalies sur des radiographies anonymisées",
+    "contexte": "Projet Data Science",
+    "architecture": "TensorFlow et scikit-learn",
+    "date_debut": "2026-02",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "ines-mercier"
+    ],
+    "competence_slugs": [
+      "tensorflow",
+      "python",
+      "pandas",
+      "scikit-learn"
+    ],
+    "domaine_slugs": [
+      "data-science",
+      "langages"
+    ],
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Pandas",
+      "scikit-learn"
+    ],
+    "réalisation": [
+      "Prétraitement et augmentation des images",
+      "Entraînement d'un réseau convolutif",
+      "Analyse des erreurs de classification"
+    ],
+    "liens": {
+      "github": "https://github.com/ines-mercier/classification-images-medicales",
+      "demo": "https://classification-images-medicales.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/classification-images-medicales.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "tableau-bord-ventes-retail",
+    "titre": "Tableau de bord ventes retail",
+    "description": "Suivi des ventes et des marges d'un réseau de magasins",
+    "contexte": "Mission en entreprise",
+    "architecture": "Power BI et SQL",
+    "date_debut": "2025-09",
+    "date_fin": "2026-02",
+    "candidat_slugs": [
+      "chloe-dubois"
+    ],
+    "competence_slugs": [
+      "sql",
+      "power-bi",
+      "tableau",
+      "pandas"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-viz",
+      "data-science"
+    ],
+    "technologies": [
+      "Power BI",
+      "Tableau",
+      "SQL",
+      "Pandas"
+    ],
+    "réalisation": [
+      "Requêtes d'agrégation optimisées",
+      "Rapports interactifs par magasin",
+      "Automatisation de l'actualisation des données"
+    ],
+    "liens": {
+      "github": "https://github.com/chloe-dubois/tableau-bord-ventes-retail",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/tableau-bord-ventes-retail.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/tableau-bord-ventes-retail-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "chat-temps-reel-websocket",
+    "titre": "Chat temps réel",
+    "description": "Messagerie instantanée avec salons et notifications",
+    "contexte": "Projet web",
+    "architecture": "React, Node.js et WebSocket",
+    "date_debut": "2025-11",
+    "date_fin": "2026-01",
+    "candidat_slugs": [
+      "emma-roussel"
+    ],
+    "competence_slugs": [
+      "react",
+      "typescript",
+      "nodejs",
+      "javascript"
+    ],
+    "domaine_slugs": [
+      "web",
+      "langages"
+    ],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "WebSocket"
+    ],
+    "réalisation": [
+      "Interface de conversation réactive",
+      "Serveur WebSocket Node.js",
+      "Gestion de la présence des utilisateurs"
+    ],
+    "liens": {
+      "github": "https://github.com/emma-roussel/chat-temps-reel-websocket",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/chat-temps-reel-websocket.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/chat-temps-reel-websocket-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/chat-temps-reel-websocket-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "pipeline-cdc-kafka",
+    "titre": "Pipeline CDC Kafka",
+    "description": "Réplication en continu de changements de base vers un entrepôt analytique",
+    "contexte": "Projet de spécialité Big Data",
+    "architecture": "Kafka, Cassandra et Scala",
+    "date_debut": "2026-01",
+    "date_fin": "2026-05",
+    "candidat_slugs": [
+      "antoine-lambert",
+      "yanis-haddad"
+    ],
+    "competence_slugs": [
+      "kafka",
+      "scala",
+      "java",
+      "cassandra"
+    ],
+    "domaine_slugs": [
+      "big-data",
+      "langages",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "Apache Kafka",
+      "Scala",
+      "Java",
+      "Cassandra"
+    ],
+    "réalisation": [
+      "Capture des changements en continu",
+      "Consommateurs Scala idempotents",
+      "Stockage des événements dans Cassandra"
+    ],
+    "liens": {
+      "github": "https://github.com/antoine-lambert/pipeline-cdc-kafka",
+      "demo": "https://pipeline-cdc-kafka.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/pipeline-cdc-kafka.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "cluster-kubernetes-maison",
+    "titre": "Cluster Kubernetes maison",
+    "description": "Cluster Kubernetes auto-hébergé pour des applications de test",
+    "contexte": "Projet personnel",
+    "architecture": "Kubernetes, Docker et Linux",
+    "date_debut": "2025-12",
+    "date_fin": "2026-03",
+    "candidat_slugs": [
+      "lucas-petit"
+    ],
+    "competence_slugs": [
+      "kubernetes",
+      "docker",
+      "linux",
+      "bash",
+      "grafana"
+    ],
+    "domaine_slugs": [
+      "devops",
+      "langages",
+      "data-viz"
+    ],
+    "technologies": [
+      "Kubernetes",
+      "Docker",
+      "Linux",
+      "Bash",
+      "Grafana"
+    ],
+    "réalisation": [
+      "Installation d'un cluster multi-nœuds",
+      "Scripts de déploiement reproductibles",
+      "Supervision de l'état du cluster"
+    ],
+    "liens": {
+      "github": "https://github.com/lucas-petit/cluster-kubernetes-maison",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/cluster-kubernetes-maison.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/cluster-kubernetes-maison-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "benchmark-bases-nosql",
+    "titre": "Benchmark de bases NoSQL",
+    "description": "Comparaison des performances de plusieurs bases NoSQL sur un même jeu de données",
+    "contexte": "Projet académique NoSQL",
+    "architecture": "MongoDB, Neo4j, Redis et Elasticsearch",
+    "date_debut": "2026-09",
+    "date_fin": "2026-11",
+    "candidat_slugs": [
+      "maxime-girard",
+      "hugo-lefebvre",
+      "jade-simon"
+    ],
+    "competence_slugs": [
+      "mongodb",
+      "neo4j",
+      "redis",
+      "elasticsearch",
+      "python"
+    ],
+    "domaine_slugs": [
+      "bases-de-donnees",
+      "langages"
+    ],
+    "technologies": [
+      "Python",
+      "MongoDB",
+      "Neo4j",
+      "Redis",
+      "Elasticsearch"
+    ],
+    "réalisation": [
+      "Jeu de données commun chargé dans chaque base",
+      "Scénarios de requêtes mesurés",
+      "Synthèse des forces et limites de chaque modèle"
+    ],
+    "liens": {
+      "github": "https://github.com/maxime-girard/benchmark-bases-nosql",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/benchmark-bases-nosql.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/benchmark-bases-nosql-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/benchmark-bases-nosql-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "reseau-social-graphe",
+    "titre": "Réseau social en graphe",
+    "description": "Application de suggestions d'amis fondée sur l'analyse de graphe",
+    "contexte": "Projet de fin de module Graphes",
+    "architecture": "Neo4j et Python",
+    "date_debut": "2026-03",
+    "date_fin": "2026-05",
+    "candidat_slugs": [
+      "jade-simon"
+    ],
+    "competence_slugs": [
+      "neo4j",
+      "python",
+      "mongodb",
+      "pandas"
+    ],
+    "domaine_slugs": [
+      "bases-de-donnees",
+      "langages",
+      "data-science"
+    ],
+    "technologies": [
+      "Neo4j",
+      "Python",
+      "MongoDB",
+      "Pandas"
+    ],
+    "réalisation": [
+      "Modélisation des relations sociales",
+      "Algorithmes de suggestion par voisinage",
+      "Stockage des profils dans MongoDB"
+    ],
+    "liens": {
+      "github": "https://github.com/jade-simon/reseau-social-graphe",
+      "demo": "https://reseau-social-graphe.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/reseau-social-graphe.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "moteur-calcul-matriciel-cpp",
+    "titre": "Moteur de calcul matriciel",
+    "description": "Bibliothèque C++ de calcul matriciel optimisée",
+    "contexte": "Projet de calcul scientifique",
+    "architecture": "C++ sous Linux",
+    "date_debut": "2025-09",
+    "date_fin": "2025-12",
+    "candidat_slugs": [
+      "theo-marchand"
+    ],
+    "competence_slugs": [
+      "cpp",
+      "linux",
+      "bash",
+      "git"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "devops"
+    ],
+    "technologies": [
+      "C++",
+      "Linux",
+      "Bash",
+      "Git"
+    ],
+    "réalisation": [
+      "Implémentation des opérations matricielles",
+      "Optimisation du cache et de la mémoire",
+      "Tests de performance automatisés"
+    ],
+    "liens": {
+      "github": "https://github.com/theo-marchand/moteur-calcul-matriciel-cpp",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-calcul-matriciel-cpp.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-calcul-matriciel-cpp-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "gestion-stocks-django",
+    "titre": "Gestion de stocks",
+    "description": "Application web de gestion de stocks pour une association",
+    "contexte": "Projet de gestion de projet",
+    "architecture": "Django et PostgreSQL",
+    "date_debut": "2026-02",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "rayan-chevalier",
+      "clara-vidal"
+    ],
+    "competence_slugs": [
+      "django",
+      "postgresql",
+      "scrum"
+    ],
+    "domaine_slugs": [
+      "web",
+      "bases-de-donnees",
+      "methodes"
+    ],
+    "technologies": [
+      "Python",
+      "Django",
+      "PostgreSQL"
+    ],
+    "réalisation": [
+      "Gestion des entrées et sorties de stock",
+      "Alertes de seuil de réapprovisionnement",
+      "Suivi du projet en sprints"
+    ],
+    "liens": {
+      "github": "https://github.com/rayan-chevalier/gestion-stocks-django",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/gestion-stocks-django.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/gestion-stocks-django-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/gestion-stocks-django-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "entrepot-donnees-azure",
+    "titre": "Entrepôt de données Azure",
+    "description": "Entrepôt analytique pour le reporting financier",
+    "contexte": "Mission en entreprise",
+    "architecture": "Azure, dbt et Airflow",
+    "date_debut": "2025-09",
+    "date_fin": "2026-04",
+    "candidat_slugs": [
+      "manon-perrin"
+    ],
+    "competence_slugs": [
+      "azure",
+      "sql",
+      "dbt",
+      "airflow",
+      "python"
+    ],
+    "domaine_slugs": [
+      "cloud",
+      "langages",
+      "big-data"
+    ],
+    "technologies": [
+      "Azure",
+      "dbt",
+      "Apache Airflow",
+      "SQL",
+      "Python"
+    ],
+    "réalisation": [
+      "Modélisation dimensionnelle",
+      "Transformations versionnées avec dbt",
+      "Planification des chargements nocturnes"
+    ],
+    "liens": {
+      "github": "https://github.com/manon-perrin/entrepot-donnees-azure",
+      "demo": "https://entrepot-donnees-azure.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/entrepot-donnees-azure.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "plateforme-mlops",
+    "titre": "Plateforme MLOps",
+    "description": "Chaîne d'entraînement, de test et de déploiement de modèles",
+    "contexte": "Projet R&D",
+    "architecture": "GitHub Actions, AWS et Kubernetes",
+    "date_debut": "2026-04",
+    "date_fin": "2026-09",
+    "candidat_slugs": [
+      "ethan-blanc",
+      "nathan-fournier",
+      "lucas-petit"
+    ],
+    "competence_slugs": [
+      "pytorch",
+      "docker",
+      "github-actions",
+      "aws",
+      "python",
+      "kubernetes"
+    ],
+    "domaine_slugs": [
+      "data-science",
+      "devops",
+      "cloud",
+      "langages"
+    ],
+    "technologies": [
+      "PyTorch",
+      "Docker",
+      "GitHub Actions",
+      "AWS",
+      "Kubernetes"
+    ],
+    "réalisation": [
+      "Pipeline d'entraînement automatisé",
+      "Registre et versionnement des modèles",
+      "Déploiement progressif sur Kubernetes"
+    ],
+    "liens": {
+      "github": "https://github.com/ethan-blanc/plateforme-mlops",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/plateforme-mlops.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/plateforme-mlops-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "etl-batch-hadoop",
+    "titre": "ETL batch Hadoop",
+    "description": "Chaîne de traitement batch sur un cluster Hadoop",
+    "contexte": "Projet de spécialité Big Data",
+    "architecture": "Hadoop, Spark et Scala",
+    "date_debut": "2025-10",
+    "date_fin": "2026-01",
+    "candidat_slugs": [
+      "yanis-haddad"
+    ],
+    "competence_slugs": [
+      "hadoop",
+      "spark",
+      "scala",
+      "sql",
+      "linux"
+    ],
+    "domaine_slugs": [
+      "big-data",
+      "langages",
+      "devops"
+    ],
+    "technologies": [
+      "Hadoop",
+      "Apache Spark",
+      "Scala",
+      "SQL"
+    ],
+    "réalisation": [
+      "Ingestion depuis HDFS",
+      "Jobs Spark de transformation",
+      "Requêtes analytiques sur les résultats"
+    ],
+    "liens": {
+      "github": "https://github.com/yanis-haddad/etl-batch-hadoop",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/etl-batch-hadoop.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/etl-batch-hadoop-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/etl-batch-hadoop-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "cartographie-qualite-air",
+    "titre": "Cartographie de la qualité de l'air",
+    "description": "Visualisation de la qualité de l'air par quartier",
+    "contexte": "Projet partenaire collectivité",
+    "architecture": "Python, PostgreSQL et Tableau",
+    "date_debut": "2026-05",
+    "date_fin": "2026-08",
+    "candidat_slugs": [
+      "camille-roux"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "postgresql",
+      "tableau",
+      "git"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "bases-de-donnees",
+      "data-viz",
+      "devops"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "PostgreSQL",
+      "Tableau"
+    ],
+    "réalisation": [
+      "Collecte de mesures de capteurs publics",
+      "Interpolation spatiale des mesures",
+      "Cartes thématiques interactives"
+    ],
+    "liens": {
+      "github": "https://github.com/camille-roux/cartographie-qualite-air",
+      "demo": "https://cartographie-qualite-air.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/cartographie-qualite-air.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "assistant-vocal-nlp",
+    "titre": "Assistant vocal NLP",
+    "description": "Assistant capable de comprendre des requêtes en langage naturel",
+    "contexte": "Projet R&D",
+    "architecture": "PyTorch et LLM",
+    "date_debut": "2026-06",
+    "date_fin": "2026-10",
+    "candidat_slugs": [
+      "sofia-moreau"
+    ],
+    "competence_slugs": [
+      "nlp",
+      "pytorch",
+      "python",
+      "llm"
+    ],
+    "domaine_slugs": [
+      "data-science",
+      "langages"
+    ],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "LLM"
+    ],
+    "réalisation": [
+      "Reconnaissance des intentions",
+      "Génération de réponses contextuelles",
+      "Évaluation sur un jeu de requêtes annotées"
+    ],
+    "liens": {
+      "github": "https://github.com/sofia-moreau/assistant-vocal-nlp",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/assistant-vocal-nlp.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/assistant-vocal-nlp-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "audit-securite-infra",
+    "titre": "Audit de sécurité d'infrastructure",
+    "description": "Audit automatisé de la configuration d'une infrastructure cloud",
+    "contexte": "Projet DevOps",
+    "architecture": "Terraform, AWS et Bash",
+    "date_debut": "2026-03",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "nathan-fournier",
+      "theo-marchand"
+    ],
+    "competence_slugs": [
+      "linux",
+      "bash",
+      "terraform",
+      "aws"
+    ],
+    "domaine_slugs": [
+      "devops",
+      "langages",
+      "cloud"
+    ],
+    "technologies": [
+      "Terraform",
+      "AWS",
+      "Bash",
+      "Linux"
+    ],
+    "réalisation": [
+      "Scripts de vérification des configurations",
+      "Rapport des écarts de conformité",
+      "Correctifs appliqués via Terraform"
+    ],
+    "liens": {
+      "github": "https://github.com/nathan-fournier/audit-securite-infra",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/audit-securite-infra.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/audit-securite-infra-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/audit-securite-infra-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "application-gestion-budgets",
+    "titre": "Application de gestion de budgets",
+    "description": "Application de suivi budgétaire pour associations étudiantes",
+    "contexte": "Projet de conseil en BI",
+    "architecture": "React, SQL et Power BI",
+    "date_debut": "2026-01",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "clara-vidal",
+      "chloe-dubois",
+      "emma-roussel"
+    ],
+    "competence_slugs": [
+      "power-bi",
+      "sql",
+      "react",
+      "gestion-de-projet",
+      "scrum"
+    ],
+    "domaine_slugs": [
+      "data-viz",
+      "langages",
+      "web",
+      "methodes"
+    ],
+    "technologies": [
+      "React",
+      "SQL",
+      "Power BI"
+    ],
+    "réalisation": [
+      "Saisie et catégorisation des dépenses",
+      "Tableaux de bord budgétaires",
+      "Pilotage agile avec les associations"
+    ],
+    "liens": {
+      "github": "https://github.com/clara-vidal/application-gestion-budgets",
+      "demo": "https://application-gestion-budgets.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/application-gestion-budgets.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  },
+  {
+    "projet_slug": "moteur-regles-java",
+    "titre": "Moteur de règles métier",
+    "description": "Moteur de règles configurable pour automatiser des décisions",
+    "contexte": "Projet de génie logiciel",
+    "architecture": "Spring Boot et PostgreSQL",
+    "date_debut": "2025-11",
+    "date_fin": "2026-03",
+    "candidat_slugs": [
+      "tom-garnier"
+    ],
+    "competence_slugs": [
+      "java",
+      "spring-boot",
+      "postgresql",
+      "git",
+      "scrum"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees",
+      "devops",
+      "methodes"
+    ],
+    "technologies": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Git"
+    ],
+    "réalisation": [
+      "Définition des règles en base",
+      "Évaluation des règles par priorité",
+      "Tests unitaires et d'intégration"
+    ],
+    "liens": {
+      "github": "https://github.com/tom-garnier/moteur-regles-java",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-regles-java.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/moteur-regles-java-architecture.png",
+        "description": "Schéma d'architecture"
+      }
+    ]
+  },
+  {
+    "projet_slug": "lakehouse-gcp-spark",
+    "titre": "Lakehouse GCP et Spark",
+    "description": "Architecture lakehouse pour l'analyse de données d'usage",
+    "contexte": "Mission en entreprise",
+    "architecture": "GCP, Spark et dbt",
+    "date_debut": "2026-02",
+    "date_fin": "2026-08",
+    "candidat_slugs": [
+      "amina-benali",
+      "yanis-haddad",
+      "lea-bernard"
+    ],
+    "competence_slugs": [
+      "gcp",
+      "spark",
+      "dbt",
+      "python",
+      "airflow"
+    ],
+    "domaine_slugs": [
+      "cloud",
+      "big-data",
+      "langages"
+    ],
+    "technologies": [
+      "Google Cloud",
+      "Apache Spark",
+      "dbt",
+      "Apache Airflow",
+      "Python"
+    ],
+    "réalisation": [
+      "Stockage des données brutes sur le cloud",
+      "Transformations Spark orchestrées",
+      "Modèles analytiques documentés"
+    ],
+    "liens": {
+      "github": "https://github.com/amina-benali/lakehouse-gcp-spark",
+      "demo": null
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/lakehouse-gcp-spark.png",
+        "description": "Capture d'écran de l'application"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/lakehouse-gcp-spark-architecture.png",
+        "description": "Schéma d'architecture"
+      },
+      {
+        "type": "image",
+        "url": "https://example.com/lakehouse-gcp-spark-dashboard.png",
+        "description": "Tableau de bord principal"
+      }
+    ]
+  },
+  {
+    "projet_slug": "prevision-demande-energie",
+    "titre": "Prévision de la demande énergétique",
+    "description": "Prévision de consommation électrique à court terme",
+    "contexte": "Projet Data Science",
+    "architecture": "scikit-learn, Pandas et dbt",
+    "date_debut": "2026-03",
+    "date_fin": "2026-09",
+    "candidat_slugs": [
+      "ines-mercier",
+      "camille-roux",
+      "manon-perrin"
+    ],
+    "competence_slugs": [
+      "python",
+      "scikit-learn",
+      "pandas",
+      "sql",
+      "dbt"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "big-data"
+    ],
+    "technologies": [
+      "Python",
+      "scikit-learn",
+      "Pandas",
+      "dbt"
+    ],
+    "réalisation": [
+      "Préparation des séries temporelles",
+      "Modèles de prévision comparés",
+      "Mise en production des transformations de données"
+    ],
+    "liens": {
+      "github": "https://github.com/ines-mercier/prevision-demande-energie",
+      "demo": "https://prevision-demande-energie.example.com"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "url": "https://example.com/prevision-demande-energie.png",
+        "description": "Capture d'écran de l'application"
+      }
+    ]
+  }
+]
