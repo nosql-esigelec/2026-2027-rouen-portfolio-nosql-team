@@ -1,6 +1,6 @@
 """Tests unitaires du seed MongoDB, sans connexion réelle."""
 
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, call, patch
 
 import pytest
 
@@ -9,46 +9,29 @@ from portfolio_api.scripts import seed
 
 @pytest.fixture
 def mongo_mocks():
-    """Remplace la base et les fonctions des repositories."""
-    db = MagicMock()
-    db.candidats.delete_many = AsyncMock()
-    db.projets.delete_many = AsyncMock()
+    """Remplace les deux collections MongoDB."""
+    candidats = MagicMock()
+    projets = MagicMock()
 
-    with (
-        patch.object(seed, "get_mongo_db", return_value=db),
-        patch.object(
-            seed.mongo_candidats,
-            "create_indexes",
-            new_callable=AsyncMock,
-        ) as candidats_indexes,
-        patch.object(
-            seed.mongo_projets,
-            "create_indexes",
-            new_callable=AsyncMock,
-        ) as projets_indexes,
-        patch.object(
-            seed.mongo_candidats,
-            "upsert_candidat",
-            new_callable=AsyncMock,
-        ) as upsert_candidat,
-        patch.object(
-            seed.mongo_projets,
-            "upsert_projet",
-            new_callable=AsyncMock,
-        ) as upsert_projet,
-    ):
-        yield {
-            "db": db,
-            "candidats_indexes": candidats_indexes,
-            "projets_indexes": projets_indexes,
-            "upsert_candidat": upsert_candidat,
-            "upsert_projet": upsert_projet,
-        }
+    for collection in (candidats, projets):
+        collection.delete_many = AsyncMock()
+        collection.create_index = AsyncMock()
+        collection.insert_many = AsyncMock()
+
+    db = MagicMock()
+    collections = {
+        "candidats": candidats,
+        "projets": projets,
+    }
+    db.__getitem__.side_effect = collections.__getitem__
+
+    with patch.object(seed, "get_mongo_db", return_value=db):
+        yield collections
 
 
 @pytest.mark.asyncio
 async def test_seed_mongo_imports_data(mongo_mocks):
-    """Crée les index, vide les collections et importe les documents."""
+    """Vide les collections, crée les index et insère les données."""
     candidats = [
         {"candidat_slug": "alice", "nom": "Martin"},
         {"candidat_slug": "bob", "nom": "Dupont"},
@@ -62,50 +45,83 @@ async def test_seed_mongo_imports_data(mongo_mocks):
 
     await seed.seed_mongo(candidats, projets)
 
-    # Vérifier la création des index.
-    mongo_mocks["candidats_indexes"].assert_awaited_once_with()
-    mongo_mocks["projets_indexes"].assert_awaited_once_with()
+    candidats_collection = mongo_mocks["candidats"]
+    projets_collection = mongo_mocks["projets"]
 
-    # Vérifier le nettoyage des collections.
-    mongo_mocks["db"].candidats.delete_many.assert_awaited_once_with({})
-    mongo_mocks["db"].projets.delete_many.assert_awaited_once_with({})
+    candidats_collection.delete_many.assert_awaited_once_with({})
+    projets_collection.delete_many.assert_awaited_once_with({})
 
-    # Vérifier que chaque document a été transmis au repository.
-    assert mongo_mocks["upsert_candidat"].await_count == 2
-    assert [
-        call.args[0]
-        for call in mongo_mocks["upsert_candidat"].await_args_list
-    ] == candidats
+    assert candidats_collection.create_index.await_args_list == [
+        call("candidat_slug", unique=True),
+        call("competences.skill_slug"),
+        call("competences.domaine"),
+    ]
+    assert projets_collection.create_index.await_args_list == [
+        call("projet_slug", unique=True),
+        call("candidat_slugs"),
+        call("competence_slugs"),
+        call("domaine_slugs"),
+    ]
 
-    mongo_mocks["upsert_projet"].assert_awaited_once_with(projets[0])
+    candidats_collection.insert_many.assert_awaited_once_with(candidats)
+    projets_collection.insert_many.assert_awaited_once_with(projets)
 
 
 @pytest.mark.asyncio
 async def test_seed_mongo_with_empty_lists(mongo_mocks):
-    """Avec des listes vides, nettoie sans importer de documents."""
+    """Avec des listes vides, nettoie sans appeler insert_many."""
     await seed.seed_mongo([], [])
 
-    mongo_mocks["candidats_indexes"].assert_awaited_once_with()
-    mongo_mocks["projets_indexes"].assert_awaited_once_with()
+    for collection in mongo_mocks.values():
+        collection.delete_many.assert_awaited_once_with({})
+        collection.insert_many.assert_not_awaited()
 
-    mongo_mocks["db"].candidats.delete_many.assert_awaited_once_with({})
-    mongo_mocks["db"].projets.delete_many.assert_awaited_once_with({})
+    assert mongo_mocks["candidats"].create_index.await_count == 3
+    assert mongo_mocks["projets"].create_index.await_count == 4
 
-    mongo_mocks["upsert_candidat"].assert_not_awaited()
-    mongo_mocks["upsert_projet"].assert_not_awaited()
+
+@pytest.mark.asyncio
+async def test_seed_mongo_with_only_projets(mongo_mocks):
+    """Importe les projets même si la liste des candidats est vide."""
+    projets = [{"projet_slug": "smartcity"}]
+
+    await seed.seed_mongo([], projets)
+
+    mongo_mocks["candidats"].insert_many.assert_not_awaited()
+    mongo_mocks["projets"].insert_many.assert_awaited_once_with(projets)
+
+
+@pytest.mark.asyncio
+async def test_seed_mongo_with_only_candidats(mongo_mocks):
+    """Importe les candidats même si la liste des projets est vide."""
+    candidats = [{"candidat_slug": "alice"}]
+
+    await seed.seed_mongo(candidats, [])
+
+    mongo_mocks["candidats"].insert_many.assert_awaited_once_with(candidats)
+    mongo_mocks["projets"].insert_many.assert_not_awaited()
 
 
 @pytest.mark.asyncio
 async def test_seed_mongo_stops_if_index_creation_fails(mongo_mocks):
-    """Ne vide pas les collections si la création du premier index échoue."""
-    mongo_mocks["candidats_indexes"].side_effect = RuntimeError(
+    """Arrête le seed si la création d'un index candidat échoue."""
+    candidats_collection = mongo_mocks["candidats"]
+    projets_collection = mongo_mocks["projets"]
+
+    candidats_collection.create_index.side_effect = RuntimeError(
         "Index creation failed"
     )
 
     with pytest.raises(RuntimeError, match="Index creation failed"):
-        await seed.seed_mongo([{"candidat_slug": "alice"}], [])
+        await seed.seed_mongo(
+            [{"candidat_slug": "alice"}],
+            [{"projet_slug": "smartcity"}],
+        )
 
-    mongo_mocks["db"].candidats.delete_many.assert_not_awaited()
-    mongo_mocks["db"].projets.delete_many.assert_not_awaited()
-    mongo_mocks["upsert_candidat"].assert_not_awaited()
-    mongo_mocks["upsert_projet"].assert_not_awaited()
+    # Dans l'implémentation actuelle, le nettoyage précède les index.
+    candidats_collection.delete_many.assert_awaited_once_with({})
+    candidats_collection.insert_many.assert_not_awaited()
+
+    projets_collection.delete_many.assert_not_awaited()
+    projets_collection.create_index.assert_not_awaited()
+    projets_collection.insert_many.assert_not_awaited()
