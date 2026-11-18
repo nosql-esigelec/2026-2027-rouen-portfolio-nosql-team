@@ -12,6 +12,14 @@ Montrez **qui stocke quoi** et **quels flux** : frontends → API → MongoDB / 
 enregistrez dans `docs/architecture.excalidraw.png`, puis remplacez le schéma Mermaid ci-dessous par :
 
 `![Architecture](docs/architecture.excalidraw.png)`
+L'image reste modifiable : rouvrez-la dans Excalidraw (ou dans VS Code avec l'extension *Excalidraw*).
+
+```mermaid
+flowchart LR
+    F["Frontends (1 par membre)"] -->|HTTP JSON| API["FastAPI - backend d'équipe"]
+    API -->|"candidats, projets"| M[("MongoDB")]
+    API -->|"graphe de compétences"| N[("Neo4j")]
+```
 ### Roles des bases :
 - MongoDB : stocke les données structurées du portfolio (profils des candidats, formations, expériences professionnelles et projets réalisés)
 - Neo4j : stocke les relations entre les candidats, leurs compétences, leurs projets, les domaines d'expertise. Elle permet d'explorer le graphe 
@@ -39,7 +47,7 @@ MVP (6 entités utiles à garder ) :
 
 ## 3. Modèle MongoDB
 
-### 3.1 Collection `candidats` - pattern TODO (*Embedding* ? *Referencing* ?)
+### 3.1 Collection `candidats` - pattern Embedding
 <img width="407" height="158" alt="image" src="https://github.com/user-attachments/assets/d3e5c40c-637d-45e6-a511-7d0195e46b7b" />
 
 
@@ -108,9 +116,13 @@ MVP (6 entités utiles à garder ) :
 }
 ```
 
-**Justification** (cardinalité bornée ou non, lecture en une requête, fréquence de mise à jour) : TODO
+**Justification** (cardinalité bornée ou non, lecture en une requête, fréquence de mise à jour) :Nous choisissons le pattern Embedding pour les tableaux formations, experiences et competences, car ces informations font partie du profil du candidat et sont généralement consultées ensemble.
+- Cardinalité bornée en pratique : dans le cadre d’un portfolio étudiant, le nombre de formations, d’expériences et de compétences par candidat reste limité. Ces tableaux restent donc de taille raisonnable.
+- Lecture en une requête : la route GET /api/candidats/{slug} peut récupérer le profil complet et les éléments de sa timeline avec une seule requête MongoDB, sans jointure entre collections.
+- Mises à jour peu fréquentes : ces informations évoluent principalement lors d’une nouvelle formation, d’une nouvelle expérience ou de l’acquisition d’une compétence. Elles peuvent être mises à jour dans le document du candidat.
+Le niveau d’une compétence est propre à chaque candidat, ce qui justifie également son stockage dans son profil. Les compétences partagées et leurs relations avec les projets sont représentées dans Neo4j et reliées aux données MongoDB par des slugs communs.
 
-### 3.2 Collection `projets` - pattern TODO
+### 3.2 Collection `projets` - pattern Referencing
 
 ```json
 
@@ -161,7 +173,11 @@ MVP (6 entités utiles à garder ) :
 
 ```
 
-**Justification** : TODO
+**Justification** : Nous choisissons le pattern Referencing : chaque projet est stocké dans un document indépendant et relié à ses auteurs par le tableau candidat_slugs.
+- Relation plusieurs-à-plusieurs : un candidat peut réaliser plusieurs projets et un projet peut avoir plusieurs auteurs. Stocker le projet une seule fois évite de dupliquer ses informations dans les documents des candidats.
+- Lectures adaptées aux routes : la route GET /api/candidats/{slug}/projets retrouve les projets grâce au champ candidat_slugs, tandis que GET /api/projets/{slug} récupère directement une fiche projet complète. Cette collection permet aussi le filtrage, la pagination et les statistiques par compétence.
+- Mises à jour indépendantes : la description, les liens ou les médias d’un projet peuvent être modifiés dans un seul document, sans modifier les profils de tous ses auteurs.
+Les informations propres au projet (technologies, réalisation, liens, medias) restent intégrées dans son document, car elles sont consultées avec la fiche projet. Les champs competence_slugs et domaine_slugs permettent le filtrage dans MongoDB et utilisent les mêmes identifiants que le graphe Neo4j.
 
 ### 3.3 Index
 
@@ -175,7 +191,6 @@ MVP (6 entités utiles à garder ) :
 ### 3.4 Pipeline d'agrégation clé (R3)
 
 ```javascript
-TODO : db.projets.aggregate([ ... ])
 
 db.projets.aggregate([
   // 1. Filtrer les projets du candidat
@@ -223,7 +238,6 @@ db.projets.aggregate([
 ```mermaid
 graph LR
     %% TODO : vos nœuds et relations orientées, ex. (Candidat)-[:A_REALISE]->(Projet)-[:UTILISE]->(Competence)-[:APPARTIENT_A]->(Domaine)
-    A[TODO] --> B[TODO]
 ```
 
 ```mermaid
@@ -257,14 +271,6 @@ graph LR
 ### 4.2 Les 3 requêtes Cypher clés
 
 ```cypher
-// R4 - projets similaires
-TODO
-
-// R5 - graphe de compétences d'un candidat
-TODO
-
-// Compétences communes aux membres de l'équipe (ou requête de votre choix)
-TODO
 
  // R4 - Projets similaires
  // Retrouver les projets partageant des compétences
@@ -342,7 +348,6 @@ ORDER BY nombre_competences_communes DESC;
 ### 4.3 Contraintes
 
 ```cypher
-TODO : CREATE CONSTRAINT ... IF NOT EXISTS
 
 
 CREATE CONSTRAINT candidat_slug_unique IF NOT EXISTS
@@ -376,7 +381,11 @@ REQUIRE e.slug IS UNIQUE;
 | Projet | `projet_slug` (ex. `smartcity-explorer`) | projets.slug | (:Projet {slug: "smartcity-explorer"}) |
 | Compétence | `skill_slug` (ex. `mongodb`) | candidats.competences[].slug et projets.competence_slugs[] | (:Competence {slug: "mongodb"}) |
 
-**Suppression d'un projet** : que faites-vous dans chaque base ? TODO
+**Suppression d'un projet** : 
+MongoDB : supprimer le document de la collection projets correspondant au slug du projet. Les documents des candidats sont conservés.
+Neo4j : supprimer le nœud Projet ayant le même slug et toutes ses relations avec DETACH DELETE. Les nœuds Candidat, Competence, Domaine et Entreprise sont conservés.
+Coordination : le service appelle les deux repositories avec le même slug. Les deux bases ne partagent pas de transaction : si une suppression échoue, l’erreur est signalée et l’opération peut être relancée. La suppression est idempotente : supprimer à nouveau un projet déjà absent ne crée pas d’erreur.
+
 Les slugs pivots permettent d'identifier une même entité dans MongoDB et Neo4j sans utiliser les identifiants internes (_id MongoDB ou identifiants Neo4j).
 - MongoDB stocke les informations détaillées des candidats et des projets.
 - Neo4j stocke les nœuds et les relations entre candidats, projets, compétences et domaines.
