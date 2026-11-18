@@ -14,25 +14,32 @@ from pymongo.asynchronous.database import AsyncDatabase
 
 from portfolio_api.core.config import get_settings
 
+
 _client: AsyncMongoClient | None = None
+_database: AsyncDatabase | None = None
 
 
-def get_mongo_db()-> AsyncDatabase:
+def get_mongo_db() -> AsyncDatabase:
     """Retourne la base MongoDB du portfolio (instance unique)."""
-    global _client
+    global _client, _database
 
-    settings = get_settings()
+    if _database is None:
+        settings = get_settings()
 
-    if _client is None:
-        _client = AsyncMongoClient(settings.mongo_url)
+        if _client is None:
+            _client = AsyncMongoClient(settings.mongo_url)
 
-    return _client[settings.mongo_db]
+        _database = _client[settings.mongo_db]
+
+    return _database
 
 
 async def close_mongo() -> None:
-    """Ferme la connexion (appelé à l'arrêt de l'API)."""
-    global _client
+    """Ferme le client et réinitialise le singleton."""
+    global _client, _database
 
     if _client is not None:
         await _client.close()
-        _client = None
+
+    _client = None
+    _database = None
