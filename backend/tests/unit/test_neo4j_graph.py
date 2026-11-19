@@ -1,17 +1,4 @@
-"""Tests unitaires — Repository Neo4j du Portfolio Polyglotte.
-
-Fichier testé : backend/src/portfolio_api/repositories/neo4j_graph.py
-
-Fonctions :
-    - find_similar_projets(slug, limit)        : R4
-    - find_competence_graph(slug)              : R5
-    - create_constraints()
-    - upsert_candidat(document)
-    - upsert_projet(document)
-    - delete_projet(slug)
-
-Aucune connexion réelle à Neo4j : le driver et la session sont simulés.
-
+"""
 Depuis la racine du dépôt :
     uv run pytest backend/tests/unit/test_neo4j_graph.py -v
 """
@@ -243,8 +230,7 @@ class TestUpsertProjet:
         assert "MERGE (p:Projet" in neo4j_session.run.call_args.args[0]
 
 
-# ── Suppression d'un projet ─────────────────────────────────────
-
+# ── Suppression de projet ─────────────────────────────────────
 
 class TestDeleteProjet:
     async def test_detach_delete_uses_project_slug(self, neo4j_driver, neo4j_session):
