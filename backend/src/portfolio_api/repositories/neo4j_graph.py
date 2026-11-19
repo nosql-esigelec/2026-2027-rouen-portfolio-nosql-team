@@ -59,7 +59,7 @@ async def upsert_candidat(document: dict) -> None:
             candidat_slug=document["candidat_slug"],
             skill_slug=competence["skill_slug"],
             nom=competence["nom"],
-            domaine_slug=competence["domaine"],
+            domaine_slug=competence["domaine_slug"],
             niveau=competence.get("niveau"),
         )
 
