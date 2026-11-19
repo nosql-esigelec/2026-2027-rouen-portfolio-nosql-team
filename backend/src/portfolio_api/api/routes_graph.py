@@ -29,7 +29,7 @@ async def get_similar_projets(
             detail="Projet introuvable",
         )
 
-     return result
+    return result
 
 @router.get(
     "/competences/{slug}",
