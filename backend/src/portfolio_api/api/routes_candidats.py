@@ -1,3 +1,5 @@
+"""Routes API — Candidats (Édition 100% NoSQL — MongoDB)."""
+
 from fastapi import APIRouter, HTTPException, Query
 
 from portfolio_api.models import (
@@ -65,4 +67,3 @@ async def get_candidat_projets(
         )
 
     return result
-"""Routes API — Candidats (Édition 100% NoSQL — MongoDB)."""
