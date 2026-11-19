@@ -67,3 +67,19 @@ async def get_candidat_projets(
         )
 
     return result
+
+@router.get(
+    "/{slug}/stats",
+    response_model=StatsOut,
+    summary="R3 — Statistiques par compétence d'un candidat",
+)
+async def get_candidat_stats(slug: str) -> StatsOut:
+    result = await candidat_service.get_candidat_stats(slug)
+
+    if result is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Candidat introuvable",
+        )
+
+    return result
