@@ -11,8 +11,8 @@ from __future__ import annotations
 import asyncio
 import json
 from pathlib import Path
+from portfolio_api.db.mongo import get_mongo_db
 
-from portfolio_api.db.neo4j import get_neo4j_driver
 
 DATA_DIR = Path(__file__).resolve().parents[4] / "data"
 
@@ -26,9 +26,11 @@ def load_member_files(kind: str) -> list[dict]:
         docs.extend(content if isinstance(content, list) else [content])
     return docs
 
+candidats = load_member_files("candidats")
+projets = load_member_files("projets")
 async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
-   
-async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
+    # TODO (équipe) : vider puis insérer selon VOTRE modèle (ARCHITECTURE.md §3), créer les index
+    
     db = get_mongo_db()
 
     # --- Collection candidats ---
@@ -36,7 +38,6 @@ async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
     await db["candidats"].create_index("candidat_slug", unique=True)
     await db["candidats"].create_index("competences.skill_slug")
     await db["candidats"].create_index("competences.domaine")
-
     if candidats:
         await db["candidats"].insert_many(candidats)
 
@@ -46,14 +47,12 @@ async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
     await db["projets"].create_index("candidat_slugs")
     await db["projets"].create_index("competence_slugs")
     await db["projets"].create_index("domaine_slugs")
-
     if projets:
         await db["projets"].insert_many(projets)
 
 
 
 async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
-    # TODO (équipe) : contraintes + MERGE des nœuds et relations (ARCHITECTURE.md §4)
     driver = get_neo4j_driver()
 
     async with driver.session() as session:
@@ -196,28 +195,28 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                 )
 
         #  projets utilisant domaines[]
-        for domaine in projet.get("domaines", []):
+            for domaine in projet.get("domaines", []):
 
-            domaine_slug = (
-                domaine.get("domaine_slug")
-                if isinstance(domaine, dict)
-                else domaine
-            )
+                domaine_slug = (
+                    domaine.get("domaine_slug")
+                    if isinstance(domaine, dict)
+                    else domaine
+                )
 
-            nom = (
-                domaine.get("nom") or domaine_slug
-                if isinstance(domaine, dict)
-                else domaine_slug.replace("-", " ").title()
-            )
+                nom = (
+                    domaine.get("nom") or domaine_slug
+                    if isinstance(domaine, dict)
+                    else domaine_slug.replace("-", " ").title()
+                )
 
-            await executer(
-                """
-                MERGE (d:Domaine {slug: $domaine_slug})
-                ON CREATE SET d.nom = $nom
-                """,
-                domaine_slug=domaine_slug,
-                nom=nom
-            )
+                await executer(
+                    """
+                    MERGE (d:Domaine {slug: $domaine_slug})
+                    ON CREATE SET d.nom = $nom
+                    """,
+                    domaine_slug=domaine_slug,
+                    nom=nom
+                )
         # 2.5 Noeuds Entreprise
         for candidat in candidats:
 
@@ -389,6 +388,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                     entreprise_slug=entreprise_slug
                 )
 print("Seed Neo4j terminé avec succès.")
+
 
 async def main() -> None:
     candidats = load_member_files("candidats")
