@@ -75,7 +75,7 @@ class TestFindSimilarProjets:
                     "nombre_competences_communes": 2,
                 },
                 {
-                    "projet_slug": "pipeline-data",
+                    "slug": "pipeline-data",
                     "titre": "Pipeline Data",
                     "competences_communes": ["python"],
                     "nombre_competences_communes": 1,
