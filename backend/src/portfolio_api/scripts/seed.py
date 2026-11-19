@@ -195,28 +195,28 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                 )
 
         #  projets utilisant domaines[]
-        for domaine in projet.get("domaines", []):
+            for domaine in projet.get("domaines", []):
 
-            domaine_slug = (
-                domaine.get("domaine_slug")
-                if isinstance(domaine, dict)
-                else domaine
-            )
+                domaine_slug = (
+                    domaine.get("domaine_slug")
+                    if isinstance(domaine, dict)
+                    else domaine
+                )
 
-            nom = (
-                domaine.get("nom") or domaine_slug
-                if isinstance(domaine, dict)
-                else domaine_slug.replace("-", " ").title()
-            )
+                nom = (
+                    domaine.get("nom") or domaine_slug
+                    if isinstance(domaine, dict)
+                    else domaine_slug.replace("-", " ").title()
+                )
 
-            await executer(
-                """
-                MERGE (d:Domaine {slug: $domaine_slug})
-                ON CREATE SET d.nom = $nom
-                """,
-                domaine_slug=domaine_slug,
-                nom=nom
-            )
+                await executer(
+                    """
+                    MERGE (d:Domaine {slug: $domaine_slug})
+                    ON CREATE SET d.nom = $nom
+                    """,
+                    domaine_slug=domaine_slug,
+                    nom=nom
+                )
         # 2.5 Noeuds Entreprise
         for candidat in candidats:
 
