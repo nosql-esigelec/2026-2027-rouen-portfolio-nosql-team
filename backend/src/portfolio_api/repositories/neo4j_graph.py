@@ -1,17 +1,17 @@
 """Graphe de compétences et projets similaires : Neo4j uniquement."""
-
+ 
 from portfolio_api.db.neo4j import get_neo4j_driver
-
-
+ 
+ 
 async def _query(query: str, **parameters) -> list[dict]:
     """Exécute une requête paramétrée et retourne des dictionnaires."""
     driver = get_neo4j_driver()
-
+ 
     async with driver.session() as session:
         result = await session.run(query, **parameters)
         return await result.data()
-
-
+ 
+ 
 async def create_constraints() -> None:
     """Crée une contrainte d'unicité sur le slug de chaque label."""
     for label in (
@@ -27,8 +27,8 @@ async def create_constraints() -> None:
             f"IF NOT EXISTS FOR (n:{label}) "
             "REQUIRE n.slug IS UNIQUE"
         )
-
-
+ 
+ 
 async def upsert_candidat(document: dict) -> None:
     """Crée ou met à jour un candidat et ses relations."""
     await _query(
@@ -43,7 +43,7 @@ async def upsert_candidat(document: dict) -> None:
         prenom=document["prenom"],
         titre=document.get("titre", ""),
     )
-
+ 
     for competence in document.get("competences", []):
         await _query(
             """
@@ -59,20 +59,20 @@ async def upsert_candidat(document: dict) -> None:
             candidat_slug=document["candidat_slug"],
             skill_slug=competence["skill_slug"],
             nom=competence["nom"],
-            domaine_slug=competence["domaine"],
+            domaine_slug=competence["domaine_slug"],
             niveau=competence.get("niveau"),
         )
-
+ 
     for experience in document.get("experiences", []):
         nom = experience.get("entreprise")
         if not nom:
             continue
-
+ 
         entreprise_slug = (
             experience.get("entreprise_slug")
             or nom.lower().replace(" ", "-")
         )
-
+ 
         await _query(
             """
             MATCH (c:Candidat {slug: $candidat_slug})
@@ -91,8 +91,8 @@ async def upsert_candidat(document: dict) -> None:
             date_debut=experience.get("debut", ""),
             date_fin=experience.get("fin"),
         )
-
-
+ 
+ 
 async def upsert_projet(document: dict) -> None:
     """Crée ou met à jour un projet, ses auteurs et ses compétences."""
     await _query(
@@ -103,7 +103,7 @@ async def upsert_projet(document: dict) -> None:
         projet_slug=document["projet_slug"],
         titre=document["titre"],
     )
-
+ 
     for candidat_slug in document.get("candidat_slugs", []):
         await _query(
             """
@@ -114,7 +114,7 @@ async def upsert_projet(document: dict) -> None:
             candidat_slug=candidat_slug,
             projet_slug=document["projet_slug"],
         )
-
+ 
     for skill_slug in document.get("competence_slugs", []):
         await _query(
             """
@@ -126,7 +126,7 @@ async def upsert_projet(document: dict) -> None:
             projet_slug=document["projet_slug"],
             skill_slug=skill_slug,
         )
-
+ 
     # Champ optionnel, absent des fichiers JSON actuels.
     nom = document.get("entreprise")
     if nom:
@@ -134,7 +134,7 @@ async def upsert_projet(document: dict) -> None:
             document.get("entreprise_slug")
             or nom.lower().replace(" ", "-")
         )
-
+ 
         await _query(
             """
             MATCH (p:Projet {slug: $projet_slug})
@@ -148,8 +148,8 @@ async def upsert_projet(document: dict) -> None:
             nom=nom,
             contexte=document.get("contexte"),
         )
-
-
+ 
+ 
 async def find_similar_projets(
     slug: str,
     limit: int = 5,
@@ -184,10 +184,10 @@ async def find_similar_projets(
         slug=slug,
         limit=limit,
     )
-
+ 
     return rows[0] if rows else None
-
-
+ 
+ 
 async def find_competence_graph(slug: str) -> dict | None:
     """R5 : retourne les nodes et links du graphe d'un candidat."""
     rows = await _query(
@@ -241,10 +241,10 @@ async def find_competence_graph(slug: str) -> dict | None:
         """,
         slug=slug,
     )
-
+ 
     return rows[0] if rows else None
-
-
+ 
+ 
 async def delete_projet(slug: str) -> None:
     """Supprime le projet et ses relations, sans supprimer les compétences."""
     await _query(
