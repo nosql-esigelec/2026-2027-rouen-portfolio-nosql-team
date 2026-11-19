@@ -11,6 +11,8 @@ from __future__ import annotations
 import asyncio
 import json
 from pathlib import Path
+from portfolio_api.db.mongo import get_mongo_db
+
 
 DATA_DIR = Path(__file__).resolve().parents[4] / "data"
 
@@ -28,6 +30,7 @@ candidats = load_member_files("candidats")
 projets = load_member_files("projets")
 async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
     # TODO (équipe) : vider puis insérer selon VOTRE modèle (ARCHITECTURE.md §3), créer les index
+    raise NotImplementedError
 
 
 async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
