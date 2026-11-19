@@ -161,4 +161,3 @@ async def get_latest_experience(
     )
 
     return derniere_experience
-
