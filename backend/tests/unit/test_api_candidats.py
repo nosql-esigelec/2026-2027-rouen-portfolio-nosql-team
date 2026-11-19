@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from portfolio_api.api.routes_candidats import router
-from portfolio_api.models import CandidatOut, ProjetsResponse
+from portfolio_api.models import CandidatOut, ProjetsResponse, StatsOut 
 from portfolio_api.services import candidat_service
 
 
@@ -182,3 +182,72 @@ def test_r2_invalid_parameters(client, monkeypatch, params):
 
     assert response.status_code == 422
     service.assert_not_awaited()
+
+
+def test_r3_returns_stats(client, monkeypatch):
+    result = StatsOut.model_validate(
+        {
+            "candidat_slug": "lea-bernard",
+            "total_projets": 3,
+            "total_competences_utilisees": 2,
+            "statistiques": [
+                {
+                    "competence_slug": "python",
+                    "nom": "Python",
+                    "nombre_projets": 3,
+                },
+                {
+                    "competence_slug": "mongodb",
+                    "nom": "MongoDB",
+                    "nombre_projets": 1,
+                },
+            ],
+        }
+    )
+    service = AsyncMock(return_value=result)
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_stats",
+        service,
+    )
+
+    response = client.get("/api/candidats/lea-bernard/stats")
+
+    assert response.status_code == 200
+    assert response.json() == result.model_dump(mode="json")
+    service.assert_awaited_once_with("lea-bernard")
+
+
+def test_r3_candidat_without_projects(client, monkeypatch):
+    result = StatsOut.model_validate(
+        {
+            "candidat_slug": "lea-bernard",
+            "total_projets": 0,
+            "total_competences_utilisees": 0,
+            "statistiques": [],
+        }
+    )
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_stats",
+        AsyncMock(return_value=result),
+    )
+
+    response = client.get("/api/candidats/lea-bernard/stats")
+
+    assert response.status_code == 200
+    assert response.json()["statistiques"] == []
+    assert response.json()["total_projets"] == 0
+
+
+def test_r3_unknown_candidat(client, monkeypatch):
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_stats",
+        AsyncMock(return_value=None),
+    )
+
+    response = client.get("/api/candidats/inconnu/stats")
+
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Candidat introuvable"}
