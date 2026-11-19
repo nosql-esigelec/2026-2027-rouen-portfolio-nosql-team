@@ -13,6 +13,8 @@ import json
 from pathlib import Path
 from portfolio_api.db.mongo import get_mongo_db
 
+from portfolio_api.db.neo4j import get_neo4j_driver
+
 
 DATA_DIR = Path(__file__).resolve().parents[4] / "data"
 
@@ -167,7 +169,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine")
+                domaine = comp.get("domaine_slug")
 
                 if domaine:
 
@@ -195,28 +197,29 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                 )
 
         #  projets utilisant domaines[]
-        for domaine in projet.get("domaines", []):
+        for projet in projets:
+            for domaine in projet.get("domaines", []):
 
-            domaine_slug = (
-                domaine.get("domaine_slug")
-                if isinstance(domaine, dict)
-                else domaine
-            )
+                domaine_slug = (
+                    domaine.get("domaine_slug")
+                    if isinstance(domaine, dict)
+                    else domaine
+                )
 
-            nom = (
-                domaine.get("nom") or domaine_slug
-                if isinstance(domaine, dict)
-                else domaine_slug.replace("-", " ").title()
-            )
+                nom = (
+                    domaine.get("nom") or domaine_slug
+                    if isinstance(domaine, dict)
+                    else domaine_slug.replace("-", " ").title()
+                )
 
-            await executer(
-                """
-                MERGE (d:Domaine {slug: $domaine_slug})
-                ON CREATE SET d.nom = $nom
-                """,
-                domaine_slug=domaine_slug,
-                nom=nom
-            )
+                await executer(
+                    """
+                    MERGE (d:Domaine {slug: $domaine_slug})
+                    ON CREATE SET d.nom = $nom
+                    """,
+                    domaine_slug=domaine_slug,
+                    nom=nom
+                )
         # 2.5 Noeuds Entreprise
         for candidat in candidats:
 
@@ -321,7 +324,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine")
+                domaine = comp.get("domaine_slug")
 
                 if domaine:
 
@@ -387,7 +390,6 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                     projet_slug=projet_slug,
                     entreprise_slug=entreprise_slug
                 )
-print("Seed Neo4j terminé avec succès.")
 
 
 async def main() -> None:
