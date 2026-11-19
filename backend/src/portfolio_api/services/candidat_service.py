@@ -135,3 +135,30 @@ async def get_candidat_stats(
             "statistiques": statistiques_out,
         }
     )
+# R7 : retourne la dernière expérience professionnelle d'un candidat.
+async def get_latest_experience(
+    candidat_slug: str,
+) -> dict | None:
+
+    db = get_mongo_db()
+
+    candidat = await db.candidats.find_one(
+        {"candidat_slug": candidat_slug},
+        {"_id": 0, "experiences": 1}
+    )
+
+    if candidat is None:
+        return None
+
+    experiences = candidat.get("experiences", [])
+
+    if not experiences:
+        return None
+
+    derniere_experience = max(
+        experiences,
+        key=lambda exp: exp.get("debut") or ""
+    )
+
+    return derniere_experience
+

@@ -21,3 +21,28 @@ async def get_similar_projets(
         return None
 
     return SimilarProjetsOut.model_validate(result)
+
+
+
+#    R8 : retourne les projets d'un candidat dans un domaine
+
+async def get_projects_by_domain(
+    candidat_slug: str,
+    domaine_slug: str,
+) -> list[dict]:
+
+    db = get_mongo_db()
+
+    filtre = {
+        "candidat_slugs": candidat_slug,
+        "domaine_slugs": domaine_slug
+    }
+
+    projets = await (
+        db.projets
+        .find(filtre, {"_id": 0})
+        .sort("projet_slug", 1)
+        .to_list(length=None)
+    )
+
+    return projets
