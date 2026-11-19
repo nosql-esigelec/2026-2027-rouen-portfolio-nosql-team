@@ -11,6 +11,8 @@ from __future__ import annotations
 import asyncio
 import json
 from pathlib import Path
+from portfolio_api.db.mongo import get_mongo_db
+
 
 DATA_DIR = Path(__file__).resolve().parents[4] / "data"
 
@@ -28,6 +30,26 @@ candidats = load_member_files("candidats")
 projets = load_member_files("projets")
 async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
     # TODO (équipe) : vider puis insérer selon VOTRE modèle (ARCHITECTURE.md §3), créer les index
+    
+    db = get_mongo_db()
+
+    # --- Collection candidats ---
+    await db["candidats"].delete_many({})
+    await db["candidats"].create_index("candidat_slug", unique=True)
+    await db["candidats"].create_index("competences.skill_slug")
+    await db["candidats"].create_index("competences.domaine")
+    if candidats:
+        await db["candidats"].insert_many(candidats)
+
+    # --- Collection projets ---
+    await db["projets"].delete_many({})
+    await db["projets"].create_index("projet_slug", unique=True)
+    await db["projets"].create_index("candidat_slugs")
+    await db["projets"].create_index("competence_slugs")
+    await db["projets"].create_index("domaine_slugs")
+    if projets:
+        await db["projets"].insert_many(projets)
+
 
 
 async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:

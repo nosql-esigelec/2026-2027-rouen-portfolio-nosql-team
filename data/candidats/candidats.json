@@ -1,0 +1,1801 @@
+[
+  {
+    "candidat_slug": "lea-bernard",
+    "prenom": "Léa",
+    "nom": "Bernard",
+    "titre": "Élève-ingénieure Big Data — ESIGELEC",
+    "bio": "Passionnée par les pipelines de données temps réel et l'observabilité.",
+    "liens": {
+      "github": "https://github.com/lea-bernard",
+      "linkedin": "https://www.linkedin.com/in/lea-bernard"
+    },
+    "experiences": [
+      {
+        "entreprise": "Renault Digital",
+        "poste": "Stagiaire Data Engineer",
+        "debut": "2026-04",
+        "fin": "2026-08",
+        "description": "Mise en place d'un pipeline d'ingestion de données véhicules connectés avec Kafka et Spark Streaming.",
+        "competences": [
+          "python",
+          "kafka",
+          "spark"
+        ]
+      },
+      {
+        "entreprise": "Sopra Steria",
+        "poste": "Stagiaire développeuse",
+        "debut": "2025-06",
+        "fin": "2025-08",
+        "description": "Développement d'API internes et automatisation de tests de non-régression.",
+        "competences": [
+          "python",
+          "fastapi",
+          "git"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      },
+      {
+        "ecole": "Lycée Corneille, Rouen",
+        "diplome": "CPGE MP*",
+        "debut": "2022-09",
+        "fin": "2024-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "kafka",
+        "nom": "Apache Kafka",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "spark",
+        "nom": "Apache Spark",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "fastapi",
+        "nom": "FastAPI",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "hugo-lefebvre",
+    "prenom": "Hugo",
+    "nom": "Lefebvre",
+    "titre": "Élève-ingénieur Big Data — ESIGELEC",
+    "bio": "Aime modéliser des données en graphe et comprendre les relations cachées.",
+    "liens": {
+      "github": "https://github.com/hugo-lefebvre",
+      "linkedin": "https://www.linkedin.com/in/hugo-lefebvre"
+    },
+    "experiences": [
+      {
+        "entreprise": "Crédit Agricole CIB",
+        "poste": "Stagiaire Data Analyst",
+        "debut": "2026-03",
+        "fin": "2026-08",
+        "description": "Modélisation d'un graphe de relations clients pour la détection de fraude.",
+        "competences": [
+          "neo4j",
+          "python",
+          "sql"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "neo4j",
+        "nom": "Neo4j",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "mongodb",
+        "nom": "MongoDB",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "espagnol",
+        "nom": "Espagnol",
+        "domaine_slug": "langues",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "amina-benali",
+    "prenom": "Amina",
+    "nom": "Benali",
+    "titre": "Data Engineer junior — diplômée de l'INSA Rouen",
+    "bio": "Orientée ingénierie de la donnée, cloud et industrialisation.",
+    "liens": {
+      "github": "https://github.com/amina-benali",
+      "linkedin": "https://www.linkedin.com/in/amina-benali"
+    },
+    "experiences": [
+      {
+        "entreprise": "Capgemini",
+        "poste": "Data Engineer (alternance)",
+        "debut": "2023-09",
+        "fin": "2026-08",
+        "description": "Construction de pipelines ELT sur GCP et orchestration avec Airflow.",
+        "competences": [
+          "gcp",
+          "airflow",
+          "dbt",
+          "python"
+        ]
+      },
+      {
+        "entreprise": "Orange",
+        "poste": "Stagiaire BI",
+        "debut": "2023-04",
+        "fin": "2023-08",
+        "description": "Création de tableaux de bord de suivi réseau.",
+        "competences": [
+          "sql",
+          "power-bi"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "INSA Rouen Normandie",
+        "diplome": "Diplôme d'ingénieur — Architecture des systèmes d'information",
+        "debut": "2021-09",
+        "fin": "2026-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "airflow",
+        "nom": "Apache Airflow",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "dbt",
+        "nom": "dbt",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "gcp",
+        "nom": "Google Cloud",
+        "domaine_slug": "cloud",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "terraform",
+        "nom": "Terraform",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "arabe",
+        "nom": "Arabe",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "tom-garnier",
+    "prenom": "Tom",
+    "nom": "Garnier",
+    "titre": "Développeur backend — Master Informatique, Université de Rouen",
+    "bio": "Développeur backend curieux, fan d'architectures événementielles.",
+    "liens": {
+      "github": "https://github.com/tom-garnier",
+      "linkedin": "https://www.linkedin.com/in/tom-garnier"
+    },
+    "experiences": [
+      {
+        "entreprise": "Doctolib",
+        "poste": "Stagiaire développeur backend",
+        "debut": "2026-02",
+        "fin": "2026-07",
+        "description": "Développement de microservices et optimisation de requêtes PostgreSQL.",
+        "competences": [
+          "java",
+          "spring-boot",
+          "postgresql"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Université de Rouen Normandie",
+        "diplome": "Master 2 Informatique — Génie logiciel",
+        "debut": "2025-09",
+        "fin": "2027-06"
+      },
+      {
+        "ecole": "Université de Rouen Normandie",
+        "diplome": "Licence Informatique",
+        "debut": "2022-09",
+        "fin": "2025-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "java",
+        "nom": "Java",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "spring-boot",
+        "nom": "Spring Boot",
+        "domaine_slug": "web",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "postgresql",
+        "nom": "PostgreSQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "kubernetes",
+        "nom": "Kubernetes",
+        "domaine_slug": "devops",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "scrum",
+        "nom": "Scrum",
+        "domaine_slug": "methodes",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 3
+      }
+    ]
+  },
+  {
+    "candidat_slug": "sofia-moreau",
+    "prenom": "Sofia",
+    "nom": "Moreau",
+    "titre": "Élève-ingénieure Data Science — Centrale Lille",
+    "bio": "Spécialisée en traitement du langage naturel et en systèmes RAG.",
+    "liens": {
+      "github": "https://github.com/sofia-moreau",
+      "linkedin": "https://www.linkedin.com/in/sofia-moreau"
+    },
+    "experiences": [
+      {
+        "entreprise": "Inria",
+        "poste": "Stagiaire chercheuse",
+        "debut": "2026-04",
+        "fin": "2026-09",
+        "description": "Évaluation de modèles de langage sur des corpus administratifs français.",
+        "competences": [
+          "nlp",
+          "pytorch",
+          "llm",
+          "python"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Centrale Lille",
+        "diplome": "Cycle ingénieur — Data Science",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "pytorch",
+        "nom": "PyTorch",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "nlp",
+        "nom": "NLP",
+        "domaine_slug": "data-science",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "llm",
+        "nom": "LLM / RAG",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "scikit-learn",
+        "nom": "scikit-learn",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "allemand",
+        "nom": "Allemand",
+        "domaine_slug": "langues",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "lucas-petit",
+    "prenom": "Lucas",
+    "nom": "Petit",
+    "titre": "Ingénieur DevOps — diplômé de l'ESIGELEC",
+    "bio": "Automatiser, conteneuriser, superviser : le déploiement continu avant tout.",
+    "liens": {
+      "github": "https://github.com/lucas-petit",
+      "linkedin": "https://www.linkedin.com/in/lucas-petit"
+    },
+    "experiences": [
+      {
+        "entreprise": "Thales",
+        "poste": "Ingénieur DevOps (alternance)",
+        "debut": "2023-09",
+        "fin": "2026-08",
+        "description": "Industrialisation des déploiements sur Kubernetes avec chaînes CI/CD.",
+        "competences": [
+          "kubernetes",
+          "github-actions",
+          "terraform",
+          "docker"
+        ]
+      },
+      {
+        "entreprise": "Airbus",
+        "poste": "Stagiaire administrateur systèmes",
+        "debut": "2023-05",
+        "fin": "2023-08",
+        "description": "Scripts d'automatisation et supervision de serveurs Linux.",
+        "competences": [
+          "linux",
+          "bash"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Systèmes embarqués et DevOps",
+        "debut": "2021-09",
+        "fin": "2026-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "kubernetes",
+        "nom": "Kubernetes",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "terraform",
+        "nom": "Terraform",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "github-actions",
+        "nom": "GitHub Actions",
+        "domaine_slug": "devops",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "linux",
+        "nom": "Linux",
+        "domaine_slug": "devops",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "bash",
+        "nom": "Bash",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "grafana",
+        "nom": "Grafana",
+        "domaine_slug": "data-viz",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      }
+    ]
+  },
+  {
+    "candidat_slug": "chloe-dubois",
+    "prenom": "Chloé",
+    "nom": "Dubois",
+    "titre": "Data Analyst — Master MIAGE, Université Paris Dauphine",
+    "bio": "Transforme des données brutes en décisions grâce à la visualisation.",
+    "liens": {
+      "github": "https://github.com/chloe-dubois",
+      "linkedin": "https://www.linkedin.com/in/chloe-dubois"
+    },
+    "experiences": [
+      {
+        "entreprise": "L'Oréal",
+        "poste": "Data Analyst (alternance)",
+        "debut": "2024-09",
+        "fin": "2026-08",
+        "description": "Reporting commercial et analyses de ventes multi-pays.",
+        "competences": [
+          "sql",
+          "power-bi",
+          "python"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Université Paris Dauphine-PSL",
+        "diplome": "Master MIAGE — Business Intelligence",
+        "debut": "2024-09",
+        "fin": "2026-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "tableau",
+        "nom": "Tableau",
+        "domaine_slug": "data-viz",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "gestion-de-projet",
+        "nom": "Gestion de projet",
+        "domaine_slug": "methodes",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "espagnol",
+        "nom": "Espagnol",
+        "domaine_slug": "langues",
+        "niveau": 3
+      }
+    ]
+  },
+  {
+    "candidat_slug": "yanis-haddad",
+    "prenom": "Yanis",
+    "nom": "Haddad",
+    "titre": "Élève-ingénieur Big Data — ESIGELEC",
+    "bio": "Passionné par le calcul distribué et la performance des traitements.",
+    "liens": {
+      "github": "https://github.com/yanis-haddad",
+      "linkedin": "https://www.linkedin.com/in/yanis-haddad"
+    },
+    "experiences": [
+      {
+        "entreprise": "Société Générale",
+        "poste": "Stagiaire Big Data",
+        "debut": "2026-04",
+        "fin": "2026-08",
+        "description": "Optimisation de jobs Spark sur un cluster Hadoop de production.",
+        "competences": [
+          "spark",
+          "hadoop",
+          "scala"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "spark",
+        "nom": "Apache Spark",
+        "domaine_slug": "big-data",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "scala",
+        "nom": "Scala",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "hadoop",
+        "nom": "Hadoop",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "linux",
+        "nom": "Linux",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "arabe",
+        "nom": "Arabe",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "emma-roussel",
+    "prenom": "Emma",
+    "nom": "Roussel",
+    "titre": "Développeuse full-stack — EPITA",
+    "bio": "Développeuse full-stack attachée à l'expérience utilisateur et à la qualité du code.",
+    "liens": {
+      "github": "https://github.com/emma-roussel",
+      "linkedin": "https://www.linkedin.com/in/emma-roussel"
+    },
+    "experiences": [
+      {
+        "entreprise": "Back Market",
+        "poste": "Stagiaire développeuse full-stack",
+        "debut": "2026-02",
+        "fin": "2026-07",
+        "description": "Refonte de composants React et création d'APIs Node.js.",
+        "competences": [
+          "react",
+          "typescript",
+          "nodejs"
+        ]
+      },
+      {
+        "entreprise": "Startup Alan",
+        "poste": "Développeuse web (stage)",
+        "debut": "2025-06",
+        "fin": "2025-08",
+        "description": "Intégration front et tests end-to-end.",
+        "competences": [
+          "javascript",
+          "react",
+          "git"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "EPITA",
+        "diplome": "Cycle ingénieur — Majeure Web et Applications",
+        "debut": "2023-09",
+        "fin": "2028-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "react",
+        "nom": "React",
+        "domaine_slug": "web",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "typescript",
+        "nom": "TypeScript",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "javascript",
+        "nom": "JavaScript",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "nodejs",
+        "nom": "Node.js",
+        "domaine_slug": "web",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "mongodb",
+        "nom": "MongoDB",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "nathan-fournier",
+    "prenom": "Nathan",
+    "nom": "Fournier",
+    "titre": "Élève-ingénieur Cloud — ENSICAEN",
+    "bio": "Architecte cloud en devenir, convaincu par l'infrastructure as code.",
+    "liens": {
+      "github": "https://github.com/nathan-fournier",
+      "linkedin": "https://www.linkedin.com/in/nathan-fournier"
+    },
+    "experiences": [
+      {
+        "entreprise": "OVHcloud",
+        "poste": "Stagiaire Cloud Engineer",
+        "debut": "2026-03",
+        "fin": "2026-08",
+        "description": "Déploiement d'infrastructures reproductibles via Terraform sur AWS.",
+        "competences": [
+          "aws",
+          "terraform",
+          "python"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ENSICAEN",
+        "diplome": "Cycle ingénieur — Informatique",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "aws",
+        "nom": "AWS",
+        "domaine_slug": "cloud",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "terraform",
+        "nom": "Terraform",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "linux",
+        "nom": "Linux",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "github-actions",
+        "nom": "GitHub Actions",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "allemand",
+        "nom": "Allemand",
+        "domaine_slug": "langues",
+        "niveau": 3
+      }
+    ]
+  },
+  {
+    "candidat_slug": "ines-mercier",
+    "prenom": "Inès",
+    "nom": "Mercier",
+    "titre": "Data Scientist junior — Master Data Science, Université Paris-Saclay",
+    "bio": "Data scientist orientée modèles prédictifs appliqués à la santé.",
+    "liens": {
+      "github": "https://github.com/ines-mercier",
+      "linkedin": "https://www.linkedin.com/in/ines-mercier"
+    },
+    "experiences": [
+      {
+        "entreprise": "Sanofi",
+        "poste": "Data Scientist (stage)",
+        "debut": "2026-03",
+        "fin": "2026-08",
+        "description": "Modèles de prédiction de rétention patients sur données cliniques anonymisées.",
+        "competences": [
+          "python",
+          "scikit-learn",
+          "pandas"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Université Paris-Saclay",
+        "diplome": "Master 2 Data Science",
+        "debut": "2025-09",
+        "fin": "2026-09"
+      },
+      {
+        "ecole": "Université Paris-Saclay",
+        "diplome": "Licence Mathématiques-Informatique",
+        "debut": "2022-09",
+        "fin": "2025-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "scikit-learn",
+        "nom": "scikit-learn",
+        "domaine_slug": "data-science",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "r",
+        "nom": "R",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "tensorflow",
+        "nom": "TensorFlow",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "maxime-girard",
+    "prenom": "Maxime",
+    "nom": "Girard",
+    "titre": "Ingénieur Big Data — diplômé de l'ESIGELEC",
+    "bio": "Spécialiste des bases NoSQL et de la modélisation orientée documents.",
+    "liens": {
+      "github": "https://github.com/maxime-girard",
+      "linkedin": "https://www.linkedin.com/in/maxime-girard"
+    },
+    "experiences": [
+      {
+        "entreprise": "Carrefour",
+        "poste": "Data Engineer (alternance)",
+        "debut": "2023-09",
+        "fin": "2026-08",
+        "description": "Migration d'un entrepôt relationnel vers MongoDB et Elasticsearch.",
+        "competences": [
+          "mongodb",
+          "elasticsearch",
+          "python"
+        ]
+      },
+      {
+        "entreprise": "Pôle emploi",
+        "poste": "Stagiaire développeur",
+        "debut": "2023-05",
+        "fin": "2023-08",
+        "description": "Scripts de nettoyage et d'import de données.",
+        "competences": [
+          "python",
+          "sql"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2021-09",
+        "fin": "2026-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "mongodb",
+        "nom": "MongoDB",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "elasticsearch",
+        "nom": "Elasticsearch",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "redis",
+        "nom": "Redis",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "camille-roux",
+    "prenom": "Camille",
+    "nom": "Roux",
+    "titre": "Élève-ingénieure Informatique — INSA Rouen",
+    "bio": "Intéressée par la science des données géospatiales et la cartographie.",
+    "liens": {
+      "github": "https://github.com/camille-roux",
+      "linkedin": "https://www.linkedin.com/in/camille-roux"
+    },
+    "experiences": [
+      {
+        "entreprise": "Métropole Rouen Normandie",
+        "poste": "Stagiaire géomaticienne",
+        "debut": "2026-04",
+        "fin": "2026-07",
+        "description": "Analyse de flux de mobilité et création de cartes interactives.",
+        "competences": [
+          "python",
+          "pandas",
+          "postgresql"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "INSA Rouen Normandie",
+        "diplome": "Cycle ingénieur — Informatique",
+        "debut": "2023-09",
+        "fin": "2028-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "postgresql",
+        "nom": "PostgreSQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "tableau",
+        "nom": "Tableau",
+        "domaine_slug": "data-viz",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "espagnol",
+        "nom": "Espagnol",
+        "domaine_slug": "langues",
+        "niveau": 4
+      }
+    ]
+  },
+  {
+    "candidat_slug": "antoine-lambert",
+    "prenom": "Antoine",
+    "nom": "Lambert",
+    "titre": "Ingénieur streaming — Master Informatique, Université de Lille",
+    "bio": "Passionné par le traitement de flux et les architectures événementielles.",
+    "liens": {
+      "github": "https://github.com/antoine-lambert",
+      "linkedin": "https://www.linkedin.com/in/antoine-lambert"
+    },
+    "experiences": [
+      {
+        "entreprise": "Deezer",
+        "poste": "Ingénieur Data (stage)",
+        "debut": "2026-02",
+        "fin": "2026-08",
+        "description": "Traitement en temps réel des événements d'écoute avec Flink et Kafka.",
+        "competences": [
+          "flink",
+          "kafka",
+          "java"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Université de Lille",
+        "diplome": "Master 2 Informatique — Données et Systèmes",
+        "debut": "2025-09",
+        "fin": "2026-09"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "flink",
+        "nom": "Apache Flink",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "kafka",
+        "nom": "Apache Kafka",
+        "domaine_slug": "big-data",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "java",
+        "nom": "Java",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "scala",
+        "nom": "Scala",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "cassandra",
+        "nom": "Cassandra",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "manon-perrin",
+    "prenom": "Manon",
+    "nom": "Perrin",
+    "titre": "Data Engineer — diplômée de l'ESIGELEC",
+    "bio": "Data engineer attachée à la qualité de la donnée et à la gouvernance.",
+    "liens": {
+      "github": "https://github.com/manon-perrin",
+      "linkedin": "https://www.linkedin.com/in/manon-perrin"
+    },
+    "experiences": [
+      {
+        "entreprise": "Engie",
+        "poste": "Data Engineer (alternance)",
+        "debut": "2023-09",
+        "fin": "2026-08",
+        "description": "Mise en qualité de données énergétiques avec dbt et tests automatisés.",
+        "competences": [
+          "dbt",
+          "sql",
+          "airflow",
+          "azure"
+        ]
+      },
+      {
+        "entreprise": "EDF",
+        "poste": "Stagiaire data",
+        "debut": "2023-04",
+        "fin": "2023-08",
+        "description": "Consolidation de données de consommation.",
+        "competences": [
+          "sql",
+          "python"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2021-09",
+        "fin": "2026-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "dbt",
+        "nom": "dbt",
+        "domaine_slug": "big-data",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "airflow",
+        "nom": "Apache Airflow",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "azure",
+        "nom": "Azure",
+        "domaine_slug": "cloud",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "scrum",
+        "nom": "Scrum",
+        "domaine_slug": "methodes",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      }
+    ]
+  },
+  {
+    "candidat_slug": "ethan-blanc",
+    "prenom": "Ethan",
+    "nom": "Blanc",
+    "titre": "Développeur IA — Master Intelligence Artificielle, Sorbonne Université",
+    "bio": "Explore les LLM, le fine-tuning et les agents autonomes.",
+    "liens": {
+      "github": "https://github.com/ethan-blanc",
+      "linkedin": "https://www.linkedin.com/in/ethan-blanc"
+    },
+    "experiences": [
+      {
+        "entreprise": "Mistral AI",
+        "poste": "Stagiaire ML Engineer",
+        "debut": "2026-03",
+        "fin": "2026-09",
+        "description": "Évaluation et fine-tuning de modèles de langage sur des tâches de question-réponse.",
+        "competences": [
+          "llm",
+          "pytorch",
+          "python"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Sorbonne Université",
+        "diplome": "Master 2 Intelligence Artificielle",
+        "debut": "2025-09",
+        "fin": "2026-09"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "llm",
+        "nom": "LLM / RAG",
+        "domaine_slug": "data-science",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "pytorch",
+        "nom": "PyTorch",
+        "domaine_slug": "data-science",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "nlp",
+        "nom": "NLP",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "fastapi",
+        "nom": "FastAPI",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "jade-simon",
+    "prenom": "Jade",
+    "nom": "Simon",
+    "titre": "Élève-ingénieure Big Data — ESIGELEC",
+    "bio": "Curieuse de tout ce qui relie données, graphes et recommandation.",
+    "liens": {
+      "github": "https://github.com/jade-simon",
+      "linkedin": "https://www.linkedin.com/in/jade-simon"
+    },
+    "experiences": [
+      {
+        "entreprise": "Cdiscount",
+        "poste": "Stagiaire Data Scientist",
+        "debut": "2026-04",
+        "fin": "2026-08",
+        "description": "Moteur de recommandation de produits basé sur un graphe de co-achats.",
+        "competences": [
+          "neo4j",
+          "python",
+          "scikit-learn"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "neo4j",
+        "nom": "Neo4j",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "scikit-learn",
+        "nom": "scikit-learn",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "mongodb",
+        "nom": "MongoDB",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "allemand",
+        "nom": "Allemand",
+        "domaine_slug": "langues",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "rayan-chevalier",
+    "prenom": "Rayan",
+    "nom": "Chevalier",
+    "titre": "Développeur Python — IUT puis licence professionnelle, Université Le Havre Normandie",
+    "bio": "Développeur Python pragmatique, à l'aise de l'API au déploiement.",
+    "liens": {
+      "github": "https://github.com/rayan-chevalier",
+      "linkedin": "https://www.linkedin.com/in/rayan-chevalier"
+    },
+    "experiences": [
+      {
+        "entreprise": "Groupe Logista",
+        "poste": "Développeur Python (alternance)",
+        "debut": "2024-09",
+        "fin": "2026-08",
+        "description": "Développement d'APIs FastAPI et automatisation de rapports logistiques.",
+        "competences": [
+          "python",
+          "fastapi",
+          "postgresql",
+          "docker"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "Université Le Havre Normandie",
+        "diplome": "Licence professionnelle — Développement d'applications",
+        "debut": "2024-09",
+        "fin": "2026-06"
+      },
+      {
+        "ecole": "IUT du Havre",
+        "diplome": "BUT Informatique",
+        "debut": "2021-09",
+        "fin": "2024-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "fastapi",
+        "nom": "FastAPI",
+        "domaine_slug": "web",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "django",
+        "nom": "Django",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "postgresql",
+        "nom": "PostgreSQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "arabe",
+        "nom": "Arabe",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "clara-vidal",
+    "prenom": "Clara",
+    "nom": "Vidal",
+    "titre": "Cheffe de projet data — Master Management des Systèmes d'Information, NEOMA",
+    "bio": "Fait le lien entre métiers et équipes techniques pour livrer de la valeur data.",
+    "liens": {
+      "github": "https://github.com/clara-vidal",
+      "linkedin": "https://www.linkedin.com/in/clara-vidal"
+    },
+    "experiences": [
+      {
+        "entreprise": "Michelin",
+        "poste": "Cheffe de projet data (alternance)",
+        "debut": "2024-09",
+        "fin": "2026-08",
+        "description": "Pilotage d'un programme de tableaux de bord industriels en méthode agile.",
+        "competences": [
+          "scrum",
+          "gestion-de-projet",
+          "power-bi"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "NEOMA Business School",
+        "diplome": "Master Management des Systèmes d'Information",
+        "debut": "2024-09",
+        "fin": "2026-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "gestion-de-projet",
+        "nom": "Gestion de projet",
+        "domaine_slug": "methodes",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "scrum",
+        "nom": "Scrum",
+        "domaine_slug": "methodes",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "tableau",
+        "nom": "Tableau",
+        "domaine_slug": "data-viz",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "espagnol",
+        "nom": "Espagnol",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  {
+    "candidat_slug": "theo-marchand",
+    "prenom": "Théo",
+    "nom": "Marchand",
+    "titre": "Élève-ingénieur Systèmes — ENSICAEN",
+    "bio": "Bas niveau, performance et calcul scientifique : le terrain de jeu favori.",
+    "liens": {
+      "github": "https://github.com/theo-marchand",
+      "linkedin": "https://www.linkedin.com/in/theo-marchand"
+    },
+    "experiences": [
+      {
+        "entreprise": "CEA",
+        "poste": "Stagiaire ingénieur calcul",
+        "debut": "2026-03",
+        "fin": "2026-08",
+        "description": "Optimisation de codes de simulation en C++ et suivi des performances.",
+        "competences": [
+          "cpp",
+          "linux",
+          "bash"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ENSICAEN",
+        "diplome": "Cycle ingénieur — Informatique",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      },
+      {
+        "ecole": "Lycée Malherbe, Caen",
+        "diplome": "CPGE MPSI/MP",
+        "debut": "2022-09",
+        "fin": "2024-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "cpp",
+        "nom": "C++",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "linux",
+        "nom": "Linux",
+        "domaine_slug": "devops",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "bash",
+        "nom": "Bash",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "grafana",
+        "nom": "Grafana",
+        "domaine_slug": "data-viz",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "allemand",
+        "nom": "Allemand",
+        "domaine_slug": "langues",
+        "niveau": 3
+      }
+    ]
+  }
+]
