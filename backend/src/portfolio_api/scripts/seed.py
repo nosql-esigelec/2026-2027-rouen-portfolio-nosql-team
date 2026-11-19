@@ -53,6 +53,7 @@ async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
 
 
 async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
+    # TODO (équipe) : contraintes + MERGE des nœuds et relations (ARCHITECTURE.md §4)
     driver = get_neo4j_driver()
 
     async with driver.session() as session:
@@ -121,11 +122,10 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
         # 2.2 Noeuds Projet
         for projet in projets:
 
-            # Le contrat attendu est projet_slug ; quelques anciens JSON
-            # du projet utilisent encore slug (compatibilité temporaire).
-            projet_slug = projet.get("projet_slug") or projet.get("slug")
-            if not projet_slug:
-                raise ValueError("Projet sans 'projet_slug' (ou 'slug' historique)")
+            projet_slug = (
+                projet.get("projet_slug")
+                or projet.get("slug")
+            )
 
             await executer(
                 """
@@ -168,7 +168,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine_slug")
+                domaine = comp.get("domaine")
 
                 if domaine:
 
@@ -195,29 +195,29 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                     nom=domaine.replace("-", " ").title()
                 )
 
-        # Domaines supplémentaires (champ optionnel "domaines")
-        for projet in projets:
-            for domaine in projet.get("domaines", []):
-                domaine_slug = (
-                    domaine.get("domaine_slug")
-                    if isinstance(domaine, dict)
-                    else domaine
-                )
-                if not domaine_slug:
-                    continue
-                nom = (
-                    (domaine.get("nom") or domaine_slug)
-                    if isinstance(domaine, dict)
-                    else domaine_slug.replace("-", " ").title()
-                )
-                await executer(
-                    """
-                    MERGE (d:Domaine {slug: $domaine_slug})
-                    ON CREATE SET d.nom = $nom
-                    """,
-                    domaine_slug=domaine_slug,
-                    nom=nom,
-                )
+        #  projets utilisant domaines[]
+        for domaine in projet.get("domaines", []):
+
+            domaine_slug = (
+                domaine.get("domaine_slug")
+                if isinstance(domaine, dict)
+                else domaine
+            )
+
+            nom = (
+                domaine.get("nom") or domaine_slug
+                if isinstance(domaine, dict)
+                else domaine_slug.replace("-", " ").title()
+            )
+
+            await executer(
+                """
+                MERGE (d:Domaine {slug: $domaine_slug})
+                ON CREATE SET d.nom = $nom
+                """,
+                domaine_slug=domaine_slug,
+                nom=nom
+            )
         # 2.5 Noeuds Entreprise
         for candidat in candidats:
 
@@ -260,11 +260,10 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
         # 3.1 Candidat - A_REALISE -> Projet
         for projet in projets:
 
-            # Le contrat attendu est projet_slug ; quelques anciens JSON
-            # du projet utilisent encore slug (compatibilité temporaire).
-            projet_slug = projet.get("projet_slug") or projet.get("slug")
-            if not projet_slug:
-                raise ValueError("Projet sans 'projet_slug' (ou 'slug' historique)")
+            projet_slug = (
+                projet.get("projet_slug")
+                or projet.get("slug")
+            )
 
             for candidat_slug in projet.get(
                 "candidat_slugs", []
@@ -299,11 +298,10 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
         # 3.3 Projet - UTILISE -> Competence
         for projet in projets:
 
-            # Le contrat attendu est projet_slug ; quelques anciens JSON
-            # du projet utilisent encore slug (compatibilité temporaire).
-            projet_slug = projet.get("projet_slug") or projet.get("slug")
-            if not projet_slug:
-                raise ValueError("Projet sans 'projet_slug' (ou 'slug' historique)")
+            projet_slug = (
+                projet.get("projet_slug")
+                or projet.get("slug")
+            )
 
             for skill_slug in projet.get(
                 "competence_slugs", []
@@ -324,7 +322,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine_slug")
+                domaine = comp.get("domaine")
 
                 if domaine:
 
@@ -337,7 +335,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                         skill_slug=comp["skill_slug"],
                         domaine_slug=domaine
                     )
-        # 3.5 Candidat - A_TRAVAILLE_CHEZ -> Entreprise
+         # 3.5 Candidat - A_TRAVAILLE_CHEZ -> Entreprise
         for candidat in candidats:
 
             for exp in candidat.get("experiences", []):
@@ -372,11 +370,10 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
         # 3.6 Projet - REALISE_POUR -> Entreprise
         for projet in projets:
 
-            # Le contrat attendu est projet_slug ; quelques anciens JSON
-            # du projet utilisent encore slug (compatibilité temporaire).
-            projet_slug = projet.get("projet_slug") or projet.get("slug")
-            if not projet_slug:
-                raise ValueError("Projet sans 'projet_slug' (ou 'slug' historique)")
+            projet_slug = (
+                projet.get("projet_slug")
+                or projet.get("slug")
+            )
 
             entreprise_slug = projet.get("entreprise_slug")
 
@@ -391,8 +388,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                     projet_slug=projet_slug,
                     entreprise_slug=entreprise_slug
                 )
-    print("Seed Neo4j terminé avec succès.")
-
+print("Seed Neo4j terminé avec succès.")
 
 async def main() -> None:
     candidats = load_member_files("candidats")
