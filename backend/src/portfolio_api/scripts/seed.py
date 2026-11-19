@@ -12,7 +12,7 @@ import asyncio
 import json
 from pathlib import Path
 from portfolio_api.db.mongo import get_mongo_db
-
+from portfolio_api.db.neo4j import get_neo4j_driver
 
 DATA_DIR = Path(__file__).resolve().parents[4] / "data"
 
