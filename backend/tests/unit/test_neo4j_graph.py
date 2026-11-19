@@ -69,13 +69,13 @@ class TestFindSimilarProjets:
             "total": 2,
             "projets_similaires": [
                 {
-                    "slug": "portfolio-polyglotte",
+                    "projet_slug": "portfolio-polyglotte",
                     "titre": "Portfolio Polyglotte",
                     "competences_communes": ["python", "neo4j"],
                     "nombre_competences_communes": 2,
                 },
                 {
-                    "slug": "pipeline-data",
+                    "projet_slug": "pipeline-data",
                     "titre": "Pipeline Data",
                     "competences_communes": ["python"],
                     "nombre_competences_communes": 1,
@@ -200,8 +200,8 @@ class TestUpsertCandidat:
     async def test_creates_candidate_skills_and_employer(self, neo4j_driver, neo4j_session):
         # Contrat actuellement attendu par neo4j_graph.py (champs slug / domaine_slug).
         candidat = {
-            "slug": "lea-bernard", "nom": "Bernard", "prenom": "Léa", "titre": "Data Engineer",
-            "competences": [{"slug": "python", "nom": "Python", "domaine_slug": "langages", "niveau": 5}],
+            "candidat_slug": "lea-bernard", "nom": "Bernard", "prenom": "Léa", "titre": "Data Engineer",
+            "competences": [{"skill_slug": "python", "nom": "Python", "domaine": "langages", "niveau": 5}],
             "experiences": [{"entreprise": "Renault Digital", "poste": "Data Engineer",
                              "date_debut": "2026-04", "date_fin": "2026-08"}],
         }
@@ -210,7 +210,7 @@ class TestUpsertCandidat:
 
         assert neo4j_session.run.await_count == 3
         params = [call.kwargs for call in neo4j_session.run.await_args_list]
-        assert params[0]["slug"] == "lea-bernard"
+        assert params[0]["candidat_slug"] == "lea-bernard"
         assert params[1]["skill_slug"] == "python"
         assert params[1]["domaine_slug"] == "langages"
         assert params[1]["niveau"] == 5
@@ -220,7 +220,7 @@ class TestUpsertCandidat:
 class TestUpsertProjet:
     async def test_creates_project_authors_skills_company(self, neo4j_driver, neo4j_session):
         projet = {
-            "slug": "smartcity-explorer", "titre": "SmartCity Explorer",
+            "projet_slug": "smartcity-explorer", "titre": "SmartCity Explorer",
             "candidat_slugs": ["lea-bernard", "hugo-lefebvre"],
             "competence_slugs": ["python", "neo4j"],
             "entreprise": "Renault Digital", "contexte": "Stage",
@@ -235,7 +235,7 @@ class TestUpsertProjet:
         assert any(":REALISE_POUR" in q for q in queries)
 
     async def test_project_without_company(self, neo4j_driver, neo4j_session):
-        projet = {"slug": "portfolio", "titre": "Portfolio", "candidat_slugs": [], "competence_slugs": []}
+        projet = {"projet_slug": "portfolio", "titre": "Portfolio", "candidat_slugs": [], "competence_slugs": []}
 
         await neo4j_graph.upsert_projet(projet)
 
