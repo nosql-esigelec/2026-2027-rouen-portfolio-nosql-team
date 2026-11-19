@@ -268,6 +268,116 @@ Fourni. Réponse : `{"status": "ok"}`
 }
 ```
 
-## TODO : vos routes supplémentaires
+## 6. `GET /api/projets/{slug}` : détail d'un projet
 
-Une section par route, même format : chemin, paramètres, écran, exemple de réponse.
+- **Paramètres** : `slug` (string, obligatoire), identifiant public du projet. Exemple : `GET /api/projets/smartcity-explorer`.
+- **Écran** : page « Détail d'un projet », présentant sa description, son architecture, ses technologies, ses réalisations, ses liens et ses projets similaires.
+
+```json
+{
+  "projet_slug": "smartcity-explorer",
+  "titre": "SmartCity Explorer",
+  "description": "Application d'exploration et d'analyse de données urbaines",
+  "contexte": "Projet académique NoSQL",
+  "architecture": "FastAPI, MongoDB et Neo4j",
+  "date_debut": "2026-09",
+  "date_fin": "2026-11",
+  "candidat_slugs": [
+    "hugo-lefebvre",
+    "lea-bernard"
+  ],
+  "competence_slugs": [
+    "python",
+    "fastapi",
+    "mongodb",
+    "neo4j"
+  ],
+  "domaine_slugs": [
+    "langages",
+    "web",
+    "bases-de-donnees"
+  ],
+  "technologies": [
+    "Python",
+    "FastAPI",
+    "MongoDB",
+    "Neo4j"
+  ],
+  "réalisation": [
+    "Développement d'une API REST",
+    "Intégration de plusieurs bases de données",
+    "Visualisation et exploration de données"
+  ],
+  "liens": {
+    "github": "https://github.com/hugo-lefebvre/smartcity-explorer",
+    "demo": "https://smartcity-explorer.example.com"
+  },
+  "medias": [
+    {
+      "type": "image",
+      "url": "https://example.com/smartcity-explorer.png",
+      "description": "Capture d'écran de l'application"
+    }
+  ],
+  "total_similaires": 1,
+  "projets_similaires": [
+    {
+      "slug": "portfolio-polyglotte",
+      "titre": "Portfolio Polyglotte",
+      "competences_communes": [
+        "python",
+        "fastapi",
+        "mongodb",
+        "neo4j"
+      ],
+      "nombre_competences_communes": 4
+    }
+  ]
+}
+```
+
+## 7. `GET /api/candidats/{slug}/experiences/recente` : expérience professionnelle la plus récente
+
+- **Paramètres** : `slug` (string, obligatoire), identifiant public du candidat. Exemple : `GET /api/candidats/lea-bernard/experiences/recente`.
+- **Écran** : section « Dernière expérience professionnelle » du profil du candidat.
+
+```json
+{
+  "candidat_slug": "lea-bernard",
+  "experience": {
+    "entreprise": "Renault Digital",
+    "poste": "Stagiaire Data Engineer",
+    "debut": "2026-04",
+    "fin": "2026-08",
+    "description": "Mise en place d'un pipeline d'ingestion de données véhicules connectés avec Kafka et Spark Streaming.",
+    "competences": [
+      "python",
+      "kafka",
+      "spark"
+    ]
+  }
+}
+```
+
+## 8. `GET /api/candidats/{slug}/projets?domaine_slug=...` : projets par domaine
+
+- **Paramètres** : `slug` (string, obligatoire), identifiant du candidat ; `domaine_slug` (string, nécessaire pour ce filtre), identifiant du domaine ; `competence` (string, optionnel), filtre supplémentaire par compétence ; `page` (integer ≥ 1, défaut : 1) ; `limit` (integer de 1 à 100, défaut : 10).
+- **Écran** : section « Projets par domaine » du portfolio, permettant au recruteur de consulter les projets associés à un domaine.
+
+```json
+{
+  "candidat_slug": "lea-bernard",
+  "filtres": {
+    "competence": null,
+    "domaine_slug": "domaine-inconnu"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 0,
+    "total_pages": 0
+  },
+  "projets": []
+}
+```
+
