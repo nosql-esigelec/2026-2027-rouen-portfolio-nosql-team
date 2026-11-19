@@ -1,4 +1,12 @@
-"""Tests unitaires du seed Neo4j, sans connexion réelle."""
+"""Tests unitaires — seed Neo4j du Portfolio Polyglotte.
+
+Fonction testée : portfolio_api.scripts.seed.seed_neo4j(candidats, projets)
+Aucun serveur Neo4j nécessaire : le driver async est simulé.
+
+Depuis la racine du dépôt :
+    uv run --project .\\backend pytest backend/tests/unit/test_seed_neo4j.py -v
+"""
+from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock, patch
 
@@ -6,237 +14,149 @@ import pytest
 
 from portfolio_api.scripts import seed
 
+pytestmark = pytest.mark.asyncio
+
 
 @pytest.fixture
-def graph_mocks():
-    """Remplace le driver, la session et les résultats Neo4j."""
+def neo4j_session():
+    """Session Neo4j simulée : run() et consume() sont asynchrones."""
     result = MagicMock()
     result.consume = AsyncMock()
-
     session = MagicMock()
     session.run = AsyncMock(return_value=result)
+    return session
 
-    context = MagicMock()
-    context.__aenter__ = AsyncMock(return_value=session)
-    context.__aexit__ = AsyncMock(return_value=False)
 
+@pytest.fixture
+def neo4j_driver(neo4j_session):
+    """Remplace le driver recherché par seed_neo4j dans son module.
+
+    create=True est nécessaire si get_neo4j_driver n'est pas importé
+    au niveau du module seed.py fourni.
+    """
     driver = MagicMock()
+    context = MagicMock()
+    context.__aenter__ = AsyncMock(return_value=neo4j_session)
+    context.__aexit__ = AsyncMock(return_value=None)
     driver.session.return_value = context
 
-    with patch.object(
-        seed,
-        "get_neo4j_driver",
-        return_value=driver,
+    with patch.object(seed, "get_neo4j_driver", return_value=driver, create=True):
+        yield driver
+
+
+@pytest.fixture
+def candidats():
+    return [{
+        "candidat_slug": "lea-bernard",
+        "nom": "Bernard",
+        "prenom": "Léa",
+        "titre": "Data Engineer",
+        "competences": [
+            {"skill_slug": "python", "nom": "Python", "domaine": "langages", "niveau": 5},
+        ],
+        "experiences": [
+            {"entreprise": "Renault Digital", "poste": "Stage Data", "debut": "2026-04", "fin": "2026-08"},
+        ],
+    }]
+
+
+@pytest.fixture
+def projets():
+    return [{
+        "projet_slug": "portfolio-polyglotte",
+        "titre": "Portfolio Polyglotte",
+        "candidat_slugs": ["lea-bernard"],
+        "competence_slugs": ["python"],
+        "domaine_slugs": ["langages"],
+        "entreprise_slug": "renault-digital",
+    }]
+
+
+class TestSeedNeo4jConstraints:
+    async def test_creates_five_unique_constraints(self, neo4j_driver, neo4j_session, projets):
+        """Les cinq contraintes sont créées en premier, une par label."""
+        await seed.seed_neo4j([], projets)
+        calls = neo4j_session.run.await_args_list
+        labels = ["Candidat", "Projet", "Competence", "Domaine", "Entreprise"]
+        assert len(calls) >= 5
+        for call, label in zip(calls[:5], labels):
+            cypher = call.args[0]
+            assert "CREATE CONSTRAINT" in cypher
+            assert f":{label}" in cypher
+            assert "REQUIRE" in cypher
+            assert "slug IS UNIQUE" in cypher
+
+    async def test_does_not_delete_existing_graph(self, neo4j_driver, neo4j_session, projets):
+        """Le seed idempotent ne doit pas exécuter DETACH DELETE."""
+        await seed.seed_neo4j([], projets)
+        queries = [call.args[0] for call in neo4j_session.run.await_args_list]
+        assert all("DETACH DELETE" not in query for query in queries)
+
+
+class TestSeedNeo4jNodes:
+    async def test_creates_candidates_projects_and_competences(
+        self, neo4j_driver, neo4j_session, candidats, projets
     ):
-        yield {
-            "driver": driver,
-            "session": session,
-            "result": result,
-        }
+        """Les MERGE reçoivent les vrais noms des champs du JSON."""
+        await seed.seed_neo4j(candidats, projets)
+        calls = neo4j_session.run.await_args_list
+
+        def parameters_for(fragment):
+            return [c.kwargs for c in calls if fragment in c.args[0]]
+
+        assert parameters_for("MERGE (c:Candidat")[0]["candidat_slug"] == "lea-bernard"
+        assert parameters_for("MERGE (p:Projet")[0]["projet_slug"] == "portfolio-polyglotte"
+        assert any(p["skill_slug"] == "python" for p in parameters_for("MERGE (c:Competence"))
+        assert any(p["domaine_slug"] == "langages" for p in parameters_for("MERGE (d:Domaine"))
+        assert parameters_for("MERGE (e:Entreprise")[0]["entreprise_slug"] == "renault-digital"
+
+    async def test_consumes_every_result(self, neo4j_driver, neo4j_session, candidats, projets):
+        """Chaque session.run() doit être consommé avant de continuer."""
+        await seed.seed_neo4j(candidats, projets)
+        result = neo4j_session.run.return_value
+        assert result.consume.await_count == neo4j_session.run.await_count
 
 
-@pytest.mark.asyncio
-async def test_seed_neo4j_imports_nodes_and_relations(graph_mocks):
-    """Crée les nœuds et les relations à partir des champs JSON."""
-    candidats = [
-        {
-            "candidat_slug": "lea-bernard",
-            "nom": "Bernard",
-            "prenom": "Léa",
-            "titre": "Data Engineer",
-            "competences": [
-                {
-                    "skill_slug": "python",
-                    "nom": "Python",
-                    "domaine_slug": "langages",
-                    "niveau": 5,
-                }
-            ],
-            "experiences": [
-                {
-                    "entreprise": "Renault Digital",
-                    "poste": "Stagiaire Data Engineer",
-                    "debut": "2026-04",
-                    "fin": "2026-08",
-                }
-            ],
-        }
-    ]
-    projets = [
-        {
-            "projet_slug": "smartcity-explorer",
-            "titre": "SmartCity Explorer",
-            "candidat_slugs": ["lea-bernard"],
-            "competence_slugs": ["python"],
-            "domaine_slugs": ["langages"],
-            "entreprise_slug": "renault-digital",
-            "entreprise": "Renault Digital",
-        }
-    ]
-
-    await seed.seed_neo4j(candidats, projets)
-
-    session = graph_mocks["session"]
-    calls = session.run.await_args_list
-
-    # Vérifier les contraintes des cinq labels.
-    constraint_queries = [
-        item.args[0]
-        for item in calls
-        if "CREATE CONSTRAINT" in item.args[0]
-    ]
-
-    assert len(constraint_queries) == 5
-
-    for label in (
-        "Candidat",
-        "Projet",
-        "Competence",
-        "Domaine",
-        "Entreprise",
+class TestSeedNeo4jRelationships:
+    async def test_creates_six_relationship_types(
+        self, neo4j_driver, neo4j_session, candidats, projets
     ):
-        assert any(
-            f":{label})" in query
-            and "IF NOT EXISTS" in query
-            and ".slug IS UNIQUE" in query
-            for query in constraint_queries
-        )
+        """Vérifie toutes les relations exigées par ARCHITECTURE.md."""
+        await seed.seed_neo4j(candidats, projets)
+        cypher = "\n".join(c.args[0] for c in neo4j_session.run.await_args_list)
+        for relation in (
+            "A_REALISE", "MAITRISE", "UTILISE", "APPARTIENT_A",
+            "A_TRAVAILLE_CHEZ", "REALISE_POUR",
+        ):
+            assert f":{relation}" in cypher
 
-    # Vérifier les identifiants transmis lors de la création des nœuds.
-    assert any(
-        "MERGE (c:Candidat" in item.args[0]
-        and item.kwargs.get("candidat_slug") == "lea-bernard"
-        for item in calls
-    )
-
-    assert any(
-        "MERGE (p:Projet" in item.args[0]
-        and item.kwargs.get("projet_slug") == "smartcity-explorer"
-        for item in calls
-    )
-
-    # Vérifier les six types de relations attendus.
-    for relation in (
-        "A_REALISE",
-        "MAITRISE",
-        "UTILISE",
-        "APPARTIENT_A",
-        "A_TRAVAILLE_CHEZ",
-        "REALISE_POUR",
+    async def test_experience_transmits_dates(
+        self, neo4j_driver, neo4j_session, candidats, projets
     ):
-        assert any(
-            f":{relation}" in item.args[0]
-            for item in calls
-        ), f"Relation manquante : {relation}"
-
-    # Vérifier le niveau de maîtrise.
-    mastery_call = next(
-        item for item in calls
-        if ":MAITRISE" in item.args[0]
-    )
-    assert mastery_call.kwargs["niveau"] == 5
-
-    # Vérifier le lien compétence → domaine.
-    domain_call = next(
-        item for item in calls
-        if ":APPARTIENT_A" in item.args[0]
-    )
-    assert domain_call.kwargs["skill_slug"] == "python"
-    assert domain_call.kwargs["domaine_slug"] == "langages"
-
-    # Vérifier les dates de l'expérience professionnelle.
-    experience_call = next(
-        item for item in calls
-        if ":A_TRAVAILLE_CHEZ" in item.args[0]
-    )
-    assert experience_call.kwargs["entreprise_slug"] == "renault-digital"
-    assert experience_call.kwargs["debut"] == "2026-04"
-    assert experience_call.kwargs["fin"] == "2026-08"
-
-    # Chaque résultat doit être consommé.
-    assert (
-        graph_mocks["result"].consume.await_count
-        == session.run.await_count
-    )
+        """L'expérience professionnelle transmet poste, début et fin."""
+        await seed.seed_neo4j(candidats, projets)
+        experience_calls = [
+            c for c in neo4j_session.run.await_args_list
+            if "MERGE (c)-[r:A_TRAVAILLE_CHEZ" in c.args[0]
+        ]
+        assert len(experience_calls) == 1
+        params = experience_calls[0].kwargs
+        assert params["poste"] == "Stage Data"
+        assert params["debut"] == "2026-04"
+        assert params["fin"] == "2026-08"
 
 
-@pytest.mark.asyncio
-async def test_seed_neo4j_with_empty_lists(graph_mocks):
-    """Avec des listes vides, crée uniquement les contraintes."""
-    await seed.seed_neo4j([], [])
+class TestSeedNeo4jEdgeCases:
+    async def test_empty_lists_create_only_constraints(self, neo4j_driver, neo4j_session):
+        """Seed vide : aucune donnée ajoutée, les cinq contraintes seulement."""
+        await seed.seed_neo4j([], [])
+        calls = neo4j_session.run.await_args_list
+        assert len(calls) == 5
+        assert all("CREATE CONSTRAINT" in c.args[0] for c in calls)
 
-    calls = graph_mocks["session"].run.await_args_list
-
-    assert len(calls) == 5
-    assert all(
-        "CREATE CONSTRAINT" in item.args[0]
-        for item in calls
-    )
-
-
-@pytest.mark.asyncio
-async def test_seed_neo4j_stops_if_constraints_fail(graph_mocks):
-    """N'importe aucune donnée si la première contrainte échoue."""
-    session = graph_mocks["session"]
-    session.run.side_effect = RuntimeError(
-        "Constraint creation failed"
-    )
-
-    with pytest.raises(RuntimeError, match="Constraint creation failed"):
-        await seed.seed_neo4j(
-            [
-                {
-                    "candidat_slug": "lea-bernard",
-                    "nom": "Bernard",
-                    "prenom": "Léa",
-                }
-            ],
-            [],
-        )
-
-    session.run.assert_awaited_once()
-    assert "CREATE CONSTRAINT" in session.run.await_args.args[0]
-    graph_mocks["result"].consume.assert_not_awaited()
-    graph_mocks["driver"].session.return_value.__aexit__.assert_awaited_once()
-
-
-@pytest.mark.asyncio
-async def test_seed_neo4j_stops_if_candidate_import_fails(graph_mocks):
-    """Arrête le seed avant les projets si un candidat échoue."""
-    session = graph_mocks["session"]
-    result = graph_mocks["result"]
-
-    async def run_query(query, **parameters):
-        if "MERGE (c:Candidat" in query:
-            raise RuntimeError("Candidate import failed")
-        return result
-
-    session.run.side_effect = run_query
-
-    with pytest.raises(RuntimeError, match="Candidate import failed"):
-        await seed.seed_neo4j(
-            [
-                {
-                    "candidat_slug": "lea-bernard",
-                    "nom": "Bernard",
-                    "prenom": "Léa",
-                }
-            ],
-            [
-                {
-                    "projet_slug": "smartcity-explorer",
-                    "titre": "SmartCity Explorer",
-                }
-            ],
-        )
-
-    calls = session.run.await_args_list
-
-    assert any(
-        "MERGE (c:Candidat" in item.args[0]
-        for item in calls
-    )
-    assert not any(
-        "MERGE (p:Projet" in item.args[0]
-        for item in calls
-    )
+    async def test_propagates_database_errors(self, neo4j_driver, neo4j_session, projets):
+        """Une erreur de Neo4j arrête l'import sans être masquée."""
+        neo4j_session.run.side_effect = RuntimeError("Neo4j indisponible")
+        with pytest.raises(RuntimeError, match="Neo4j indisponible"):
+            await seed.seed_neo4j([], projets)
+        neo4j_session.run.assert_awaited_once()

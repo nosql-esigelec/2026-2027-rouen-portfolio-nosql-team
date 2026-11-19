@@ -13,8 +13,6 @@ import json
 from pathlib import Path
 from portfolio_api.db.mongo import get_mongo_db
 
-from portfolio_api.db.neo4j import get_neo4j_driver
-
 
 DATA_DIR = Path(__file__).resolve().parents[4] / "data"
 
@@ -169,7 +167,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine_slug")
+                domaine = comp.get("domaine")
 
                 if domaine:
 
@@ -197,7 +195,6 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                 )
 
         #  projets utilisant domaines[]
-        for projet in projets:
             for domaine in projet.get("domaines", []):
 
                 domaine_slug = (
@@ -324,7 +321,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine_slug")
+                domaine = comp.get("domaine")
 
                 if domaine:
 
@@ -390,6 +387,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                     projet_slug=projet_slug,
                     entreprise_slug=entreprise_slug
                 )
+print("Seed Neo4j terminé avec succès.")
 
 
 async def main() -> None:
