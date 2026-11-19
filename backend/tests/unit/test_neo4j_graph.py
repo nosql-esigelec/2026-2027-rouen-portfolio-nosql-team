@@ -1,4 +1,5 @@
 """
+Implementation de tests unitaires pour le module neo4j_graph.py.
 Depuis la racine du dépôt :
     uv run pytest backend/tests/unit/test_neo4j_graph.py -v
 """
