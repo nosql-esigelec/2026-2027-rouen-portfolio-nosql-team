@@ -54,7 +54,7 @@ MVP (6 entités utiles à garder ) :
 # un document d'exemple complet
 ```json
 {
-  "slug": "alice-martin",
+  "candidat_slug": "alice-martin",
   "nom": "Martin",
   "prenom": "Alice",
   "titre": "Eleve ingenieure Big Data",
@@ -85,28 +85,28 @@ MVP (6 entités utiles à garder ) :
   ],
   "competences": [
     {
-      "slug": "python",
+      "skill_slug": "python",
       "nom": "Python",
       "type": "technique",
       "domaine_slug": "programmation",
       "niveau": "intermediaire"
     },
     {
-      "slug": "mongodb",
+      "skill_slug": "mongodb",
       "nom": "MongoDB",
       "type": "technique",
       "domaine_slug": "data-engineering",
       "niveau": "intermediaire"
     },
     {
-      "slug": "anglais",
+      "skill_slug": "anglais",
       "nom": "Anglais",
       "type": "linguistique",
       "domaine_slug": "langues",
       "niveau": "B2"
     },
     {
-      "slug": "travail-equipe",
+      "skill_slug": "travail-equipe",
       "nom": "Travail en equipe",
       "type": "transversale",
       "domaine_slug": "soft-skills",
@@ -127,7 +127,7 @@ Le niveau d’une compétence est propre à chaque candidat, ce qui justifie ég
 ```json
 
 {
-  "slug": "smartcity-explorer",
+  "projet_slug": "smartcity-explorer",
   "titre": "SmartCity Explorer",
   "description": "Application d'exploration et d'analyse de donnees urbaines",
   "contexte": "Projet academique NoSQL",
@@ -183,8 +183,8 @@ Les informations propres au projet (technologies, réalisation, liens, medias) r
 
 | Collection | Index | Requête servie (R#) |
 |---|---|---|
-| candidats | 	{ slug: 1 } (unique) | 	R1, R7 |
-| projets | { slug: 1 } (unique) | R6 |
+| candidats | 	{ candidat_slug: 1 } (unique) | 	R1, R7 |
+| projets | { projet_slug: 1 } (unique) | R6 |
 | projets | { candidat_slugs: 1 } | R2, R3, R8 |
 | projets | { competence_slugs: 1 } | R2 |
 | projets | { domaine_slugs: 1 } | R8 |
@@ -253,10 +253,10 @@ graph LR
 
 | Label | Propriétés | Clé unique |
 |---|---|---|
-| Candidat | slug, nom, prenom, titre | slug |
-| Projet | slug, titre | slug |
-| Competence | slug, nom, type | slug |
-| Domaine | slug, nom | slug |
+| Candidat | candidat_slug, nom, prenom, titre | candidat_slug |
+| Projet | projet_slug, titre | projet_slug |
+| Competence | skill_slug, nom, type | skill_slug |
+| Domaine | domaine_slug, nom | domaine_slug |
 | Entreprise | slug, nom | slug |
 
 | Relation | De → Vers | Propriétés | Pourquoi ce sens |
@@ -377,9 +377,9 @@ REQUIRE e.slug IS UNIQUE;
 
 | Entité | Slug | Dans MongoDB | Dans Neo4j |
 |---|---|---|---|
-| Candidat | `candidat_slug` (ex. `alice-martin`) | candidats.slug et projets.candidat_slugs[] | (:Candidat {slug: "alice-martin"}) |
-| Projet | `projet_slug` (ex. `smartcity-explorer`) | projets.slug | (:Projet {slug: "smartcity-explorer"}) |
-| Compétence | `skill_slug` (ex. `mongodb`) | candidats.competences[].slug et projets.competence_slugs[] | (:Competence {slug: "mongodb"}) |
+| Candidat | `candidat_slug` (ex. `alice-martin`) | candidats.candidat_slug et projets.candidat_slugs[] | (:Candidat {candidatslug: "alice-martin"}) |
+| Projet | `projet_slug` (ex. `smartcity-explorer`) | projets.projet_slug | (:Projet {projet_slug: "smartcity-explorer"}) |
+| Compétence | `skill_slug` (ex. `mongodb`) | candidats.competences[].projet_slug et projets.competence_slugs[] | (:Competence {skill_slug: "mongodb"}) |
 
 **Suppression d'un projet** : 
 MongoDB : supprimer le document de la collection projets correspondant au slug du projet. Les documents des candidats sont conservés.
