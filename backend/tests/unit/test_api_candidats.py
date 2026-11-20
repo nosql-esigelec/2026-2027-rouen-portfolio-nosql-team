@@ -261,13 +261,10 @@ def test_r7_returns_latest_experience(client, monkeypatch):
     """R7 : retourne la dernière expérience du candidat."""
 
     experience = {
-        "candidat_slug": "lea-bernard",
-        "experience": {
             "entreprise": "Renault Digital",
             "poste": "Stagiaire Data Engineer",
             "debut": "2026-04",
             "fin": "2026-08",
-        },
     }
 
     service = AsyncMock(return_value=experience)
