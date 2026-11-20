@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException, Query
 
 from portfolio_api.models import GraphOut, SimilarProjetsOut,ProjetsResponse
 from portfolio_api.services import graph_service
+from portfolio_api.services import candidat_service
 
 
 router = APIRouter(prefix="/graph", tags=["graph"])
