@@ -101,4 +101,9 @@ async def get_candidat_latest_experience(
             detail="Candidat introuvable ou aucune expérience disponible",
         )
 
-    return ExperienceRecenteOut.model_validate(result)
+    return ExperienceRecenteOut.model_validate(
+        {
+            "candidat_slug": slug,
+            "experience": result,
+        }
+    )
