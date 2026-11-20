@@ -83,3 +83,22 @@ async def get_candidat_stats(slug: str) -> StatsOut:
         )
 
     return result
+
+@router.get(
+    "/{slug}/experiences/derniere",
+    response_model=ExperienceRecenteOut,
+    summary="R7 — Dernière expérience professionnelle d'un candidat",
+)
+async def get_candidat_latest_experience(
+    slug: str,
+) -> ExperienceRecenteOut:
+
+    result = await candidat_service.get_latest_experience(slug)
+
+    if result is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Candidat introuvable ou aucune expérience disponible",
+        )
+
+    return ExperienceRecenteOut.model_validate(result)

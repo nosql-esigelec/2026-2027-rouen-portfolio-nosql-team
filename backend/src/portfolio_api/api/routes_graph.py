@@ -46,3 +46,31 @@ async def get_competence_graph(slug: str) -> GraphOut:
         )
         
     return result
+
+@router.get(
+    "/{slug}/projets/domaines/{domaine_slug}",
+    response_model=ProjetsResponse,
+    summary="R8 — Projets d'un candidat par domaine",
+)
+async def get_candidat_projets_par_domaine(
+    slug: str,
+    domaine_slug: str,
+    page: int = Query(default=1, ge=1),
+    limit: int = Query(default=10, ge=1, le=100),
+) -> ProjetsResponse:
+
+    result = await candidat_service.get_candidat_projets(
+        slug=slug,
+        domaine_slug=domaine_slug,
+        page=page,
+        limit=limit,
+    )
+
+    if result is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Candidat introuvable",
+        )
+
+    return result
+

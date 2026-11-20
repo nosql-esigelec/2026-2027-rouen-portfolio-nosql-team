@@ -48,8 +48,6 @@ async def get_projects_by_domain(
     )
 
     return projets
-<<<<<<< HEAD
-=======
 # R5 — Graphe de compétences d'un candidat
 async def get_competence_graph(slug: str) -> GraphOut | None:
     """R5 : retourne le graphe de compétences d'un candidat."""
@@ -59,4 +57,3 @@ async def get_competence_graph(slug: str) -> GraphOut | None:
         return None
 
     return GraphOut.model_validate(result)
->>>>>>> 40287340a7f35f98b203bedc28fd78c7daa3d491
