@@ -3,7 +3,6 @@
 > **Jalon 1** : le contrat entre le backend d'équipe et **chaque** frontend. Il doit être **complet** :
 > chaque membre doit pouvoir coder son frontend avec ce seul document, sans attendre le backend.
 > Les 5 routes ci-dessous sont le minimum ; ajoutez **toutes** celles dont vos frontends ont besoin.
-> Remplacez **tous** les `TODO`. Après la soutenance, toute modification passe par une Pull Request relue par l'équipe.
 
 Base URL : `http://localhost:8000` · Swagger : `http://localhost:8000/docs`
 
