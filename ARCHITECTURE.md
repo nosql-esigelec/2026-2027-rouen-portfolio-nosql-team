@@ -1,7 +1,7 @@
 # 🧠 ARCHITECTURE - Équipe `NoSqlteam`
 
 > **Jalon 1** : ce document est votre **spécification**. Il doit être **complet** : toute l'équipe va coder dessus.
-> Toutes les sections sont obligatoires. Remplacez **tous** les `TODO` (la CI « Livrables » les compte).
+> Toutes les sections sont obligatoires.
 > En soutenance (5 à 6 min), vous présenterez surtout la **section 1** (schéma) et le contrat `API_ROUTES.md`.
 
 ## 1. Schéma d'architecture
@@ -234,11 +234,6 @@ db.projets.aggregate([
 ## 4. Modèle Neo4j
 
 ### 4.1 Schéma du graphe
-
-```mermaid
-graph LR
-    %% TODO : vos nœuds et relations orientées, ex. (Candidat)-[:A_REALISE]->(Projet)-[:UTILISE]->(Competence)-[:APPARTIENT_A]->(Domaine)
-```
 
 ```mermaid
 graph LR
