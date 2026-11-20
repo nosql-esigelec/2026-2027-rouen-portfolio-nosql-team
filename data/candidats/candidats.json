@@ -1797,5 +1797,199 @@
         "niveau": 3
       }
     ]
+  },
+  {
+    "candidat_slug": "loic-kakou",
+    "prenom": "Loïc",
+    "nom": "Kakou",
+    "titre": "Élève-ingénieur Big Data — ESIGELEC",
+    "bio": "Étudiant ingénieur spécialisé en Big Data, passionné par l'analyse et la valorisation des données, les modèles prédictifs et le développement web. Curieux, rigoureux et autonome, je vise un poste de data scientist pour transformer les données brutes en insights stratégiques.",
+    "liens": {
+      "github": "https://github.com/kakou-project",
+      "linkedin": "https://www.linkedin.com/in/kakou"
+    },
+    "experiences": [
+      {
+        "entreprise": "AIR CIV",
+        "poste": "Stagiaire Data Analyst",
+        "debut": "2026-08",
+        "fin": "2026-10",
+        "description": "Analyse des ventes et des recettes de vols long-courrier (Abidjan–Paris CDG) sur des datasets de plus de 100 000 lignes, nettoyage des données, dashboards de suivi des KPI (Power BI, Excel) et automatisation de la production des manifestes de vols, des taux mensuels par zone et du traitement des états de ventes FRET.",
+        "competences": [
+          "python",
+          "pandas",
+          "sql",
+          "power-bi"
+        ]
+      },
+      {
+        "entreprise": "Mobile Telephone Network",
+        "poste": "Stagiaire IT",
+        "debut": "2024-04",
+        "fin": "2024-06",
+        "description": "Collecte, traitement et stockage de métriques serveurs (Python, Oracle), requêtes SQL complexes, développement d'une API Django et d'un dashboard ReactJS centralisant les données. Projet de fin d'étude : système de monitoring des serveurs.",
+        "competences": [
+          "python",
+          "oracle",
+          "sql",
+          "django",
+          "react"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      },
+      {
+        "ecole": "Institut National Polytechnique FHB — Yamoussoukro (CI)",
+        "diplome": "Diplôme de Technicien Supérieur — TIC",
+        "debut": "2021-09",
+        "fin": "2024-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "r",
+        "nom": "R",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "javascript",
+        "nom": "JavaScript",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "java",
+        "nom": "Java",
+        "domaine_slug": "langages",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "c",
+        "nom": "C",
+        "domaine_slug": "langages",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "php",
+        "nom": "PHP",
+        "domaine_slug": "langages",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "numpy",
+        "nom": "NumPy",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "scikit-learn",
+        "nom": "scikit-learn",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "tensorflow",
+        "nom": "TensorFlow",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "machine-learning",
+        "nom": "Machine Learning",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "deep-learning",
+        "nom": "Deep Learning",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "spark",
+        "nom": "Apache Spark",
+        "domaine_slug": "big-data",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "react",
+        "nom": "React",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "django",
+        "nom": "Django",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "nodejs",
+        "nom": "Node.js",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "flask",
+        "nom": "Flask",
+        "domaine_slug": "web",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "oracle",
+        "nom": "Oracle",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "mysql",
+        "nom": "MySQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
   }
 ]
