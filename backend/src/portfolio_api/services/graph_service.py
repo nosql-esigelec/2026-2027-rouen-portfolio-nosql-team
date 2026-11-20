@@ -4,6 +4,7 @@ from portfolio_api.models import SimilarProjetsOut
 from portfolio_api.repositories import neo4j_graph
 
 from portfolio_api.models import GraphOut
+from portfolio_api.db.mongo import get_mongo_db
 
 # R4 — Projets similaires à un projet source
 async def get_similar_projets(

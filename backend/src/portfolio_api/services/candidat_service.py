@@ -10,7 +10,7 @@ from portfolio_api.repositories import (
     mongo_projets,
 )
 
-
+from portfolio_api.db.mongo import get_mongo_db
 # R1 — Profil et timeline du candidat
 async def get_candidat_profile(
     slug: str,
