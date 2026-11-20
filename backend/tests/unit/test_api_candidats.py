@@ -252,17 +252,22 @@ def test_r3_unknown_candidat(client, monkeypatch):
     assert response.status_code == 404
     assert response.json() == {"detail": "Candidat introuvable"}
 
-# R7 : Dernière expérience professionnelle 
+
+
+# R7 : Dernière expérience professionnelle d'un candidat
 
 
 def test_r7_returns_latest_experience(client, monkeypatch):
     """R7 : retourne la dernière expérience du candidat."""
 
     experience = {
-        "entreprise": "Renault Digital",
-        "poste": "Stagiaire Data Engineer",
-        "debut": "2026-04",
-        "fin": "2026-08",
+        "candidat_slug": "lea-bernard",
+        "experience": {
+            "entreprise": "Renault Digital",
+            "poste": "Stagiaire Data Engineer",
+            "debut": "2026-04",
+            "fin": "2026-08",
+        },
     }
 
     service = AsyncMock(return_value=experience)
@@ -278,11 +283,18 @@ def test_r7_returns_latest_experience(client, monkeypatch):
     )
 
     assert response.status_code == 200
-    assert response.json()["entreprise"] == "Renault Digital"
-    assert response.json()["poste"] == "Stagiaire Data Engineer"
-    assert response.json()["debut"] == "2026-04"
+
+    data = response.json()
+
+    assert data["candidat_slug"] == "lea-bernard"
+    assert data["experience"] is not None
+    assert data["experience"]["entreprise"] == "Renault Digital"
+    assert data["experience"]["poste"] == "Stagiaire Data Engineer"
+    assert data["experience"]["debut"] == "2026-04"
+    assert data["experience"]["fin"] == "2026-08"
 
     service.assert_awaited_once_with("lea-bernard")
+
 
 
 def test_r7_unknown_candidat(client, monkeypatch):
@@ -301,15 +313,16 @@ def test_r7_unknown_candidat(client, monkeypatch):
     )
 
     assert response.status_code == 404
+
     assert response.json() == {
-        "detail": "Candidat introuvable ou sans expérience"
+        "detail": "Candidat introuvable ou aucune expérience disponible"
     }
 
     service.assert_awaited_once_with("inconnu")
 
 
 def test_r7_candidat_without_experience(client, monkeypatch):
-    """R7 : aucune expérience -> HTTP 404."""
+    """R7 : candidat sans expérience -> HTTP 404."""
 
     service = AsyncMock(return_value=None)
 
@@ -324,5 +337,9 @@ def test_r7_candidat_without_experience(client, monkeypatch):
     )
 
     assert response.status_code == 404
+
+    assert response.json() == {
+        "detail": "Candidat introuvable ou aucune expérience disponible"
+    }
+
     service.assert_awaited_once_with("lea-bernard")
-# R5 — Graphe de compétences d'un candidat

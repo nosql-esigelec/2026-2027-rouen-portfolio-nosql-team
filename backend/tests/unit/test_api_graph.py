@@ -7,8 +7,9 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from portfolio_api.api.routes_graph import router
-from portfolio_api.models import SimilarProjetsOut
-from portfolio_api.services import graph_service
+from portfolio_api.models import SimilarProjetsOut, ProjetsResponse
+from portfolio_api.services import graph_service,candidat_service
+from portfolio_api.api.routes_candidats import router as candidats_router
 
 
 @pytest.fixture
@@ -20,6 +21,13 @@ def client():
     with TestClient(app) as test_client:
         yield test_client
 
+@pytest.fixture
+def client_r8():
+    app = FastAPI()
+    app.include_router(candidats_router, prefix="/api")
+
+    with TestClient(app) as test_client:
+        yield test_client
 
 def test_r4_returns_similar_projets(client, monkeypatch):
     result = SimilarProjetsOut.model_validate(
@@ -125,7 +133,7 @@ def test_r4_invalid_limit(client, monkeypatch, params):
 # R8 : Projets d'un candidat par domaine 
 
 
-def test_r8_returns_projects_by_domain(client, monkeypatch):
+def test_r8_returns_projects_by_domain(client_r8, monkeypatch):
     """R8 : retourne les projets filtrés par domaine."""
 
     result = ProjetsResponse.model_validate(
@@ -158,8 +166,13 @@ def test_r8_returns_projects_by_domain(client, monkeypatch):
         service,
     )
 
-    response = client.get(
-        "/api/candidats/lea-bernard/projets/domaines/big-data"
+    response = client_r8.get(
+        "/api/candidats/lea-bernard/projets",
+        params={
+            "domaine_slug": "big-data",
+            "page": 1,
+            "limit": 10,
+        },
     )
 
     assert response.status_code == 200
@@ -167,13 +180,14 @@ def test_r8_returns_projects_by_domain(client, monkeypatch):
 
     service.assert_awaited_once_with(
         slug="lea-bernard",
+        competence=None,
         domaine_slug="big-data",
         page=1,
         limit=10,
     )
 
 
-def test_r8_empty_projects(client, monkeypatch):
+def test_r8_empty_projects(client_r8, monkeypatch):
     """R8 : domaine sans projet -> liste vide."""
 
     result = ProjetsResponse.model_validate(
@@ -201,16 +215,27 @@ def test_r8_empty_projects(client, monkeypatch):
         service,
     )
 
-    response = client.get(
-        "/api/candidats/lea-bernard/projets/domaines/cybersecurite"
+    response = client_r8.get(
+        "/api/candidats/lea-bernard/projets",
+        params={
+            "domaine_slug": "cybersecurite",
+        },
     )
 
     assert response.status_code == 200
     assert response.json()["projets"] == []
     assert response.json()["pagination"]["total"] == 0
 
+    service.assert_awaited_once_with(
+        slug="lea-bernard",
+        competence=None,
+        domaine_slug="cybersecurite",
+        page=1,
+        limit=10,
+    )
 
-def test_r8_unknown_candidat(client, monkeypatch):
+
+def test_r8_unknown_candidat(client_r8, monkeypatch):
     """R8 : candidat inexistant -> HTTP 404."""
 
     service = AsyncMock(return_value=None)
@@ -221,14 +246,25 @@ def test_r8_unknown_candidat(client, monkeypatch):
         service,
     )
 
-    response = client.get(
-        "/api/candidats/inconnu/projets/domaines/big-data"
+    response = client_r8.get(
+        "/api/candidats/inconnu/projets",
+        params={
+            "domaine_slug": "big-data",
+        },
     )
 
     assert response.status_code == 404
     assert response.json() == {
         "detail": "Candidat introuvable"
     }
+
+    service.assert_awaited_once_with(
+        slug="inconnu",
+        competence=None,
+        domaine_slug="big-data",
+        page=1,
+        limit=10,
+    )
 
 
 @pytest.mark.parametrize(
@@ -240,8 +276,8 @@ def test_r8_unknown_candidat(client, monkeypatch):
         {"limit": 101},
     ],
 )
-def test_r8_invalid_parameters(client, monkeypatch, params):
-    """R8 : paramètres incorrects -> HTTP 422."""
+def test_r8_invalid_parameters(client_r8, monkeypatch, params):
+    """R8 : paramètres invalides -> HTTP 422."""
 
     service = AsyncMock()
 
@@ -251,10 +287,14 @@ def test_r8_invalid_parameters(client, monkeypatch, params):
         service,
     )
 
-    response = client.get(
-        "/api/candidats/lea-bernard/projets/domaines/big-data",
-        params=params,
+    response = client_r8.get(
+        "/api/candidats/lea-bernard/projets",
+        params={
+            "domaine_slug": "big-data",
+            **params,
+        },
     )
 
     assert response.status_code == 422
+
     service.assert_not_awaited()
