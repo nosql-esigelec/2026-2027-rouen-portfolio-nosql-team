@@ -1,4 +1,4 @@
-"""Tests unitaires — Services R1 à R3 (candidat_service).
+"""Tests unitaires — Services R1 à R3 et R8 (candidat_service).
 
 Les repositories sont mockés : aucune connexion MongoDB n'est utilisée.
 
@@ -17,6 +17,7 @@ from portfolio_api.services.candidat_service import (
     get_candidat_profile,
     get_candidat_projets,
     get_candidat_stats,
+    get_latest_experience,
 )
 
 MODULE = "portfolio_api.services.candidat_service"
@@ -482,3 +483,158 @@ class TestGetCandidatStats:
         assert result.total_competences_utilisees == 0
         assert result.statistiques == []
         mock_candidats.competence_names.assert_not_called()
+
+
+
+# R7 — get_latest_experience Dernière expérience professionnelle d'un candidat
+
+
+@pytest.fixture
+def mock_db_r7():
+    """Simule MongoDB sans connexion réelle."""
+
+    with patch(f"{MODULE}.get_mongo_db") as mock_get_db:
+        db = mock_get_db.return_value
+
+        db.candidats.find_one = AsyncMock()
+
+        yield db
+
+
+class TestGetLatestExperience:
+    """Tests unitaires du service R7."""
+
+    async def test_returns_none_when_candidat_not_found(
+        self, mock_db_r7
+    ):
+        """Retourne None si le candidat n'existe pas."""
+
+        mock_db_r7.candidats.find_one.return_value = None
+
+        result = await get_latest_experience("inconnu")
+
+        assert result is None
+
+        mock_db_r7.candidats.find_one.assert_awaited_once_with(
+            {"candidat_slug": "inconnu"},
+            {"_id": 0, "experiences": 1},
+        )
+
+    async def test_returns_none_when_no_experience(
+        self, mock_db_r7
+    ):
+        """Retourne None si le candidat n'a aucune expérience."""
+
+        mock_db_r7.candidats.find_one.return_value = {
+            "experiences": []
+        }
+
+        result = await get_latest_experience("alice-martin")
+
+        assert result is None
+
+    async def test_returns_latest_experience(
+        self, mock_db_r7
+    ):
+        """Retourne l'expérience avec la date de début la plus récente."""
+
+        experiences = [
+            {
+                "entreprise": "Alpha",
+                "poste": "Stagiaire",
+                "debut": "2021-06",
+                "fin": "2021-09",
+            },
+            {
+                "entreprise": "Gamma",
+                "poste": "Développeuse",
+                "debut": "2023-09",
+                "fin": None,
+            },
+            {
+                "entreprise": "Beta",
+                "poste": "Alternante",
+                "debut": "2022-09",
+                "fin": "2023-08",
+            },
+        ]
+
+        mock_db_r7.candidats.find_one.return_value = {
+            "experiences": experiences
+        }
+
+        result = await get_latest_experience("alice-martin")
+
+        assert result is not None
+        assert result["entreprise"] == "Gamma"
+        assert result["poste"] == "Développeuse"
+        assert result["debut"] == "2023-09"
+        assert result["fin"] is None
+
+    async def test_returns_single_experience(
+        self, mock_db_r7
+    ):
+        """Retourne l'unique expérience disponible."""
+
+        experience = {
+            "entreprise": "Renault Digital",
+            "poste": "Data Engineer",
+            "debut": "2026-04",
+            "fin": "2026-08",
+        }
+
+        mock_db_r7.candidats.find_one.return_value = {
+            "experiences": [experience]
+        }
+
+        result = await get_latest_experience("lea-bernard")
+
+        assert result == experience
+
+    async def test_handles_missing_start_date(
+        self, mock_db_r7
+    ):
+        """Une date absente ne doit pas empêcher la sélection."""
+
+        experiences = [
+            {
+                "entreprise": "Alpha",
+                "poste": "Stagiaire",
+                "debut": None,
+            },
+            {
+                "entreprise": "Beta",
+                "poste": "Data Engineer",
+                "debut": "2024-05",
+            },
+        ]
+
+        mock_db_r7.candidats.find_one.return_value = {
+            "experiences": experiences
+        }
+
+        result = await get_latest_experience("alice-martin")
+
+        assert result["entreprise"] == "Beta"
+        assert result["debut"] == "2024-05"
+
+    async def test_calls_mongodb_with_correct_slug(
+        self, mock_db_r7
+    ):
+        """Vérifie les paramètres transmis à MongoDB."""
+
+        mock_db_r7.candidats.find_one.return_value = {
+            "experiences": [
+                {
+                    "entreprise": "Alpha",
+                    "debut": "2023-01",
+                }
+            ]
+        }
+
+        await get_latest_experience("alice-martin")
+
+        mock_db_r7.candidats.find_one.assert_awaited_once_with(
+            {"candidat_slug": "alice-martin"},
+            {"_id": 0, "experiences": 1},
+        )

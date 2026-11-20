@@ -13,7 +13,7 @@ from unittest.mock import AsyncMock, patch
 import pytest
 
 from portfolio_api.models import SimilarProjetsOut
-from portfolio_api.services.graph_service import get_similar_projets
+from portfolio_api.services.graph_service import get_similar_projets,get_projects_by_domain
 
 MODULE = "portfolio_api.services.graph_service"
 
@@ -145,3 +145,153 @@ class TestGetSimilarProjets:
         assert isinstance(result, SimilarProjetsOut)
         assert result.total == 0
         assert result.projets_similaires == []
+
+# R8 — get_projects_by_domain Projets d'un candidat filtrés par domaine (MongoDB)
+
+@pytest.fixture
+def mock_db_r8():
+    """Simule la connexion MongoDB utilisée par R8."""
+
+    with patch(f"{MODULE}.get_mongo_db") as mock_get_db:
+        db = mock_get_db.return_value
+
+        # Simulation de la chaîne :
+        # find().sort().to_list()
+        cursor = db.projets.find.return_value
+        cursor.sort.return_value = cursor
+        cursor.to_list = AsyncMock()
+
+        yield db
+
+
+class TestGetProjectsByDomain:
+    """Tests unitaires du service R8."""
+
+    @pytest.fixture
+    def projets_result(self):
+        """Projets MongoDB simulés."""
+        return [
+            {
+                "projet_slug": "smartcity-explorer",
+                "titre": "SmartCity Explorer",
+                "domaine_slugs": ["big-data"],
+                "candidat_slugs": ["lea-bernard"],
+            },
+            {
+                "projet_slug": "data-pipeline",
+                "titre": "Data Pipeline",
+                "domaine_slugs": ["big-data"],
+                "candidat_slugs": ["lea-bernard"],
+            },
+        ]
+
+    async def test_returns_projects_by_domain(
+        self, mock_db_r8, projets_result
+    ):
+        """Retourne les projets du candidat dans le domaine demandé."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = projets_result
+
+        result = await get_projects_by_domain(
+            "lea-bernard", "big-data"
+        )
+
+        assert isinstance(result, list)
+        assert len(result) == 2
+
+        assert result == projets_result
+
+        assert result[0]["projet_slug"] == "smartcity-explorer"
+        assert result[1]["projet_slug"] == "data-pipeline"
+
+    async def test_empty_projects(self, mock_db_r8):
+        """Retourne une liste vide lorsqu'aucun projet ne correspond."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = []
+
+        result = await get_projects_by_domain(
+            "lea-bernard", "cybersecurite"
+        )
+
+        assert result == []
+
+    async def test_unknown_candidat(self, mock_db_r8):
+        """Retourne une liste vide pour un candidat sans projet."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = []
+
+        result = await get_projects_by_domain(
+            "inconnu", "big-data"
+        )
+
+        assert result == []
+
+    async def test_calls_mongodb_with_correct_filters(
+        self, mock_db_r8
+    ):
+        """Vérifie les filtres envoyés à MongoDB."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = []
+
+        await get_projects_by_domain(
+            "lea-bernard", "big-data"
+        )
+
+        mock_db_r8.projets.find.assert_called_once_with(
+            {
+                "candidat_slugs": "lea-bernard",
+                "domaine_slugs": "big-data",
+            },
+            {"_id": 0},
+        )
+
+    async def test_sorts_projects_by_slug(
+        self, mock_db_r8
+    ):
+        """Vérifie le tri des projets par projet_slug croissant."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = []
+
+        await get_projects_by_domain(
+            "lea-bernard", "big-data"
+        )
+
+        cursor.sort.assert_called_once_with(
+            "projet_slug", 1
+        )
+
+    async def test_returns_all_matching_projects(
+        self, mock_db_r8
+    ):
+        """Vérifie que tous les projets correspondants sont récupérés."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = []
+
+        await get_projects_by_domain(
+            "lea-bernard", "big-data"
+        )
+
+        cursor.to_list.assert_awaited_once_with(
+            length=None
+        )
+
+    async def test_returns_mongodb_result_unchanged(
+        self, mock_db_r8, projets_result
+    ):
+        """Vérifie que le service retourne les données récupérées."""
+
+        cursor = mock_db_r8.projets.find.return_value
+        cursor.to_list.return_value = projets_result
+
+        result = await get_projects_by_domain(
+            "lea-bernard", "big-data"
+        )
+
+        assert result == projets_result
+
