@@ -1,4 +1,4 @@
-"""Tests des routes R1 et R2."""
+"""Tests des routes R1 ,R2 ,R3 et R7."""
 
 from unittest.mock import AsyncMock
 
@@ -251,3 +251,78 @@ def test_r3_unknown_candidat(client, monkeypatch):
 
     assert response.status_code == 404
     assert response.json() == {"detail": "Candidat introuvable"}
+
+# R7 : Dernière expérience professionnelle 
+
+
+def test_r7_returns_latest_experience(client, monkeypatch):
+    """R7 : retourne la dernière expérience du candidat."""
+
+    experience = {
+        "entreprise": "Renault Digital",
+        "poste": "Stagiaire Data Engineer",
+        "debut": "2026-04",
+        "fin": "2026-08",
+    }
+
+    service = AsyncMock(return_value=experience)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_latest_experience",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/experiences/derniere"
+    )
+
+    assert response.status_code == 200
+    assert response.json()["entreprise"] == "Renault Digital"
+    assert response.json()["poste"] == "Stagiaire Data Engineer"
+    assert response.json()["debut"] == "2026-04"
+
+    service.assert_awaited_once_with("lea-bernard")
+
+
+def test_r7_unknown_candidat(client, monkeypatch):
+    """R7 : candidat inexistant -> HTTP 404."""
+
+    service = AsyncMock(return_value=None)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_latest_experience",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/inconnu/experiences/derniere"
+    )
+
+    assert response.status_code == 404
+    assert response.json() == {
+        "detail": "Candidat introuvable ou sans expérience"
+    }
+
+    service.assert_awaited_once_with("inconnu")
+
+
+def test_r7_candidat_without_experience(client, monkeypatch):
+    """R7 : aucune expérience -> HTTP 404."""
+
+    service = AsyncMock(return_value=None)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_latest_experience",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/experiences/derniere"
+    )
+
+    assert response.status_code == 404
+    service.assert_awaited_once_with("lea-bernard")
+# R5 — Graphe de compétences d'un candidat

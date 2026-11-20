@@ -1,4 +1,4 @@
-"""Tests de la route R4."""
+"""Tests de la route R4 et R5 et R8."""
 
 from unittest.mock import AsyncMock
 
@@ -114,6 +114,145 @@ def test_r4_invalid_limit(client, monkeypatch, params):
 
     response = client.get(
         "/api/graph/projets/smartcity-explorer/similaires",
+        params=params,
+    )
+
+    assert response.status_code == 422
+    service.assert_not_awaited()
+
+
+
+# R8 : Projets d'un candidat par domaine 
+
+
+def test_r8_returns_projects_by_domain(client, monkeypatch):
+    """R8 : retourne les projets filtrés par domaine."""
+
+    result = ProjetsResponse.model_validate(
+        {
+            "candidat_slug": "lea-bernard",
+            "filtres": {
+                "competence": None,
+                "domaine_slug": "big-data",
+            },
+            "pagination": {
+                "page": 1,
+                "limit": 10,
+                "total": 1,
+                "total_pages": 1,
+            },
+            "projets": [
+                {
+                    "projet_slug": "smartcity-explorer",
+                    "titre": "SmartCity Explorer",
+                }
+            ],
+        }
+    )
+
+    service = AsyncMock(return_value=result)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_projets",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/projets/domaines/big-data"
+    )
+
+    assert response.status_code == 200
+    assert response.json() == result.model_dump(mode="json")
+
+    service.assert_awaited_once_with(
+        slug="lea-bernard",
+        domaine_slug="big-data",
+        page=1,
+        limit=10,
+    )
+
+
+def test_r8_empty_projects(client, monkeypatch):
+    """R8 : domaine sans projet -> liste vide."""
+
+    result = ProjetsResponse.model_validate(
+        {
+            "candidat_slug": "lea-bernard",
+            "filtres": {
+                "competence": None,
+                "domaine_slug": "cybersecurite",
+            },
+            "pagination": {
+                "page": 1,
+                "limit": 10,
+                "total": 0,
+                "total_pages": 0,
+            },
+            "projets": [],
+        }
+    )
+
+    service = AsyncMock(return_value=result)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_projets",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/projets/domaines/cybersecurite"
+    )
+
+    assert response.status_code == 200
+    assert response.json()["projets"] == []
+    assert response.json()["pagination"]["total"] == 0
+
+
+def test_r8_unknown_candidat(client, monkeypatch):
+    """R8 : candidat inexistant -> HTTP 404."""
+
+    service = AsyncMock(return_value=None)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_projets",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/inconnu/projets/domaines/big-data"
+    )
+
+    assert response.status_code == 404
+    assert response.json() == {
+        "detail": "Candidat introuvable"
+    }
+
+
+@pytest.mark.parametrize(
+    "params",
+    [
+        {"page": 0},
+        {"page": "abc"},
+        {"limit": 0},
+        {"limit": 101},
+    ],
+)
+def test_r8_invalid_parameters(client, monkeypatch, params):
+    """R8 : paramètres incorrects -> HTTP 422."""
+
+    service = AsyncMock()
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_candidat_projets",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/projets/domaines/big-data",
         params=params,
     )
 
