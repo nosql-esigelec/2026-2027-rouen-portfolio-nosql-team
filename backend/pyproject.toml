@@ -31,3 +31,6 @@ packages = ["src/portfolio_api"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+
+[tool.vercel]
+entrypoint = "src.portfolio_api.main:app"

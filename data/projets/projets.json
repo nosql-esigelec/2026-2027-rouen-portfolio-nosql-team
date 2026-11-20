@@ -2058,5 +2058,171 @@
         "description": "Capture d'écran de l'application"
       }
     ]
+  },
+  {
+    "projet_slug": "analyse-recettes-vols-aircv",
+    "titre": "Analyse des recettes commerciales long-courrier",
+    "description": "Analyse des ventes et des recettes de vols Abidjan–Paris CDG sur de gros volumes de données, avec tableaux de bord de suivi des KPI.",
+    "contexte": "Mission en entreprise — stage Data Analyst chez AIR CIV",
+    "architecture": "Python, Pandas, SQL et Power BI",
+    "date_debut": "2026-08",
+    "date_fin": "2026-10",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "sql",
+      "power-bi"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "data-viz"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "SQL",
+      "Power BI",
+      "Excel"
+    ],
+    "réalisation": [
+      "Nettoyage et structuration de datasets de plus de 100 000 lignes",
+      "Identification des écarts, des pertes et des tendances pour aider la décision",
+      "Création et maintenance de dashboards KPI (Power BI, Excel)",
+      "Automatisation des manifestes de vols, des taux mensuels par zone et des états de ventes FRET"
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "monitoring-serveurs-mtn",
+    "titre": "Système de monitoring des serveurs",
+    "description": "Collecte, traitement et stockage de métriques serveurs, exposées via une API et un dashboard centralisé.",
+    "contexte": "Projet de fin d'étude — stage IT chez Mobile Telephone Network",
+    "architecture": "Python, Oracle, API Django et dashboard ReactJS",
+    "date_debut": "2024-04",
+    "date_fin": "2024-06",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "python",
+      "sql",
+      "oracle",
+      "django",
+      "react"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "bases-de-donnees",
+      "web"
+    ],
+    "technologies": [
+      "Python",
+      "Oracle",
+      "SQL",
+      "Django",
+      "ReactJS"
+    ],
+    "réalisation": [
+      "Collecte, traitement et stockage des métriques serveurs",
+      "Requêtes SQL complexes (jointures, agrégations)",
+      "Développement d'une API avec Django",
+      "Dashboard ReactJS centralisant les données",
+      "Contribution à la mise en place d'indicateurs de performance"
+    ],
+    "liens": {
+      "github": "https://github.com/LoicJr12/API-du-dashboard-des-metriques-MTN-CI",
+      "demo": "https://github.com/LoicJr12/DashBoard-metrics-MTN-CI"
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "chaine-logistique-ecommerce-ml",
+    "titre": "Amélioration de la chaîne logistique d'un e-commerce",
+    "description": "Détection d'anomalies sur des box et des articles commandés à partir de données RFID, pilotée via un site web et une API.",
+    "contexte": "Projet académique",
+    "architecture": "Python (Pandas, scikit-learn), API Flask, site HTML, Bootstrap et JavaScript",
+    "date_debut": "2025-10",
+    "date_fin": "2025-11",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "scikit-learn",
+      "machine-learning",
+      "flask",
+      "javascript"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "web"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "scikit-learn",
+      "Flask",
+      "Bootstrap",
+      "JavaScript"
+    ],
+    "réalisation": [
+      "Chargement, nettoyage et préparation d'un dataset RFID de plus de 30 000 lignes",
+      "Développement de modèles prédictifs de détection d'anomalies",
+      "Réalisation d'un site web et d'une API Flask pilotant les fonctionnalités"
+    ],
+    "liens": {
+      "github": "https://github.com/Aissata26/ProjetS8",
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "site-offres-demenagement",
+    "titre": "Site de publication d'offres de déménagement",
+    "description": "Site web permettant de publier des offres de déménagement et de proposer des services.",
+    "contexte": "Projet académique",
+    "architecture": "PHP, JavaScript, HTML, CSS et MySQL",
+    "date_debut": "2026-05",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "php",
+      "javascript",
+      "mysql"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "PHP",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "MySQL"
+    ],
+    "réalisation": [
+      "Mise en place du site de publication des offres",
+      "Module de proposition de services",
+      "Base de données MySQL des offres"
+    ],
+    "liens": {
+      "github": "https://github.com/LoicJr12/AppliPack-Dash",
+      "demo": null
+    },
+    "medias": []
   }
 ]
