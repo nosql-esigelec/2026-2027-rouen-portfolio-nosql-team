@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { STOPS } from './stops'
 
 // État du robot guide : réplique affichée + animation de salut
-export function useGuide(stop) {
+export function useGuide(stop, ctx = {}) {
   const [lineIdx, setLineIdx] = useState(0)
   const [waving, setWaving] = useState(true)
   const timer = useRef()
@@ -24,6 +24,7 @@ export function useGuide(stop) {
     wave(1200)
   }, [wave])
 
-  const lines = STOPS[stop].lines
+  // Une réplique peut être un texte fixe ou une fonction des données (ignorée si elle renvoie null)
+  const lines = STOPS[stop].lines.map((l) => (typeof l === 'function' ? l(ctx) : l)).filter(Boolean)
   return { text: lines[lineIdx % lines.length], hasMore: lines.length > 1, waving, next }
 }

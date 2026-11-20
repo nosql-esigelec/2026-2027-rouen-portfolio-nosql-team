@@ -1,7 +1,7 @@
 # Frontend de @LoicJr12 — Portfolio 3D de Loïc KAKOU
 
-- **Technologie** : React 19 + Vite (JavaScript), Three.js via React Three Fiber + drei pour l'univers 3D et le robot guide.
-- **Prérequis** : Node.js ≥ 20, backend d'équipe lancé (`just up && just seed && just dev` à la racine du dépôt).
+- **Technologie** : React 19 + Vite (JavaScript), Three.js via React Three Fiber + drei (univers 3D, robot guide, graphe de compétences), d3-force-3d (placement du graphe).
+- **Prérequis** : **Node.js 22 LTS** (minimum 20.19 — Node 18 ne fonctionne pas avec Vite 8), backend d'équipe lancé (`just up && just seed && just dev` à la racine du dépôt).
 
 ## Lancer
 
@@ -18,9 +18,9 @@ npm run dev               # http://localhost:5173 (origine déjà autorisée par
 |---|---|---|
 | R1 | `GET /api/candidats/{slug}` | Accueil — profil & timeline du parcours |
 | R2 | `GET /api/candidats/{slug}/projets?competence=` | Accueil — galerie de projets filtrable |
-| R3 | `GET /api/candidats/{slug}/stats` | Accueil — statistiques de compétences |
+| R3 | `GET /api/candidats/{slug}/stats` | Accueil (carte « Technos ») + escale Compétences — barres « projets par compétence » |
 | R4 | `GET /api/graph/projets/{slug}/similaires` | Détail projet — projets similaires |
-| R5 | `GET /api/graph/competences/{slug}` | Accueil — graphe de compétences 3D |
+| R5 | `GET /api/graph/competences/{slug}` | Escale Compétences — constellation 3D interactive + fiche du nœud |
 | R6 | `GET /api/projets/{slug}` | `/projets/:slug` — détail d'un projet |
 | R7 | `GET /api/candidats/{slug}/experiences/recente` | Accueil — dernière expérience |
 | R8 | `GET /api/candidats/{slug}/projets?domaine_slug=` | Accueil — projets par domaine |

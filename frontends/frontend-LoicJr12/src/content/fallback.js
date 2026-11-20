@@ -3,6 +3,6 @@
 export const FALLBACK_PROFILE = {
   prenom: 'Loïc',
   nom: 'KAKOU',
-  titre: 'Data Analyst · Développeur web',
-  bio: 'Je transforme de gros volumes de données en décisions, et je construis les outils web pour les explorer.',
+  titre: 'Élève-ingénieur Big Data — ESIGELEC',
+  bio: "Étudiant ingénieur spécialisé en Big Data, passionné par l'analyse et la valorisation des données, les modèles prédictifs et le développement web.",
 }
