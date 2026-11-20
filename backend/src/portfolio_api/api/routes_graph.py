@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter, HTTPException, Query
 
-from portfolio_api.models import GraphOut, SimilarProjetsOut
+from portfolio_api.models import GraphOut, SimilarProjetsOut,ProjetsResponse
 from portfolio_api.services import graph_service
 
 
