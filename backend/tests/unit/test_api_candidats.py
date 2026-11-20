@@ -1,4 +1,4 @@
-"""Tests des routes R1 et R2."""
+"""Tests des routes R1 ,R2 ,R3 et R7."""
 
 from unittest.mock import AsyncMock
 
@@ -251,3 +251,95 @@ def test_r3_unknown_candidat(client, monkeypatch):
 
     assert response.status_code == 404
     assert response.json() == {"detail": "Candidat introuvable"}
+
+
+
+# R7 : Dernière expérience professionnelle d'un candidat
+
+
+def test_r7_returns_latest_experience(client, monkeypatch):
+    """R7 : retourne la dernière expérience du candidat."""
+
+    experience = {
+        "candidat_slug": "lea-bernard",
+        "experience": {
+            "entreprise": "Renault Digital",
+            "poste": "Stagiaire Data Engineer",
+            "debut": "2026-04",
+            "fin": "2026-08",
+        },
+    }
+
+    service = AsyncMock(return_value=experience)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_latest_experience",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/experiences/derniere"
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["candidat_slug"] == "lea-bernard"
+    assert data["experience"] is not None
+    assert data["experience"]["entreprise"] == "Renault Digital"
+    assert data["experience"]["poste"] == "Stagiaire Data Engineer"
+    assert data["experience"]["debut"] == "2026-04"
+    assert data["experience"]["fin"] == "2026-08"
+
+    service.assert_awaited_once_with("lea-bernard")
+
+
+
+def test_r7_unknown_candidat(client, monkeypatch):
+    """R7 : candidat inexistant -> HTTP 404."""
+
+    service = AsyncMock(return_value=None)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_latest_experience",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/inconnu/experiences/derniere"
+    )
+
+    assert response.status_code == 404
+
+    assert response.json() == {
+        "detail": "Candidat introuvable ou aucune expérience disponible"
+    }
+
+    service.assert_awaited_once_with("inconnu")
+
+
+def test_r7_candidat_without_experience(client, monkeypatch):
+    """R7 : candidat sans expérience -> HTTP 404."""
+
+    service = AsyncMock(return_value=None)
+
+    monkeypatch.setattr(
+        candidat_service,
+        "get_latest_experience",
+        service,
+    )
+
+    response = client.get(
+        "/api/candidats/lea-bernard/experiences/derniere"
+    )
+
+    assert response.status_code == 404
+
+    assert response.json() == {
+        "detail": "Candidat introuvable ou aucune expérience disponible"
+    }
+
+    service.assert_awaited_once_with("lea-bernard")
