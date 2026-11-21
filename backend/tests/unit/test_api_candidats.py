@@ -276,7 +276,7 @@ def test_r7_returns_latest_experience(client, monkeypatch):
     )
 
     response = client.get(
-        "/api/candidats/lea-bernard/experiences/derniere"
+        "/api/candidats/lea-bernard/experiences/recente"
     )
 
     assert response.status_code == 200
@@ -306,7 +306,7 @@ def test_r7_unknown_candidat(client, monkeypatch):
     )
 
     response = client.get(
-        "/api/candidats/inconnu/experiences/derniere"
+        "/api/candidats/inconnu/experiences/recente"
     )
 
     assert response.status_code == 404
@@ -330,7 +330,7 @@ def test_r7_candidat_without_experience(client, monkeypatch):
     )
 
     response = client.get(
-        "/api/candidats/lea-bernard/experiences/derniere"
+        "/api/candidats/lea-bernard/experiences/recente"
     )
 
     assert response.status_code == 404

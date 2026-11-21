@@ -1,0 +1,113 @@
+[
+  {
+    "titre": "Plateforme d’analyse de données RFID",
+    "description": "Du nettoyage des données RFID à la comparaison de modèles prédictifs, dans une interface web dédiée.",
+    "contexte": "Projet académique réalisé d’avril à juin 2026.",
+    "architecture": "Python et scikit-learn pour préparer les données et comparer les modèles ; Flask pour l’interface web ; Oracle pour le stockage.",
+    "date_debut": "2026-04",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "he-yifei"
+    ],
+    "competence_slugs": [
+      "python",
+      "scikit-learn",
+      "flask",
+      "oracle"
+    ],
+    "domaine_slugs": [
+      "analyse-de-donnees",
+      "machine-learning"
+    ],
+    "technologies": [
+      "Python",
+      "scikit-learn",
+      "Flask",
+      "Oracle"
+    ],
+    "réalisation": [
+      "Nettoyage des données RFID et construction de fenêtres temporelles.",
+      "Comparaison de modèles d’analyse et de prédiction : Random Forest et KNN.",
+      "Développement d’une interface web pour importer les données, configurer les analyses et comparer les résultats.",
+      "Stockage des données dans Oracle."
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": [],
+    "projet_slug": "plateforme-analyse-rfid"
+  },
+  {
+    "titre": "Des données multisources aux tableaux de bord",
+    "description": "Un projet Business Intelligence pour intégrer les données et rendre les indicateurs métiers lisibles et explorables.",
+    "contexte": "Projet académique de Business Intelligence, de janvier à février 2026.",
+    "architecture": "Talend pour les flux ETL ; Power Query pour la préparation et la transformation ; Power BI pour la modélisation et les tableaux de bord.",
+    "date_debut": "2026-01",
+    "date_fin": "2026-02",
+    "candidat_slugs": [
+      "he-yifei"
+    ],
+    "competence_slugs": [
+      "power-bi",
+      "power-query",
+      "talend"
+    ],
+    "domaine_slugs": [
+      "business-intelligence"
+    ],
+    "technologies": [
+      "Power BI",
+      "Power Query",
+      "Talend"
+    ],
+    "réalisation": [
+      "Intégration, nettoyage et modélisation de données multisources.",
+      "Conception de flux ETL pour préparer les données.",
+      "Création de tableaux de bord interactifs pour le suivi d’indicateurs métiers."
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": [],
+    "projet_slug": "projet-business-intelligence"
+  },
+  {
+    "titre": "Analyse Big Data avec PySpark",
+    "description": "Préparer et analyser des données de vélos partagés, puis construire des pipelines de machine learning.",
+    "contexte": "Projet académique réalisé de novembre à décembre 2025.",
+    "architecture": "PySpark et les DataFrames pour la préparation des données ; Spark SQL pour l’analyse ; MLlib pour les pipelines de machine learning.",
+    "date_debut": "2025-11",
+    "date_fin": "2025-12",
+    "candidat_slugs": [
+      "he-yifei"
+    ],
+    "competence_slugs": [
+      "python",
+      "pyspark",
+      "spark-sql",
+      "mllib"
+    ],
+    "domaine_slugs": [
+      "big-data"
+    ],
+    "technologies": [
+      "PySpark",
+      "Spark SQL",
+      "DataFrame",
+      "MLlib"
+    ],
+    "réalisation": [
+      "Préparation et analyse de données de vélos partagés.",
+      "Création de pipelines de machine learning.",
+      "Validation croisée et recherche de paramètres pour les modèles."
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": [],
+    "projet_slug": "analyse-big-data-pyspark"
+  }
+]
