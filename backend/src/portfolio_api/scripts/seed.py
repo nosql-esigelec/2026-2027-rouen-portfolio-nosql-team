@@ -167,7 +167,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine")
+                domaine = comp.get("domaine") or comp.get("domaine_slug")
 
                 if domaine:
 
@@ -321,7 +321,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine")
+                domaine = comp.get("domaine") or comp.get("domaine_slug")
 
                 if domaine:
 
