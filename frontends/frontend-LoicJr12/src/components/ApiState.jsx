@@ -2,7 +2,8 @@ import { API_URL } from '../config'
 
 // Affichage commun des états "chargement" et "erreur" d'un appel API
 export default function ApiState({ state, route, children }) {
-  if (state.loading) {
+  // Pendant un rechargement (ex. changement de filtre), on garde l'affichage précédent
+  if (state.loading && !state.data) {
     return (
       <div className="api-state">
         <span className="api-state__spinner" /> Réception du signal… <code>{route}</code>

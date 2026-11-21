@@ -50,8 +50,10 @@ export const STOPS = [
     label: 'Projets',
     color: 'var(--pink)',
     lines: [
-      'Voici les planètes-projets !',
-      'Filtre-les par compétence ou par domaine pour trouver ce qui t’intéresse.',
+      ({ catalogue }) =>
+        catalogue ? `Voici les ${catalogue.pagination.total} planètes-projets de Loïc !` : 'Voici les planètes-projets !',
+      'Filtre-les par domaine ou par compétence : la requête envoyée à l’API s’affiche en direct.',
+      'Clique sur « Explorer » pour atterrir sur une planète et voir ses projets voisins.',
     ],
   },
   {

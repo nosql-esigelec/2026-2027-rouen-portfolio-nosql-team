@@ -6,6 +6,7 @@ import JourneyHUD from '../components/JourneyHUD'
 import GuideBubble from '../components/GuideBubble'
 import Parcours from '../components/Parcours'
 import Competences from '../components/Competences'
+import Projets from '../components/Projets'
 import { useGuide } from '../journey/useGuide'
 import { api } from '../api/client'
 import { useApi } from '../api/useApi'
@@ -22,13 +23,13 @@ export default function Home() {
 
   const candidat = useApi(() => api.getCandidat(CANDIDAT_SLUG)) // R1
   const recente = useApi(() => api.getExperienceRecente(CANDIDAT_SLUG)) // R7
-  const projets = useApi(() => api.getProjetsCandidat(CANDIDAT_SLUG, { limit: 1 })) // R2 (juste le total)
+  const catalogue = useApi(() => api.getProjetsCandidat(CANDIDAT_SLUG, { limit: 100 })) // R2 sans filtre : catalogue complet
   const stats = useApi(() => api.getStats(CANDIDAT_SLUG)) // R3
   const graph = useApi(() => api.getGraphCompetences(CANDIDAT_SLUG)) // R5
 
   const profil = { ...FALLBACK_PROFILE, ...(candidat.data ?? {}) }
   const chiffres = {
-    projets: projets.data?.pagination.total,
+    projets: catalogue.data?.pagination.total,
     technos: stats.data?.total_competences_utilisees,
     experiences: candidat.data?.experiences?.length,
     formations: candidat.data?.formations?.length,
@@ -41,6 +42,7 @@ export default function Home() {
     chiffres,
     stats: stats.data,
     graph: graph.data,
+    catalogue: catalogue.data,
   })
 
   return (
@@ -54,11 +56,12 @@ export default function Home() {
         <Hero profil={profil} stats={chiffres} />
         <Parcours candidat={candidat} recente={recente} />
         <Competences graph={graph} stats={stats} candidat={candidat} />
+        <Projets catalogue={catalogue} stats={stats} />
 
         {/* Escales suivantes : contenu ajouté aux prochaines étapes */}
-        {STOPS.slice(3).map((s, i) => (
+        {STOPS.slice(4).map((s, i) => (
           <section key={s.id} id={s.id} className="stop stop--placeholder" style={{ '--c': s.color }}>
-            <p className="eyebrow">Escale {String(i + 3).padStart(2, '0')}</p>
+            <p className="eyebrow">Escale {String(i + 4).padStart(2, '0')}</p>
             <h2 className="stop__title">{s.label}</h2>
             <p className="muted">En construction · prochaine étape</p>
           </section>

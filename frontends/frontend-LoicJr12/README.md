@@ -17,12 +17,12 @@ npm run dev               # http://localhost:5173 (origine déjà autorisée par
 | Requête | Route | Page / section |
 |---|---|---|
 | R1 | `GET /api/candidats/{slug}` | Accueil — profil & timeline du parcours |
-| R2 | `GET /api/candidats/{slug}/projets?competence=` | Accueil — galerie de projets filtrable |
+| R2 | `GET /api/candidats/{slug}/projets?competence=` | Escale Projets — filtre par compétence + pagination (et catalogue complet pour la carte « Projets » de l’accueil) |
 | R3 | `GET /api/candidats/{slug}/stats` | Accueil (carte « Technos ») + escale Compétences — barres « projets par compétence » |
 | R4 | `GET /api/graph/projets/{slug}/similaires` | Détail projet — projets similaires |
 | R5 | `GET /api/graph/competences/{slug}` | Escale Compétences — constellation 3D interactive + fiche du nœud |
 | R6 | `GET /api/projets/{slug}` | `/projets/:slug` — détail d'un projet |
 | R7 | `GET /api/candidats/{slug}/experiences/recente` | Accueil — dernière expérience |
-| R8 | `GET /api/candidats/{slug}/projets?domaine_slug=` | Accueil — projets par domaine |
+| R8 | `GET /api/candidats/{slug}/projets?domaine_slug=` | Escale Projets — filtre par domaine (combinable avec R2) |
 
 Toutes les fonctions d'appel sont regroupées dans `src/api/client.js`.

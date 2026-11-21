@@ -83,7 +83,7 @@ export const Robot = forwardRef(function Robot({ waving, onClick, onPointerOver,
 
     // Flottement
     body.current.position.y = Math.sin(t * 1.6) * 0.12
-    body.current.rotation.z = Math.sin(t * 0.9) * 0.05
+    body.current.rotation.z = Math.sin(t * 0.9) * 0.08
 
     // La tête suit la souris
     head.current.rotation.y = THREE.MathUtils.lerp(head.current.rotation.y, p.x * 0.6, 0.08)
