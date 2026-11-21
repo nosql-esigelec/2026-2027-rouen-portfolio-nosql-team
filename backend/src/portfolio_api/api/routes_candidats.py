@@ -85,7 +85,7 @@ async def get_candidat_stats(slug: str) -> StatsOut:
     return result
 
 @router.get(
-    "/{slug}/experiences/derniere",
+    "/{slug}/experiences/recente",
     response_model=ExperienceRecenteOut,
     summary="R7 — Dernière expérience professionnelle d'un candidat",
 )

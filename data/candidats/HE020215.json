@@ -1,0 +1,254 @@
+{
+  "prenom": "Yifei",
+  "nom": "HE",
+  "titre": "Data Analyst / Data Engineer",
+  "candidat_slug": "he-yifei",
+  "bio": "Étudiante à l’ESIGELEC en Big Data pour la transformation numérique, je développe une forte appétence pour l’analyse de données et l’aide à la décision. Curieuse, rigoureuse et orientée résultats, je maîtrise les outils de traitement, d’analyse et de visualisation de données : Python, SQL et Power BI. Mon objectif est d’évoluer vers un poste de Data Analyst afin de transformer les données en insights concrets et utiles pour les entreprises.",
+  "liens": {
+    "github": null,
+    "linkedin": null
+  },
+  "experiences": [
+    {
+      "entreprise": "Beijing Jiecheng Heli Technology Co., Ltd. · Chengdu, Chine",
+      "poste": "Stagiaire Data Analyst",
+      "description": "Extraction et transformation de données clients : requêtes SQL, jointures multi-tables et dédoublonnage.\nPréparation et contrôle qualité de journaux d’événements dans une architecture d’entrepôt de données.\nCréation de tableaux de bord XPROS et configuration d’indicateurs pour analyser les étapes et les durées des processus métiers.\nRédaction de documentation technique sur les relations entre tables et les règles de calcul des indicateurs.",
+      "competences": [
+        "sql",
+        "esprit-analytique"
+      ],
+      "debut": "2026-07",
+      "fin": "2026-09"
+    },
+    {
+      "entreprise": "Chengdu College (UESTC) · Engagement étudiant",
+      "poste": "Déléguée de classe et responsable de la vie étudiante",
+      "description": "Organisation d’activités collectives, coordination entre étudiants et enseignants, gestion des communications et suivi des tâches.",
+      "competences": [
+        "travail-equipe",
+        "autonomie-organisation"
+      ],
+      "debut": "2020",
+      "fin": "2024"
+    }
+  ],
+  "formations": [
+    {
+      "ecole": "ESIGELEC, Rouen",
+      "diplome": "Master — Big Data pour la transformation numérique",
+      "debut": "2024-09",
+      "fin": null
+    },
+    {
+      "ecole": "Chengdu College (UESTC), Chine",
+      "diplome": "Licence — Informatique",
+      "debut": "2020-09",
+      "fin": "2024-07"
+    }
+  ],
+  "competences": [
+    {
+      "skill_slug": "python",
+      "nom": "Python",
+      "domaine_slug": "analyse-de-donnees",
+      "niveau": null,
+      "domaine": "analyse-de-donnees"
+    },
+    {
+      "skill_slug": "sql",
+      "nom": "SQL",
+      "domaine_slug": "analyse-de-donnees",
+      "niveau": null,
+      "domaine": "analyse-de-donnees"
+    },
+    {
+      "skill_slug": "pandas",
+      "nom": "Pandas",
+      "domaine_slug": "analyse-de-donnees",
+      "niveau": null,
+      "domaine": "analyse-de-donnees"
+    },
+    {
+      "skill_slug": "numpy",
+      "nom": "NumPy",
+      "domaine_slug": "analyse-de-donnees",
+      "niveau": null,
+      "domaine": "analyse-de-donnees"
+    },
+    {
+      "skill_slug": "scikit-learn",
+      "nom": "scikit-learn",
+      "domaine_slug": "machine-learning",
+      "niveau": null,
+      "domaine": "machine-learning"
+    },
+    {
+      "skill_slug": "hadoop",
+      "nom": "Hadoop",
+      "domaine_slug": "big-data",
+      "niveau": null,
+      "domaine": "big-data"
+    },
+    {
+      "skill_slug": "hive",
+      "nom": "Hive",
+      "domaine_slug": "big-data",
+      "niveau": null,
+      "domaine": "big-data"
+    },
+    {
+      "skill_slug": "spark",
+      "nom": "Spark",
+      "domaine_slug": "big-data",
+      "niveau": null,
+      "domaine": "big-data"
+    },
+    {
+      "skill_slug": "pyspark",
+      "nom": "PySpark",
+      "domaine_slug": "big-data",
+      "niveau": null,
+      "domaine": "big-data"
+    },
+    {
+      "skill_slug": "spark-sql",
+      "nom": "Spark SQL",
+      "domaine_slug": "big-data",
+      "niveau": null,
+      "domaine": "big-data"
+    },
+    {
+      "skill_slug": "mllib",
+      "nom": "MLlib",
+      "domaine_slug": "big-data",
+      "niveau": null,
+      "domaine": "big-data"
+    },
+    {
+      "skill_slug": "power-bi",
+      "nom": "Power BI",
+      "domaine_slug": "business-intelligence",
+      "niveau": null,
+      "domaine": "business-intelligence"
+    },
+    {
+      "skill_slug": "power-query",
+      "nom": "Power Query",
+      "domaine_slug": "business-intelligence",
+      "niveau": null,
+      "domaine": "business-intelligence"
+    },
+    {
+      "skill_slug": "talend",
+      "nom": "Talend",
+      "domaine_slug": "business-intelligence",
+      "niveau": null,
+      "domaine": "business-intelligence"
+    },
+    {
+      "skill_slug": "oracle",
+      "nom": "Oracle",
+      "domaine_slug": "bases-de-donnees",
+      "niveau": null,
+      "domaine": "bases-de-donnees"
+    },
+    {
+      "skill_slug": "mysql",
+      "nom": "MySQL",
+      "domaine_slug": "bases-de-donnees",
+      "niveau": null,
+      "domaine": "bases-de-donnees"
+    },
+    {
+      "skill_slug": "java",
+      "nom": "Java",
+      "domaine_slug": "developpement",
+      "niveau": null,
+      "domaine": "developpement"
+    },
+    {
+      "skill_slug": "c",
+      "nom": "C",
+      "domaine_slug": "developpement",
+      "niveau": null,
+      "domaine": "developpement"
+    },
+    {
+      "skill_slug": "flask",
+      "nom": "Flask",
+      "domaine_slug": "developpement",
+      "niveau": null,
+      "domaine": "developpement"
+    },
+    {
+      "skill_slug": "git",
+      "nom": "Git",
+      "domaine_slug": "outils",
+      "niveau": null,
+      "domaine": "outils"
+    },
+    {
+      "skill_slug": "jupyter-notebook",
+      "nom": "Jupyter Notebook",
+      "domaine_slug": "outils",
+      "niveau": null,
+      "domaine": "outils"
+    },
+    {
+      "skill_slug": "vs-code",
+      "nom": "VS Code",
+      "domaine_slug": "outils",
+      "niveau": null,
+      "domaine": "outils"
+    },
+    {
+      "skill_slug": "esprit-analytique",
+      "nom": "Esprit analytique",
+      "domaine_slug": "soft-skills",
+      "niveau": null,
+      "domaine": "soft-skills"
+    },
+    {
+      "skill_slug": "travail-equipe",
+      "nom": "Travail en équipe",
+      "domaine_slug": "soft-skills",
+      "niveau": null,
+      "domaine": "soft-skills"
+    },
+    {
+      "skill_slug": "autonomie-organisation",
+      "nom": "Autonomie et organisation",
+      "domaine_slug": "soft-skills",
+      "niveau": null,
+      "domaine": "soft-skills"
+    },
+    {
+      "skill_slug": "curiosite",
+      "nom": "Curiosité et apprentissage continu",
+      "domaine_slug": "soft-skills",
+      "niveau": null,
+      "domaine": "soft-skills"
+    },
+    {
+      "skill_slug": "chinois",
+      "nom": "Chinois",
+      "domaine_slug": "langues",
+      "niveau": null,
+      "domaine": "langues"
+    },
+    {
+      "skill_slug": "francais",
+      "nom": "Français",
+      "domaine_slug": "langues",
+      "niveau": null,
+      "domaine": "langues"
+    },
+    {
+      "skill_slug": "anglais",
+      "nom": "Anglais",
+      "domaine_slug": "langues",
+      "niveau": null,
+      "domaine": "langues"
+    }
+  ]
+}
