@@ -26,3 +26,7 @@ npm run dev               # http://localhost:5173 (origine déjà autorisée par
 | R8 | `GET /api/candidats/{slug}/projets?domaine_slug=` | Escale Projets — filtre par domaine (combinable avec R2) |
 
 Toutes les fonctions d'appel sont regroupées dans `src/api/client.js`.
+
+## Coordonnées (escale Contact)
+
+E-mail, téléphone, GitHub et LinkedIn se règlent dans **`src/content/contact.js`**. Une valeur à `null` masque la carte correspondante ; le LinkedIn retombe sur celui de la fiche candidat (R1) s'il n'est pas renseigné.

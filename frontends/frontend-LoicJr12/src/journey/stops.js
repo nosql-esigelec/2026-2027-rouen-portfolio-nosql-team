@@ -61,8 +61,9 @@ export const STOPS = [
     label: 'Contact',
     color: 'var(--gold)',
     lines: [
-      'Fin du voyage… pour l’instant !',
-      'Envie de travailler avec Loïc ? Ses liens sont juste ici.',
+      'Fin du voyage… mais pas de la mission !',
+      'Envie de travailler avec Loïc ? Choisis ton canal : un clic sur « Copier » et c’est dans ton presse-papiers.',
+      'Merci d’avoir voyagé avec moi. Bon vent dans la galaxie !',
     ],
   },
 ]

@@ -8,6 +8,7 @@ import GuideBubble from '../components/GuideBubble'
 import Parcours from '../components/Parcours'
 import Competences from '../components/Competences'
 import Projets from '../components/Projets'
+import Contact from '../components/Contact'
 import { useGuide } from '../journey/useGuide'
 import { api } from '../api/client'
 import { useApi } from '../api/useApi'
@@ -69,14 +70,7 @@ export default function Home() {
         <Competences graph={graph} stats={stats} candidat={candidat} />
         <Projets catalogue={catalogue} stats={stats} />
 
-        {/* Escales suivantes : contenu ajouté aux prochaines étapes */}
-        {STOPS.slice(4).map((s, i) => (
-          <section key={s.id} id={s.id} className="stop stop--placeholder" style={{ '--c': s.color }}>
-            <p className="eyebrow">Escale {String(i + 4).padStart(2, '0')}</p>
-            <h2 className="stop__title">{s.label}</h2>
-            <p className="muted">En construction · prochaine étape</p>
-          </section>
-        ))}
+        <Contact candidat={candidat.data} />
       </main>
     </>
   )
