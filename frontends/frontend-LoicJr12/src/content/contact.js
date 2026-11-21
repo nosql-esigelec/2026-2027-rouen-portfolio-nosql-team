@@ -10,5 +10,5 @@ export const CONTACT = {
   github: 'https://github.com/LoicJr12',
 
   // null = on reprend le LinkedIn de ta fiche candidat (R1)
-  linkedin: null,
+  linkedin: 'https://www.linkedin.com/in/loïc-kakou-90b96a2b1/',
 }
