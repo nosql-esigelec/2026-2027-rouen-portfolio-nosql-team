@@ -1,20 +1,22 @@
+import { Link } from 'react-router-dom'
 import { STOPS } from '../journey/stops'
 
-export default function Navbar({ prenom, nom, active }) {
+// Liens "/#escale" : fonctionnent depuis l'accueil comme depuis la page d'un projet
+export default function Navbar({ prenom, nom, active = -1 }) {
   const initials = `${prenom?.[0] ?? 'L'}${nom?.[0] ?? 'K'}`.toUpperCase()
   return (
     <header className="nav">
-      <a href="#accueil" className="nav__brand">
+      <Link to="/#accueil" className="nav__brand">
         <span className="nav__logo">{initials}</span>
         <span className="nav__name">
           {prenom} <b>{nom}</b>
         </span>
-      </a>
+      </Link>
       <nav className="nav__links">
         {STOPS.slice(1).map((s, i) => (
-          <a key={s.id} href={`#${s.id}`} className={active === i + 1 ? 'is-active' : ''}>
+          <Link key={s.id} to={`/#${s.id}`} className={active === i + 1 ? 'is-active' : ''}>
             {s.label}
-          </a>
+          </Link>
         ))}
       </nav>
     </header>

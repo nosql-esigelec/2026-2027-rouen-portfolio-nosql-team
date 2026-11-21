@@ -30,7 +30,9 @@ const GuideBubble = forwardRef(function GuideBubble({ text, hasMore, onNext }, r
   const { typed, done } = useTypewriter(text)
   const [collapsed, setCollapsed] = useState(false)
 
-  useEffect(() => setCollapsed(false), [text])
+  useEffect(() => {
+    setCollapsed(false)
+  }, [text])
   useEffect(() => {
     if (!done) return
     const id = setTimeout(() => setCollapsed(true), READ_TIME)

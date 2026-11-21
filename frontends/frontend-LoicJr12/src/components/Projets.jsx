@@ -11,11 +11,11 @@ import { domaineColor, domaineNom } from '../content/domaines'
 const PAGE_SIZE = 6
 
 // Le domaine "langages" est présent partout : on préfère un domaine plus parlant pour la couleur
-function mainDomaine(projet) {
+export function mainDomaine(projet) {
   return projet.domaine_slugs?.find((d) => d !== 'langages') ?? projet.domaine_slugs?.[0] ?? 'langages'
 }
 
-function Planet({ color, index }) {
+export function Planet({ color, index }) {
   return (
     <div className="planet" style={{ '--p': color, '--spin': `${14 + index * 3}s` }} aria-hidden="true">
       <span className="planet__glow" />
@@ -26,7 +26,7 @@ function Planet({ color, index }) {
   )
 }
 
-function GithubIcon() {
+export function GithubIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
       <path

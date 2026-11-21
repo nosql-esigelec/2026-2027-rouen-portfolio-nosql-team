@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import Universe from '../three/Universe'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
@@ -17,7 +18,17 @@ import { startJourneyTracking } from '../journey/store'
 import { useActiveStop } from '../journey/useActiveStop'
 
 export default function Home() {
-  useEffect(() => startJourneyTracking(), [])
+  useEffect(() => {
+    startJourneyTracking()
+  }, [])
+
+  // Arrivée depuis une autre page avec une ancre (ex. /#projets) → on rejoint l'escale
+  const location = useLocation()
+  useEffect(() => {
+    if (!location.hash) return
+    const id = setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' }), 120)
+    return () => clearTimeout(id)
+  }, [location.hash, location.key])
   const active = useActiveStop()
   const bubbleRef = useRef()
 
@@ -36,7 +47,7 @@ export default function Home() {
   }
 
   // Le robot peut citer les vraies données dans ses répliques
-  const guide = useGuide(active, {
+  const guide = useGuide(active, STOPS[active].lines, {
     candidat: candidat.data,
     recente: recente.data?.experience,
     chiffres,

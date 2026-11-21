@@ -66,3 +66,24 @@ export const STOPS = [
     ],
   },
 ]
+
+// Répliques de Nova sur la page de détail d'un projet (R6 + R4)
+export const DETAIL_LINES = [
+  ({ projet, erreur }) =>
+    erreur
+      ? 'Oups… cette planète n’existe pas dans la galaxie de Loïc. Le bouton juste là te ramène aux projets.'
+      : projet
+        ? `Atterrissage réussi sur « ${projet.titre} » !`
+        : 'Atterrissage en cours…',
+  ({ projet }) =>
+    projet?.['réalisation']?.length
+      ? `${projet['réalisation'].length} réalisations à bord. Le journal de mission est juste en dessous.`
+      : null,
+  ({ similaires }) =>
+    similaires
+      ? similaires.total
+        ? `Neo4j a repéré ${similaires.total} planète${similaires.total > 1 ? 's' : ''} voisine${similaires.total > 1 ? 's' : ''} : plus elle est proche, plus elle partage de compétences.`
+        : 'Aucune planète voisine pour celle-ci : elle est unique en son genre !'
+      : null,
+  'Les planètes marquées ★ appartiennent aussi à Loïc. Clique sur une voisine pour y voyager.',
+]
