@@ -6,6 +6,7 @@ export const journey = {
   velocity: 0, // vitesse lissée (px/s) → effet "hyper-espace"
   progress: 0, // 0 → 1 sur toute la page
   heroProgress: 0, // 0 → 1 sur le premier écran (robot qui rejoint son coin)
+  forceCorner: false, // vrai hors de l'accueil : Nova reste dans son coin
   pointer: { x: 0, y: 0 }, // souris normalisée [-1, 1]
   reducedMotion:
     typeof window !== 'undefined' &&

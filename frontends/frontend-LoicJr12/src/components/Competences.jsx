@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ApiState from './ApiState'
 import SkillGraph, { NODE_STYLE } from '../three/SkillGraph'
 import { CANDIDAT_SLUG } from '../config'
+import { nodeLabel } from '../content/domaines'
 
 const slugOf = (id) => id?.split(':')[1]
 
@@ -47,7 +48,7 @@ function Fiche({ id, graph, candidat, stats, onSelect }) {
   return (
     <div className="fiche" style={{ '--c': color }}>
       <p className="fiche__kicker">{NODE_STYLE[node.type]?.label.replace(/s$/, '')}</p>
-      <h3 className="fiche__title">{node.label}</h3>
+      <h3 className="fiche__title">{nodeLabel(node)}</h3>
 
       {node.type === 'Competence' && (
         <>
@@ -88,7 +89,7 @@ function FicheList({ titre, items, onSelect, projet }) {
         {items.map((n) => (
           <li key={n.id}>
             <button type="button" onClick={() => onSelect(n.id)} className={projet ? 'is-projet' : ''}>
-              {n.label}
+              {nodeLabel(n)}
             </button>
           </li>
         ))}

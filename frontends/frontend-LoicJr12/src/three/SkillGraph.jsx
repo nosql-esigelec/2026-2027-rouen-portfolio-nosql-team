@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
+import { nodeLabel } from '../content/domaines'
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide } from 'd3-force-3d'
 
 // Apparence de chaque type de nœud du graphe Neo4j (R5) : couleur + forme
@@ -237,7 +238,7 @@ export default function SkillGraph({ graph, niveaux, selected, onSelect }) {
             ref={(el) => (labelsRef.current[n.id] = el)}
             className={`graph__label graph__label--${n.type}`}
           >
-            {n.label}
+            {nodeLabel(n)}
           </span>
         ))}
       </div>

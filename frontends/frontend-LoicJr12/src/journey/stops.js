@@ -50,8 +50,10 @@ export const STOPS = [
     label: 'Projets',
     color: 'var(--pink)',
     lines: [
-      'Voici les planètes-projets !',
-      'Filtre-les par compétence ou par domaine pour trouver ce qui t’intéresse.',
+      ({ catalogue }) =>
+        catalogue ? `Voici les ${catalogue.pagination.total} planètes-projets de Loïc !` : 'Voici les planètes-projets !',
+      'Filtre-les par domaine ou par compétence : la requête envoyée à l’API s’affiche en direct.',
+      'Clique sur « Explorer » pour atterrir sur une planète et voir ses projets voisins.',
     ],
   },
   {
@@ -59,8 +61,30 @@ export const STOPS = [
     label: 'Contact',
     color: 'var(--gold)',
     lines: [
-      'Fin du voyage… pour l’instant !',
-      'Envie de travailler avec Loïc ? Ses liens sont juste ici.',
+      'Fin du voyage… mais pas de la mission !',
+      'Envie de travailler avec Loïc ? Choisis ton canal : un clic sur « Copier » et c’est dans ton presse-papiers.',
+      'Merci d’avoir voyagé avec moi. Bon vent dans la galaxie !',
     ],
   },
+]
+
+// Répliques de Nova sur la page de détail d'un projet (R6 + R4)
+export const DETAIL_LINES = [
+  ({ projet, erreur }) =>
+    erreur
+      ? 'Oups… cette planète n’existe pas dans la galaxie de Loïc. Le bouton juste là te ramène aux projets.'
+      : projet
+        ? `Atterrissage réussi sur « ${projet.titre} » !`
+        : 'Atterrissage en cours…',
+  ({ projet }) =>
+    projet?.['réalisation']?.length
+      ? `${projet['réalisation'].length} réalisations à bord. Le journal de mission est juste en dessous.`
+      : null,
+  ({ similaires }) =>
+    similaires
+      ? similaires.total
+        ? `Neo4j a repéré ${similaires.total} planète${similaires.total > 1 ? 's' : ''} voisine${similaires.total > 1 ? 's' : ''} : plus elle est proche, plus elle partage de compétences.`
+        : 'Aucune planète voisine pour celle-ci : elle est unique en son genre !'
+      : null,
+  'Les planètes marquées ★ appartiennent aussi à Loïc. Clique sur une voisine pour y voyager.',
 ]
