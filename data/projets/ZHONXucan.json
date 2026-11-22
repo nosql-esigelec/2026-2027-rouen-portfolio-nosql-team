@@ -1,0 +1,103 @@
+[
+  {
+    "projet_slug": "plateforme-rfid",
+    "titre": "Plateforme d’analyse de données RFID",
+    "date_debut": "2026-04",
+    "date_fin": "2026-06",
+    "technologies": [
+      "Python",
+      "scikit-learn",
+      "Flask",
+      "Oracle"
+    ],
+    "competence_slugs": [
+      "python",
+      "scikit-learn",
+      "flask",
+      "oracle"
+    ],
+    "domaine_slugs": [
+      "programmation",
+      "data-science",
+      "bases-de-donnees"
+    ],
+    "description": "Nettoyer les données RFID et comparer des modèles d’analyse et de prédiction dans une interface web.",
+    "réalisation": [
+      "Nettoyage des données RFID et construction de fenêtres temporelles.",
+      "Comparaison des modèles Random Forest et KNN.",
+      "Interface Flask pour importer les données, configurer les analyses et comparer les résultats.",
+      "Stockage des données dans Oracle."
+    ],
+    "architecture": "Python · scikit-learn · Flask · Oracle",
+    "candidat_slugs": [
+      "zhong-xucan"
+    ],
+    "contexte": "Projet académique",
+    "liens": {},
+    "medias": []
+  },
+  {
+    "projet_slug": "business-intelligence",
+    "titre": "Projet de Business Intelligence",
+    "date_debut": "2026-01",
+    "date_fin": "2026-02",
+    "technologies": [
+      "Power BI",
+      "Power Query",
+      "Talend"
+    ],
+    "competence_slugs": [
+      "power-bi",
+      "power-query",
+      "talend"
+    ],
+    "domaine_slugs": [
+      "bi-etl"
+    ],
+    "description": "Transformer des données multisources en indicateurs métiers lisibles et en tableaux de bord interactifs.",
+    "réalisation": [
+      "Intégration, nettoyage et modélisation de données multisources.",
+      "Conception de flux ETL.",
+      "Tableaux de bord interactifs pour le suivi des indicateurs métiers."
+    ],
+    "architecture": "Power BI · Power Query · Talend",
+    "candidat_slugs": [
+      "zhong-xucan"
+    ],
+    "contexte": "Projet académique",
+    "liens": {},
+    "medias": []
+  },
+  {
+    "projet_slug": "analyse-pyspark",
+    "titre": "Analyse Big Data avec PySpark",
+    "date_debut": "2025-11",
+    "date_fin": "2025-12",
+    "technologies": [
+      "PySpark",
+      "Spark SQL",
+      "MLlib"
+    ],
+    "competence_slugs": [
+      "pyspark",
+      "spark-sql",
+      "mllib"
+    ],
+    "domaine_slugs": [
+      "big-data"
+    ],
+    "description": "Préparer et analyser des données de vélos partagés, puis construire des pipelines de machine learning.",
+    "réalisation": [
+      "Préparation et analyse de données de vélos partagés.",
+      "Traitements avec Spark SQL et DataFrame.",
+      "Pipelines MLlib avec validation croisée et recherche de paramètres."
+    ],
+    "architecture": "Spark SQL · DataFrame · MLlib",
+    "candidat_slugs": [
+      "zhong-xucan"
+    ],
+    "contexte": "Projet académique",
+    "liens": {},
+    "medias": []
+  }
+]

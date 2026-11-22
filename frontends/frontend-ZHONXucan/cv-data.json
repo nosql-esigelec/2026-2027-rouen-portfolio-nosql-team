@@ -1,0 +1,317 @@
+{
+  "candidat": {
+    "slug": "zhong-xucan",
+    "prenom": "Xucan",
+    "nom": "ZHONG",
+    "titre": "Data Analyst / Data Engineer",
+    "description": "Étudiant à l’ESIGELEC en Big Data pour la transformation numérique, je développe un fort intérêt pour l’analyse de données et l’aide à la décision. Curieux, rigoureux et orienté résultats, je maîtrise les outils de traitement, d’analyse et de visualisation de données : Python, SQL et Power BI. Mon objectif est d’évoluer vers un poste de Data Analyst afin de transformer les données en informations concrètes et utiles à la décision.",
+    "contact": {
+      "email": "2659089223@qq.com",
+      "telephone": "+33 7 59 51 48 89"
+    },
+    "liens": {},
+    "localisation": "Rouen, France",
+    "competences": [
+      {
+        "slug": "python",
+        "nom": "Python",
+        "domaine_slug": "programmation",
+        "niveau": null
+      },
+      {
+        "slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "programmation",
+        "niveau": null
+      },
+      {
+        "slug": "java",
+        "nom": "Java",
+        "domaine_slug": "programmation",
+        "niveau": null
+      },
+      {
+        "slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": null
+      },
+      {
+        "slug": "numpy",
+        "nom": "NumPy",
+        "domaine_slug": "data-science",
+        "niveau": null
+      },
+      {
+        "slug": "scikit-learn",
+        "nom": "scikit-learn",
+        "domaine_slug": "data-science",
+        "niveau": null
+      },
+      {
+        "slug": "hadoop",
+        "nom": "Hadoop",
+        "domaine_slug": "big-data",
+        "niveau": null
+      },
+      {
+        "slug": "hive",
+        "nom": "Hive",
+        "domaine_slug": "big-data",
+        "niveau": null
+      },
+      {
+        "slug": "spark",
+        "nom": "Spark",
+        "domaine_slug": "big-data",
+        "niveau": null
+      },
+      {
+        "slug": "pyspark",
+        "nom": "PySpark",
+        "domaine_slug": "big-data",
+        "niveau": null
+      },
+      {
+        "slug": "spark-sql",
+        "nom": "Spark SQL",
+        "domaine_slug": "big-data",
+        "niveau": null
+      },
+      {
+        "slug": "mllib",
+        "nom": "MLlib",
+        "domaine_slug": "big-data",
+        "niveau": null
+      },
+      {
+        "slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "bi-etl",
+        "niveau": null
+      },
+      {
+        "slug": "power-query",
+        "nom": "Power Query",
+        "domaine_slug": "bi-etl",
+        "niveau": null
+      },
+      {
+        "slug": "talend",
+        "nom": "Talend",
+        "domaine_slug": "bi-etl",
+        "niveau": null
+      },
+      {
+        "slug": "oracle",
+        "nom": "Oracle",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": null
+      },
+      {
+        "slug": "mysql",
+        "nom": "MySQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": null
+      },
+      {
+        "slug": "git",
+        "nom": "Git",
+        "domaine_slug": "outils",
+        "niveau": null
+      },
+      {
+        "slug": "jupyter-notebook",
+        "nom": "Jupyter Notebook",
+        "domaine_slug": "outils",
+        "niveau": null
+      },
+      {
+        "slug": "vs-code",
+        "nom": "VS Code",
+        "domaine_slug": "outils",
+        "niveau": null
+      },
+      {
+        "slug": "chinois",
+        "nom": "Chinois",
+        "domaine_slug": "langues",
+        "niveau": "langue maternelle"
+      },
+      {
+        "slug": "français",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": "B1"
+      },
+      {
+        "slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": "B1"
+      },
+      {
+        "slug": "esprit-analytique",
+        "nom": "Esprit analytique",
+        "domaine_slug": "soft-skills",
+        "niveau": null
+      },
+      {
+        "slug": "travail-en-équipe",
+        "nom": "Travail en équipe",
+        "domaine_slug": "soft-skills",
+        "niveau": null
+      },
+      {
+        "slug": "autonomie-et-organisation",
+        "nom": "Autonomie et organisation",
+        "domaine_slug": "soft-skills",
+        "niveau": null
+      },
+      {
+        "slug": "curiosité",
+        "nom": "Curiosité",
+        "domaine_slug": "soft-skills",
+        "niveau": null
+      }
+    ],
+    "formations": [
+      {
+        "etablissement": "ESIGELEC, Rouen",
+        "diplome": "Master — Big Data pour la transformation numérique",
+        "date_debut": "2024-09",
+        "date_fin": null,
+        "description": "Conception et gestion de pipelines de données (ETL). Analyse de données massives avec Python et Spark. Visualisation de données et aide à la décision avec Power BI."
+      },
+      {
+        "etablissement": "Chengdu College (UESTC), Chine",
+        "diplome": "Licence — Informatique",
+        "date_debut": "2020-09",
+        "date_fin": "2024-07",
+        "description": "Programmation et algorithmique en Java et C. Bases de données, réseaux, systèmes d’exploitation et développement web."
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Stage en gouvernance et qualité des données",
+        "entreprise": "Sichuan Data Group Co., Ltd. · Chengdu, Chine",
+        "date_debut": "2026-06",
+        "date_fin": "2026-08",
+        "description": "Participation à la préparation de deux normes sur la qualité des données : recherche documentaire, comparaison des contenus et organisation des informations.\nSuivi des problèmes de qualité des bases de données administratives : identification, enregistrement, correction, vérification et clôture.\nRequêtes SQL, jointures multi-tables, dédoublonnage et agrégations.\nStructuration de documents techniques et suivi des travaux de l’équipe.",
+        "competences": [
+          "sql",
+          "esprit-analytique",
+          "travail-en-équipe"
+        ]
+      }
+    ],
+    "interets": [
+      "Basketball",
+      "Billard",
+      "Mahjong"
+    ]
+  },
+  "projets": [
+    {
+      "slug": "plateforme-rfid",
+      "titre": "Plateforme d’analyse de données RFID",
+      "date_debut": "2026-04",
+      "date_fin": "2026-06",
+      "technologies": [
+        "Python",
+        "scikit-learn",
+        "Flask",
+        "Oracle"
+      ],
+      "competence_slugs": [
+        "python",
+        "scikit-learn",
+        "flask",
+        "oracle"
+      ],
+      "domaine_slugs": [
+        "programmation",
+        "data-science",
+        "bases-de-donnees"
+      ],
+      "description": "Nettoyer les données RFID et comparer des modèles d’analyse et de prédiction dans une interface web.",
+      "réalisation": [
+        "Nettoyage des données RFID et construction de fenêtres temporelles.",
+        "Comparaison des modèles Random Forest et KNN.",
+        "Interface Flask pour importer les données, configurer les analyses et comparer les résultats.",
+        "Stockage des données dans Oracle."
+      ],
+      "architecture": "Python · scikit-learn · Flask · Oracle",
+      "candidat_slugs": [
+        "zhong-xucan"
+      ],
+      "contexte": "Projet académique",
+      "liens": {},
+      "medias": []
+    },
+    {
+      "slug": "business-intelligence",
+      "titre": "Projet de Business Intelligence",
+      "date_debut": "2026-01",
+      "date_fin": "2026-02",
+      "technologies": [
+        "Power BI",
+        "Power Query",
+        "Talend"
+      ],
+      "competence_slugs": [
+        "power-bi",
+        "power-query",
+        "talend"
+      ],
+      "domaine_slugs": [
+        "bi-etl"
+      ],
+      "description": "Transformer des données multisources en indicateurs métiers lisibles et en tableaux de bord interactifs.",
+      "réalisation": [
+        "Intégration, nettoyage et modélisation de données multisources.",
+        "Conception de flux ETL.",
+        "Tableaux de bord interactifs pour le suivi des indicateurs métiers."
+      ],
+      "architecture": "Power BI · Power Query · Talend",
+      "candidat_slugs": [
+        "zhong-xucan"
+      ],
+      "contexte": "Projet académique",
+      "liens": {},
+      "medias": []
+    },
+    {
+      "slug": "analyse-pyspark",
+      "titre": "Analyse Big Data avec PySpark",
+      "date_debut": "2025-11",
+      "date_fin": "2025-12",
+      "technologies": [
+        "PySpark",
+        "Spark SQL",
+        "MLlib"
+      ],
+      "competence_slugs": [
+        "pyspark",
+        "spark-sql",
+        "mllib"
+      ],
+      "domaine_slugs": [
+        "big-data"
+      ],
+      "description": "Préparer et analyser des données de vélos partagés, puis construire des pipelines de machine learning.",
+      "réalisation": [
+        "Préparation et analyse de données de vélos partagés.",
+        "Traitements avec Spark SQL et DataFrame.",
+        "Pipelines MLlib avec validation croisée et recherche de paramètres."
+      ],
+      "architecture": "Spark SQL · DataFrame · MLlib",
+      "candidat_slugs": [
+        "zhong-xucan"
+      ],
+      "contexte": "Projet académique",
+      "liens": {},
+      "medias": []
+    }
+  ]
+}
