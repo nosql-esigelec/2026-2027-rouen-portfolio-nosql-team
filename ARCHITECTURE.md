@@ -57,30 +57,30 @@ MVP (6 entités utiles à garder ) :
   "candidat_slug": "alice-martin",
   "nom": "Martin",
   "prenom": "Alice",
-  "titre": "Eleve ingenieure Big Data",
-  "description": "Passionné par la data science et l'ia",
+  "titre": "Élève ingénieure Big Data",
+  "bio": "Passionnée par la data science et l’IA",
   "contact": {
     "email": "alice@example.com",
     "telephone": "84775757575"
   },
   "liens": {
     "github": "https://github.com/alice-martin",
-    "linkdIn": "https://linkdIn.com/alice-martin"
+    "linkedin": "https://www.linkedin.com/in/alice-martin"
   },
   "formations": [
     {
-      "etablissement": "ESIGELEC",
-      "diplome": "Diplome d'ingenieur",
-      "date_debut": "2024-09",
-      "date_fin": "2027-06"
+      "ecole": "ESIGELEC",
+      "diplome": "Diplôme d’ingénieur",
+      "debut": "2024-09",
+      "fin": "2027-06"
     }
   ],
   "experiences": [
     {
       "poste": "Stagiaire Data Engineer",
       "entreprise": "Entreprise Exemple",
-      "date_debut": "2026-06",
-      "date_fin": "2026-08"
+      "debut": "2026-06",
+      "fin": "2026-08"
     }
   ],
   "competences": [
@@ -89,25 +89,25 @@ MVP (6 entités utiles à garder ) :
       "nom": "Python",
       "type": "technique",
       "domaine_slug": "programmation",
-      "niveau": "intermediaire"
+      "niveau": null
     },
     {
       "skill_slug": "mongodb",
       "nom": "MongoDB",
       "type": "technique",
       "domaine_slug": "data-engineering",
-      "niveau": "intermediaire"
+      "niveau": null
     },
     {
       "skill_slug": "anglais",
       "nom": "Anglais",
       "type": "linguistique",
       "domaine_slug": "langues",
-      "niveau": "B2"
+      "niveau": null
     },
     {
       "skill_slug": "travail-equipe",
-      "nom": "Travail en equipe",
+      "nom": "Travail en équipe",
       "type": "transversale",
       "domaine_slug": "soft-skills",
       "niveau": null
@@ -116,7 +116,7 @@ MVP (6 entités utiles à garder ) :
 }
 ```
 
-**Justification** (cardinalité bornée ou non, lecture en une requête, fréquence de mise à jour) :Nous choisissons le pattern Embedding pour les tableaux formations, experiences et competences, car ces informations font partie du profil du candidat et sont généralement consultées ensemble.
+**Justification** :Nous choisissons le pattern Embedding pour les tableaux formations, experiences et competences, car ces informations font partie du profil du candidat et sont généralement consultées ensemble.
 - Cardinalité bornée en pratique : dans le cadre d’un portfolio étudiant, le nombre de formations, d’expériences et de compétences par candidat reste limité. Ces tableaux restent donc de taille raisonnable.
 - Lecture en une requête : la route GET /api/candidats/{slug} peut récupérer le profil complet et les éléments de sa timeline avec une seule requête MongoDB, sans jointure entre collections.
 - Mises à jour peu fréquentes : ces informations évoluent principalement lors d’une nouvelle formation, d’une nouvelle expérience ou de l’acquisition d’une compétence. Elles peuvent être mises à jour dans le document du candidat.
@@ -248,10 +248,10 @@ graph LR
 
 | Label | Propriétés | Clé unique |
 |---|---|---|
-| Candidat | candidat_slug, nom, prenom, titre | candidat_slug |
-| Projet | projet_slug, titre | projet_slug |
-| Competence | skill_slug, nom, type | skill_slug |
-| Domaine | domaine_slug, nom | domaine_slug |
+| Candidat | slug, nom, prenom, titre | slug |
+| Projet | slug, titre | slug |
+| Competence | slug, nom, type | slug |
+| Domaine | slug, nom | slug |
 | Entreprise | slug, nom | slug |
 
 | Relation | De → Vers | Propriétés | Pourquoi ce sens |
@@ -372,14 +372,14 @@ REQUIRE e.slug IS UNIQUE;
 
 | Entité | Slug | Dans MongoDB | Dans Neo4j |
 |---|---|---|---|
-| Candidat | `candidat_slug` (ex. `alice-martin`) | candidats.candidat_slug et projets.candidat_slugs[] | (:Candidat {candidatslug: "alice-martin"}) |
-| Projet | `projet_slug` (ex. `smartcity-explorer`) | projets.projet_slug | (:Projet {projet_slug: "smartcity-explorer"}) |
-| Compétence | `skill_slug` (ex. `mongodb`) | candidats.competences[].projet_slug et projets.competence_slugs[] | (:Competence {skill_slug: "mongodb"}) |
+| Candidat | `candidat_slug` (ex. `alice-martin`) | candidats.candidat_slug et projets.candidat_slugs[] | (:Candidat {slug: "alice-martin"}) |
+| Projet | `projet_slug` (ex. `smartcity-explorer`) | projets.projet_slug | (:Projet {slug: "smartcity-explorer"}) |
+| Compétence | `skill_slug` (ex. `mongodb`) | candidats.competences[].skill_slug et projets.competence_slugs[] | (:Competence {slug: "mongodb"}) |
 
 **Suppression d'un projet** : 
 MongoDB : supprimer le document de la collection projets correspondant au slug du projet. Les documents des candidats sont conservés.
 Neo4j : supprimer le nœud Projet ayant le même slug et toutes ses relations avec DETACH DELETE. Les nœuds Candidat, Competence, Domaine et Entreprise sont conservés.
-Coordination : le service appelle les deux repositories avec le même slug. Les deux bases ne partagent pas de transaction : si une suppression échoue, l’erreur est signalée et l’opération peut être relancée. La suppression est idempotente : supprimer à nouveau un projet déjà absent ne crée pas d’erreur.
+Coordination prévue : le service devra appeler les deux repositories avec le même slug. Les deux bases ne partagent pas de transaction : si une suppression échoue, l’erreur est signalée et l’opération peut être relancée. La suppression est idempotente : supprimer à nouveau un projet déjà absent ne crée pas d’erreur.
 
 Les slugs pivots permettent d'identifier une même entité dans MongoDB et Neo4j sans utiliser les identifiants internes (_id MongoDB ou identifiants Neo4j).
 - MongoDB stocke les informations détaillées des candidats et des projets.
