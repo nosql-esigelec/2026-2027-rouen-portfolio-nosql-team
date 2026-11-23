@@ -22,9 +22,27 @@ class HealthResponse(BaseModel):
 # R1 — Profil du candidat
 # ──────────────────────────────────────
 
+class PresentationOut(BaseModel):
+    """Contenu facultatif de l'introduction immersive, provenant du CV en base."""
+
+    accroche: str | None = None
+    introduction: list[str] = Field(default_factory=list)
+    photo_url: str | None = None
+    cv_url: str | None = None
+    localisation: str | None = None
+    disponibilite: str | None = None
+    couleur_accent: str | None = None
+
+
 class CandidatLiens(BaseModel):
     github: str | None = None
     linkedin: str | None = None
+
+
+class CandidatContact(BaseModel):
+    """Contact facultatif. N'inclure que les coordonnées que l'étudiant veut publier."""
+    email: str | None = None
+    telephone: str | None = None
 
 
 class ExperienceOut(BaseModel):
@@ -48,6 +66,8 @@ class CompetenceOut(BaseModel):
     nom: str
     domaine_slug: str
     niveau: int | None = None
+    description: str | None = None
+    icone: str | None = None
 
 
 class CandidatOut(BaseModel):
@@ -56,10 +76,12 @@ class CandidatOut(BaseModel):
     nom: str
     titre: str
     bio: str | None = None
+    presentation: PresentationOut | None = None
 
     liens: CandidatLiens = Field(
         default_factory=CandidatLiens
     )
+    contact: CandidatContact | None = None
 
     experiences: list[ExperienceOut] = Field(
         default_factory=list
@@ -97,6 +119,11 @@ class ProjetOut(BaseModel):
     description: str | None = None
     contexte: str | None = None
     architecture: str | None = None
+    couverture_url: str | None = None
+    role: str | None = None
+    problematique: str | None = None
+    resultats: list[str] = Field(default_factory=list)
+    mise_en_avant: bool = False
 
     date_debut: str | None = None
     date_fin: str | None = None
@@ -269,3 +296,36 @@ class ExperienceRecenteOut(BaseModel):
 # R8 réutilise ProjetsResponse :
 # même route et même structure que R2,
 # avec le filtre domaine_slug.
+
+
+# ──────────────────────────────────────
+# Expérience immersive du portfolio (lecture seule)
+# ──────────────────────────────────────
+
+class TimelineEventOut(BaseModel):
+    type: Literal["experience", "formation"]
+    titre: str
+    organisation: str
+    debut: str
+    fin: str | None = None
+    description: str | None = None
+
+
+class PortfolioOut(BaseModel):
+    """Vue de démarrage du front : profil, parcours, projets et statistiques."""
+
+    candidat_slug: str
+    candidat: CandidatOut
+    timeline: list[TimelineEventOut] = Field(default_factory=list)
+    projets: ProjetsResponse
+    stats: StatsOut
+
+
+class CompetenceDetailOut(BaseModel):
+    """Détails affichés quand on clique sur une compétence."""
+
+    candidat_slug: str
+    competence: CompetenceOut
+    total_projets: int = Field(ge=0)
+    projets: list[ProjetOut] = Field(default_factory=list)
+    experiences: list[ExperienceOut] = Field(default_factory=list)

@@ -54,7 +54,7 @@ async def test_seed_mongo_imports_data(mongo_mocks):
     assert candidats_collection.create_index.await_args_list == [
         call("candidat_slug", unique=True),
         call("competences.skill_slug"),
-        call("competences.domaine"),
+        call("competences.domaine_slug"),
     ]
     assert projets_collection.create_index.await_args_list == [
         call("projet_slug", unique=True),

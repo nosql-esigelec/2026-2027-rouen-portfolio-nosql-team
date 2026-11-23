@@ -84,6 +84,7 @@ async def get_candidat_stats(slug: str) -> StatsOut:
 
     return result
 
+# R7 — Dernière expérience professionnelle d'un candidat
 @router.get(
     "/{slug}/experiences/derniere",
     response_model=ExperienceRecenteOut,
@@ -101,9 +102,14 @@ async def get_candidat_latest_experience(
             detail="Candidat introuvable ou aucune expérience disponible",
         )
 
-    return ExperienceRecenteOut.model_validate(
-        {
-            "candidat_slug": slug,
-            "experience": result,
-        }
-    )
+    return ExperienceRecenteOut(candidat_slug=slug, experience=result)
+
+
+@router.get(
+    "/{slug}/experiences/recente",
+    response_model=ExperienceRecenteOut,
+    summary="R7 — Alias contractuel de la dernière expérience",
+)
+async def get_candidat_latest_experience_alias(slug: str) -> ExperienceRecenteOut:
+    """Alias R7 conservé pour le contrat API_ROUTES.md."""
+    return await get_candidat_latest_experience(slug)

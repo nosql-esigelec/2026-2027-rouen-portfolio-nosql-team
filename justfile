@@ -32,3 +32,7 @@ seed:
 # Tests du backend
 test:
     cd backend && uv run pytest -q
+
+# Vérifier les fichiers data/ sans démarrer les bases
+validate:
+    cd backend && uv run python -m portfolio_api.scripts.validate_data

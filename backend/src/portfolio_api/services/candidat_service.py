@@ -1,4 +1,4 @@
-"""Services R1 à R3 : profil, projets et statistiques."""
+"""Services R1 à R3, R5 et R7 : profil, projets et statistiques."""
 
 from portfolio_api.models import (
     CandidatOut,

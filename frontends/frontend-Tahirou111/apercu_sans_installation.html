@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#070817"><meta name="description" content="Portfolio immersif — explorez les projets et compétences d'un étudiant."><style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+:root{font-family:'DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;color:#f4f2ff;background:#070817;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;--ink:#070817;--purple:#ae80ff;--lavender:#d0b6ff;--cyan:#62e8ed;--muted:#a0a3bf;--subtle:#777c9c;--border:rgba(156,156,217,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:98px}body{margin:0;min-width:320px;overflow-x:hidden}button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}button:disabled{cursor:not-allowed;opacity:.55}a{color:inherit;text-decoration:none}::selection{background:#755acb;color:white}em{font-style:normal;color:#bf9bff}p{margin:0}h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;letter-spacing:-.047em}kbd{font-family:'Space Mono',monospace;font-size:10px;padding:4px 8px;border:1px solid #596079;border-radius:5px;background:#1e2037;color:#d9defd;white-space:nowrap}
+#root,.site-root{min-height:100vh}.site-root{position:relative;isolation:isolate;overflow:hidden}.site-bg{position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 58% 27% at 86% 6%,rgba(73,40,146,.2),transparent 70%),radial-gradient(ellipse 41% 23% at 0% 34%,rgba(10,57,93,.15),transparent 75%),#070817}.site-bg:after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(133,136,187,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(133,136,187,.022) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 78%,transparent)}.network-field{position:absolute;width:100%;height:100%;inset:0;opacity:.6;pointer-events:none}.site-bg .network-field{opacity:.26}.site-content.not-entered{visibility:hidden;height:100vh;overflow:hidden}.section-shell{width:min(1200px,calc(100% - 96px));margin-inline:auto;position:relative}.content-section{padding-top:130px;padding-bottom:34px;scroll-margin-top:74px}.eyebrow{display:flex;align-items:center;gap:12px;font:700 10px 'Space Mono',monospace;letter-spacing:.16em;color:#bb9bff}.eyebrow-line{width:24px;height:1px;background:#b17aff}.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:44px}.section-title-block{max-width:715px}.section-heading h2{font-size:clamp(36px,5vw,62px);line-height:1.08;margin:19px 0 16px;font-weight:700}.section-heading p{font-size:15px;line-height:1.78;color:#9ea5be;max-width:590px}.section-heading-extra{margin-bottom:7px;flex-shrink:0}.section-count{font:700 10px 'Space Mono',monospace;letter-spacing:.09em;display:flex;align-items:center;gap:9px;padding:12px 16px;color:#acb2d6;background:rgba(28,30,56,.5);border:1px solid var(--border);border-radius:7px}.section-count svg{color:#ad81ff}[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.15,1)}[data-reveal].is-visible{opacity:1;transform:translateY(0)}
+/* Introduction cinématique */
+.intro-gate{position:fixed;inset:0;z-index:40;min-height:100vh;background:radial-gradient(ellipse 33% 33% at 50% 46%,#23164a 0%,#0b0a21 55%,#05050f 100%);display:flex;justify-content:center;align-items:center;overflow:auto}.intro-gate .network-field{opacity:.92}.intro-noise{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(180deg,transparent,transparent 4px,rgba(182,131,255,.015) 5px);opacity:.6}.intro-top,.intro-index,.intro-corner{position:absolute;font:10px 'Space Mono',monospace;letter-spacing:.16em;z-index:2}.intro-top{top:35px;left:4.2%;right:4.2%;display:flex;align-items:center;justify-content:space-between;color:#a1a5c5}.intro-top .brand-mark{font-size:19px;color:#eee5ff;font-weight:bold}.bright-dot{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}.intro-index{bottom:37px;left:4.2%;color:#8e88b0}.intro-corner{bottom:37px;right:4.2%;color:#777897}.intro-core{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;width:min(780px,calc(100% - 40px));padding:90px 0 60px}.intro-orb{height:205px;width:205px;margin-bottom:26px;position:relative;display:grid;place-items:center;filter:drop-shadow(0 0 25px rgba(166,77,255,.25))}.orb-ring{position:absolute;border-radius:50%;inset:10px;border:1px solid rgba(187,116,255,.5);box-shadow:0 0 30px rgba(167,80,255,.13),inset 0 0 25px rgba(167,80,255,.1)}.orb-ring-one:before,.orb-ring-one:after{content:'';position:absolute;left:50%;top:-4px;width:7px;height:7px;background:#c383ff;border-radius:50%;box-shadow:0 0 14px #d99aff}.orb-ring-one:after{top:auto;bottom:-4px;background:#56e3f4;box-shadow:0 0 14px #5de7ff}.orb-ring-one{animation:spin 14s linear infinite}.orb-ring-two{inset:30px;border-style:dashed;border-color:rgba(107,224,244,.45);animation:spin 20s linear infinite reverse}.orb-center{width:96px;height:96px;background:radial-gradient(circle at 30% 20%,#a46de5,#372765 44%,#080b25 78%);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 40px rgba(184,69,255,.65),inset 0 0 12px rgba(230,172,255,.4);color:#cce9ff;animation:pulseGlow 4s ease-in-out infinite}.intro-eyebrow{font:700 11px 'Space Mono',monospace;letter-spacing:.18em;color:var(--cyan);display:flex;align-items:center;gap:12px}.pulse-dot,.online-pulse{width:6px;height:6px;background:#54f1db;border-radius:50%;box-shadow:0 0 12px rgba(64,246,226,.8);display:inline-block;animation:pulseGlow 2.2s ease-in-out infinite;flex-shrink:0}.intro-dashes{color:#6f5bad;animation:cursor 1.1s step-end infinite}.intro-heading{font-size:clamp(37px,6.2vw,76px);line-height:1.1;margin:23px 0 15px;letter-spacing:-.06em;animation:softAppear 1.4s both}.intro-heading em{background:linear-gradient(100deg,#dbb8ff 0%,#946aff 60%,#65dce7 110%);-webkit-background-clip:text;background-clip:text;color:transparent}.intro-subline{color:#9e9dba;font-size:14px;letter-spacing:.018em;line-height:1.7}.intro-loader{width:215px;height:2px;margin:34px 0;background:#383456;overflow:hidden}.intro-loader span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#8770e3,#71f5ee,#c47eff);transform-origin:left;animation:fillIntro 2.5s cubic-bezier(.21,.65,.31,1) both}.enter-button,.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:18px;border:none;background:linear-gradient(110deg,#a77cff,#8a68f4);color:#100e2b;box-shadow:0 9px 45px rgba(152,84,255,.27);border-radius:7px;padding:16px 22px;font-weight:700;font-size:13px;transition:transform .25s,filter .25s,box-shadow .25s}.enter-button{min-width:242px;animation:softAppear .6s 1.2s both}.enter-button:hover,.primary-button:hover{transform:translateY(-3px);filter:brightness(1.12);box-shadow:0 14px 50px rgba(152,84,255,.38)}.intro-keyboard{display:flex;align-items:center;gap:12px;margin-top:20px;color:#777c9a;font:10px 'Space Mono',monospace}.intro-index,.intro-corner{font-size:9px}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulseGlow{50%{opacity:.55;filter:brightness(1.4)}}@keyframes cursor{50%{opacity:0}}@keyframes fillIntro{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes softAppear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+/* Navigation et bandeau */
+.topbar{position:sticky;top:0;width:100%;z-index:25;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 max(48px,calc((100vw - 1200px)/2));border-bottom:1px solid rgba(160,164,222,.11);background:rgba(6,8,25,.77);backdrop-filter:blur(20px)}.site-logo{display:flex;align-items:center;gap:13px;padding:0;border:0;color:#fff;background:none;text-align:left;flex-shrink:0}.logo-symbol{font-family:'Space Grotesk';font-size:33px;line-height:1;letter-spacing:-.16em;font-weight:700}.logo-symbol span{font-size:18px;color:#b08aff;vertical-align:top;letter-spacing:0;margin-left:1px}.logo-separator{height:31px;width:1px;background:#494866}.logo-label{font:700 11px 'Space Mono',monospace;line-height:1.45;letter-spacing:.08em}.logo-label small{color:#7d81a6;font-size:8px;letter-spacing:.1em}.topnav{display:flex;align-items:center;gap:9px;padding:5px;border:1px solid #252941;border-radius:10px;background:#101329ad}.topnav button{background:none;border:0;border-radius:7px;padding:11px 12px;color:#9b9ebf;display:flex;align-items:center;gap:6px;font-size:11px;transition:background .2s,color .2s}.topnav button span{color:#77789e;font:9px 'Space Mono',monospace}.topnav button.active,.topnav button:hover{color:#f7f3ff;background:#312752}.topnav button.active span{color:#b491ff}.header-right{display:flex;align-items:center;gap:16px}.status-badge{white-space:nowrap;color:#79d9cf;font:9px 'Space Mono',monospace;letter-spacing:.05em;display:flex;align-items:center;gap:9px}.header-help,.menu-toggle{border:1px solid #32344b;background:#14172c;color:#c6c3e5;border-radius:7px;display:grid;place-items:center;height:35px;min-width:38px}.header-help{display:flex;gap:7px;padding:0 11px}.header-help span{font:12px 'Space Mono',monospace}.menu-toggle{display:none}.demo-note{position:relative;z-index:11;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-size:11px;padding:9px 20px;color:#c7bdef;background:rgba(86,59,126,.21);border-bottom:1px solid rgba(191,142,255,.15)}.demo-note button{border:none;background:none;color:#85eff4;text-decoration:underline;cursor:pointer;font-size:11px}
+/* Hero */
+.hero{min-height:760px;height:min(860px,calc(100svh - 78px));max-height:930px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;padding-bottom:65px}.hero-glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px)}.hero-glow-purple{width:470px;height:530px;right:-90px;top:78px;background:rgba(106,46,182,.22)}.hero-glow-blue{width:350px;height:350px;left:-140px;top:200px;background:rgba(31,73,145,.16)}.hero-copy{z-index:2}.hero-kicker{font:700 10px 'Space Mono',monospace;color:#b89bf6;letter-spacing:.12em;display:flex;align-items:center;gap:13px;margin-bottom:32px}.hero-kicker span:last-child{color:#8287a9}.hero-name{font-size:clamp(49px,5.9vw,87px);line-height:.98;letter-spacing:-.067em}.hero-name>span{display:block;color:#dddced;font-size:clamp(25px,3vw,39px);letter-spacing:-.04em;font-weight:500;margin-bottom:11px}.hero-name strong{font-weight:700}.hero-name em{background:linear-gradient(100deg,#b890ff 5%,#db98ff 50%,#64e2eb 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-role{margin-top:31px;color:#cbd0ee;font:500 clamp(12px,1.36vw,16px) 'Space Mono',monospace;line-height:1.7;min-height:26px}.typing-marker{color:var(--cyan);font-size:21px;margin-right:5px}.cursor-blink{color:#a884ff;animation:cursor 1s step-end infinite}.hero-description{color:#9fa5c2;max-width:510px;font-size:16px;line-height:1.8;margin-top:23px}.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:35px}.ghost-button{display:inline-flex;gap:12px;align-items:center;justify-content:center;color:#dddafa;border:1px solid #45405e;background:rgba(23,23,46,.75);padding:15px 20px;border-radius:7px;font-size:12px;font-weight:600;transition:border .2s,transform .2s}.ghost-button:hover{transform:translateY(-3px);border-color:#a58cfa}.hero-meta{display:flex;gap:27px;align-items:center;color:#7d84a4;font:10px 'Space Mono',monospace;margin-top:53px}.tiny-spark{color:#d0abff;font-size:14px}.keyboard-hint{background:none;border:0;color:#9794b9;display:flex;align-items:center;gap:8px;padding:5px}.keyboard-hint:hover{color:#fff}.keyboard-hint kbd{font-size:11px;padding:3px 6px}.hero-dashboard{height:530px;max-width:490px;width:100%;margin-left:auto;border:1px solid rgba(169,131,240,.31);border-radius:20px;background:linear-gradient(156deg,rgba(27,24,57,.95),rgba(10,14,39,.93) 65%,rgba(21,20,52,.97));box-shadow:0 30px 100px rgba(0,0,0,.36),0 0 90px rgba(146,64,253,.09),inset 0 1px rgba(255,255,255,.07);position:relative;padding:28px 27px 27px;overflow:hidden;isolation:isolate}.hero-dashboard:before{content:'';position:absolute;inset:-60px;background:radial-gradient(ellipse 50% 40% at 52% 41%,rgba(112,53,204,.29),transparent 80%);z-index:-1}.hero-dashboard:after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 29px,rgba(146,148,237,.032) 30px);pointer-events:none;z-index:-1}.dashboard-scan{font:10px 'Space Mono',monospace;color:#8182ae;letter-spacing:.1em}.holo-avatar{height:267px;position:relative;display:grid;place-items:center}.holo-circles{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%}.ring-a{height:232px;width:232px;border:1px solid rgba(180,116,254,.41);box-shadow:0 0 30px rgba(158,82,239,.2),inset 0 0 28px rgba(134,80,255,.14);background:radial-gradient(circle,rgba(88,62,159,.21),transparent 62%)}.ring-a:before,.ring-a:after{content:'';position:absolute;inset:16px;border:1px dashed rgba(101,215,241,.28);border-radius:50%}.ring-a:after{inset:39px;border-color:rgba(219,134,255,.26);border-style:solid}.ring-b{height:267px;width:267px;border:1px dashed rgba(78,194,238,.21);animation:spin 27s linear infinite}.holo-crosshair{position:absolute;width:13px;height:13px;border-radius:50%;border:2px solid #63ebf3;box-shadow:0 0 14px #4ee5ef}.hcx-1{left:23%;top:22%}.hcx-2{right:19%;bottom:19%;width:7px;height:7px;border-color:#a78aff}.avatar-initials{font-family:'Space Grotesk';font-size:75px;font-weight:700;letter-spacing:-.12em;text-shadow:0 0 45px rgba(164,113,255,.5);background:linear-gradient(135deg,#e6d9ff,#ad9cff,#80e2e8);color:transparent;background-clip:text;z-index:1}.avatar-photo{height:166px;width:166px;object-fit:cover;border-radius:50%;z-index:1;border:2px solid rgba(158,129,242,.65)}.avatar-planet{width:6px;height:6px;position:absolute;border-radius:50%;background:#be84f5;box-shadow:0 0 20px #c777ff}.planet-one{top:12%;right:25%}.planet-two{bottom:12%;left:20%;background:#65ddeb;box-shadow:0 0 15px #65ddeb}.dashboard-label{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(172,164,233,.14);padding-bottom:20px}.dashboard-label>div:first-child{display:flex;flex-direction:column;gap:8px}.dashboard-label .live-line{font:9px 'Space Mono';letter-spacing:.15em;color:#65e9d5;display:flex;align-items:center;gap:8px}.dashboard-label strong{font-family:'Space Grotesk';font-size:19px}.dashboard-label small{color:#878eae;font-size:11px}.id-icon{width:38px;height:38px;background:rgba(139,95,246,.12);color:#af92ff;border:1px solid #48386f;border-radius:10px;display:grid;place-items:center}.dashboard-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding-top:20px}.dashboard-metrics>div{display:flex;flex-direction:column;gap:5px;border-right:1px solid #33304e;padding-left:17px}.dashboard-metrics>div:first-child{padding-left:0}.dashboard-metrics>div:last-child{border:0}.dashboard-metrics strong{font:700 27px 'Space Grotesk'}.dashboard-metrics span{font:9px 'Space Mono';letter-spacing:.1em;color:#8087ab}.dashboard-sideword{position:absolute;right:13px;top:110px;writing-mode:vertical-rl;font:8px 'Space Mono';color:#7275aa;letter-spacing:.2em}.hero-scroll-cue{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:none;color:#797e9f;font:9px 'Space Mono';letter-spacing:.17em}.scroll-indicator{border:1px solid #51426b;border-radius:30px;width:26px;height:38px;display:grid;place-items:center;color:#b492ff;animation:bob 2s infinite}@keyframes bob{50%{transform:translateY(5px)}}
+/* Parcours */
+.filter-pills{display:flex;gap:5px;align-items:center;flex-wrap:wrap;padding:4px;border:1px solid #2d304c;border-radius:8px;background:rgba(22,24,48,.65)}.filter-pills button{border:0;background:none;color:#9497b9;padding:9px 12px;border-radius:5px;font-size:11px}.filter-pills button.active,.filter-pills button:hover{background:#3c305d;color:white}.timeline-layout{display:grid;grid-template-columns:.8fr 1.4fr;gap:80px}.timeline-aside{position:sticky;top:120px;align-self:start;padding:40px 0}.aside-index{font:10px 'Space Mono';color:#7f85b0;letter-spacing:.1em}.timeline-aside h3{font-size:clamp(30px,4vw,51px);line-height:1.22;margin:26px 0}.timeline-aside p{color:#898fae;max-width:310px;line-height:1.9;font-size:13px}.timeline-aside-decoration{display:flex;align-items:center;gap:16px;margin-top:60px;color:#ad8ce9}.timeline-aside-decoration span{font:9px/1.8 'Space Mono';letter-spacing:.14em;color:#797da3}.timeline-list{position:relative;padding-left:34px}.timeline-list:before{content:'';position:absolute;left:6px;top:10px;bottom:50px;width:1px;background:linear-gradient(to bottom,#9c6bee,#46699d,rgba(95,96,149,.07))}.timeline-item{position:relative;margin-bottom:22px}.timeline-pin{position:absolute;left:-34px;top:30px;width:13px;height:13px;border-radius:50%;background:#100f2b;border:2px solid #ba84ff;box-shadow:0 0 20px rgba(184,102,255,.35)}.timeline-item:nth-child(2n) .timeline-pin{border-color:#69dbf5}.timeline-card{border:1px solid #2a2a4b;border-radius:12px;padding:28px 30px;background:linear-gradient(120deg,rgba(30,28,59,.75),rgba(14,17,39,.78));transition:border-color .2s,transform .2s}.timeline-card:hover{border-color:rgba(172,134,242,.5);transform:translateX(4px)}.timeline-type{font:700 10px 'Space Mono';letter-spacing:.08em;color:#bba2ff;display:flex;align-items:center;gap:8px;margin-bottom:18px}.timeline-count{margin-left:auto;color:#777b9d}.timeline-card h3{font-size:21px;line-height:1.3;letter-spacing:-.03em}.timeline-org{color:#a9add1;margin-top:9px;font-size:13px}.timeline-date{font:10px 'Space Mono';color:#76d7e7;margin-top:14px}.timeline-description{font-size:13px;line-height:1.8;color:#8e94b2;margin-top:17px;border-top:1px solid #33324e;padding-top:15px}
+/* Compétences */
+.skill-lab{min-height:480px;display:grid;grid-template-columns:1.12fr .88fr;border:1px solid #31304f;border-radius:16px;overflow:hidden;background:rgba(14,16,37,.77)}.skills-board{min-height:520px;padding:28px 31px;position:relative;background:radial-gradient(circle at 50% 40%,rgba(113,61,173,.13),transparent 52%),linear-gradient(145deg,rgba(26,26,55,.86),rgba(12,14,36,.87));border-right:1px solid #363150;overflow:hidden}.board-topline,.detail-top,.graph-toolbar,.graph-bottom{display:flex;justify-content:space-between;align-items:center;font:10px 'Space Mono';letter-spacing:.095em;color:#a9a8ca}.board-pulse{display:flex;align-items:center;gap:8px;color:#7fd6d0}.skill-orbit-art{width:258px;height:258px;position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);opacity:.45;pointer-events:none}.orbit-inner,.orbit-out{position:absolute;inset:12%;border:1px dashed #7b5cbb;border-radius:50%;animation:spin 39s linear infinite}.orbit-out{inset:0;border-color:#467fbe;animation-duration:55s;animation-direction:reverse}.orbit-center{position:absolute;inset:0;display:grid;place-items:center;font-size:90px;color:#6e65b7;text-shadow:0 0 40px #5e4ba2}.skills-list{position:relative;z-index:1;display:flex;justify-content:center;align-content:center;flex-wrap:wrap;gap:12px 10px;min-height:390px;margin:12px auto 0;max-width:480px}.skill-chip{display:flex;align-items:center;gap:11px;border:1px solid #50426f;background:rgba(27,27,59,.91);color:#d2ccea;font-size:12px;font-weight:700;border-radius:9px;padding:13px 13px;box-shadow:0 6px 25px rgba(0,0,0,.18);transition:transform .22s,border-color .22s,box-shadow .22s}.skill-chip:nth-child(3n + 2){transform:translateY(17px)}.skill-chip:nth-child(4n + 1){transform:translateY(-13px)}.skill-chip:hover{border-color:#a984ff;box-shadow:0 0 18px rgba(166,110,255,.22)}.skill-chip.selected{color:#fff;background:linear-gradient(100deg,#593d88,#2f346b);border-color:#d09dff;box-shadow:0 0 23px rgba(178,98,255,.28)}.skill-chip-number{color:#8884ad;font:9px 'Space Mono'}.skill-chip-dot{height:6px;width:6px;border-radius:50%;background:#645b91}.skill-chip.selected .skill-chip-dot{background:var(--cyan);box-shadow:0 0 12px var(--cyan)}.board-footnote{font:9px 'Space Mono';color:#8a8eac;display:flex;align-items:center;gap:8px;margin-top:4px}.skill-detail{padding:28px 37px;min-height:520px;display:flex;flex-direction:column;position:relative}.detail-square{height:34px;width:34px;border:1px solid #4c3d7b;background:#281f50;border-radius:8px;display:grid;place-items:center;color:#c2a1ff}.detail-icon{height:63px;width:63px;margin-top:38px;margin-bottom:21px;display:grid;place-items:center;border:1px solid #7655b5;border-radius:16px;color:#dec5ff;background:radial-gradient(circle at 30% 30%,#543787,#1f214b);box-shadow:0 0 34px rgba(125,81,210,.18)}.detail-overline{font:10px 'Space Mono';color:#82e8f2;letter-spacing:.1em;text-transform:uppercase}.skill-detail h3{font-size:clamp(34px,4vw,47px);margin:8px 0 14px}.dot-title{color:#70e1ea}.skill-detail>p{font-size:13px;line-height:1.8;color:#9298b5;max-width:390px}.level-bar-header{display:flex;justify-content:space-between;margin-top:28px;font:9px 'Space Mono';color:#8b91b1}.level-bar-header span:last-child{color:#c5afe8}.level-track{margin-top:10px;height:5px;background:#292943;border-radius:10px;overflow:hidden}.level-track span{height:100%;display:block;background:linear-gradient(90deg,#7c5ad6,#64e6f4);box-shadow:0 0 18px #8f80f8;border-radius:10px;transition:width .4s}.related-head{display:flex;justify-content:space-between;margin-top:30px;padding-bottom:12px;border-bottom:1px solid #30334e;color:#a8a8cc;font:10px 'Space Mono'}.related-head span{color:#68dfed}.related-list{display:flex;flex-direction:column}.related-list button{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-bottom:1px solid #2c2c48;background:none;padding:13px 0;color:#dbd9f5;font-size:12px;text-align:left}.related-list button:hover{color:#a7f1f3}.related-list button svg{color:#b38bf4;flex-shrink:0}.related-empty{color:#787e9d;font-size:12px;padding:16px 0}.related-experience{display:flex;gap:9px;align-items:center;color:#a9a7d0;font:10px 'Space Mono';margin-top:16px}.detail-bottom-line{font:9px 'Space Mono';color:#636b8b;letter-spacing:.05em;margin-top:auto;padding-top:30px}
+/* Projets */
+.project-filters{display:flex;align-items:center;gap:22px;margin-bottom:23px}.project-filters>span{display:flex;align-items:center;gap:10px;flex-shrink:0;font:10px 'Space Mono';color:#8b91b5}.filter-scroll{display:flex;flex-wrap:wrap;gap:8px}.filter-scroll button{background:rgba(29,30,54,.7);color:#9da4c0;padding:10px 14px;border:1px solid #2e304e;border-radius:6px;font-size:11px}.filter-scroll button.active,.filter-scroll button:hover{background:#513972;color:#f6edff;border-color:#9467ce}.projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.project-card{padding:0;border:1px solid #30304e;border-radius:13px;background:linear-gradient(130deg,rgba(26,27,53,.9),rgba(12,15,36,.93));color:#fff;overflow:hidden;display:flex;flex-direction:column;text-align:left;min-height:400px;transition:transform .27s,border-color .27s,box-shadow .27s}.project-card:hover{transform:translateY(-7px);border-color:rgba(179,124,255,.8);box-shadow:0 22px 50px rgba(0,0,0,.25),0 0 40px rgba(132,80,241,.12)}.project-art{height:187px;position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#3c266f 0%,#161439 36%,#11132a 75%)}.project-art-1{background:radial-gradient(circle at 50% 50%,#194a70 0%,#122640 40%,#10132d 75%)}.project-art-2{background:radial-gradient(circle at 50% 50%,#48316c 0%,#231842 40%,#11112c 75%)}.project-art-3{background:radial-gradient(circle at 50% 50%,#155463 0%,#12283d 40%,#10132d 75%)}.project-art-4{background:radial-gradient(circle at 50% 50%,#623057 0%,#291d42 40%,#11112c 75%)}.project-art-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(132,153,226,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(132,153,226,.1) 1px,transparent 1px);background-size:24px 24px;transform:perspective(180px) rotateX(18deg) scale(1.4);opacity:.45}.project-art-emblem{height:108px;width:108px;display:grid;place-items:center;border:1px solid rgba(178,131,255,.6);border-radius:20px;color:#d2a7ff;background:rgba(39,31,83,.35);box-shadow:0 0 45px rgba(162,95,255,.36),inset 0 0 23px rgba(155,94,255,.13);transform:rotate(-9deg);transition:transform .4s}.project-art-1 .project-art-emblem,.project-art-3 .project-art-emblem{color:#68eafa;border-color:#3e98d2;box-shadow:0 0 45px rgba(56,197,248,.23)}.project-card:hover .project-art-emblem{transform:rotate(0deg) scale(1.08)}.project-art-gridline{position:absolute;height:1px;width:100%;background:linear-gradient(90deg,transparent,#9d7fff,transparent);opacity:.35;transform:rotate(25deg)}.artline-two{transform:rotate(-33deg)}.art-corner{position:absolute;height:24px;width:24px;border:2px solid rgba(155,130,241,.52)}.art-corner-tl{left:18px;top:18px;border-right:0;border-bottom:0}.art-corner-br{right:18px;bottom:18px;border-top:0;border-left:0}.project-art-label{position:absolute;left:22px;bottom:18px;font:8px 'Space Mono';letter-spacing:.1em;color:#b2a4da}.project-card-content{display:flex;flex-direction:column;flex:1;padding:24px}.project-card-id{display:flex;justify-content:space-between;align-items:center;color:#aa8ee4;font:9px 'Space Mono';letter-spacing:.1em}.project-card h3{font-size:23px;line-height:1.15;margin-top:16px;letter-spacing:-.045em}.project-card p{font-size:12px;line-height:1.7;color:#9ca1bb;margin:11px 0 20px}.project-stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}.project-stack span{font:9px 'Space Mono';padding:6px 9px;color:#b9bcda;background:#242540;border:1px solid #343551;border-radius:5px}.projects-footnote{display:flex;justify-content:space-between;gap:15px;margin-top:23px;color:#666f94;font:9px 'Space Mono';letter-spacing:.07em}.empty-filter{grid-column:1/-1;text-align:center;color:#a3a5c8;border:1px dashed #3a3858;padding:65px 20px;border-radius:12px}
+/* Réseau */
+.graph-layout{display:grid;grid-template-columns:1.57fr .63fr;gap:16px}.graph-space{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(52,46,103,.3),transparent 60%),linear-gradient(120deg,#12142b,#0d1028);border:1px solid #303250;border-radius:13px}.graph-toolbar{padding:23px 22px 10px;position:relative;z-index:1}.graph-toolbar>span{display:flex;align-items:center;gap:10px;color:#b6b8d7}.graph-zoom{display:flex;align-items:center;gap:13px}.graph-zoom button{border:1px solid #464563;background:#21223e;color:#c0bdde;width:28px;height:28px;border-radius:5px;display:grid;place-items:center}.graph-zoom strong{font:10px 'Space Mono';color:#b3b7d5;min-width:33px;text-align:center}.graph-svg-wrap{width:100%;outline-offset:-4px;min-height:395px}.graph-svg{display:block;width:100%;height:auto;overflow:visible}.graph-node{cursor:pointer}.graph-node:hover text{fill:#fff}.graph-bottom{padding:0 22px 23px;color:#777d9f;letter-spacing:.06em}.graph-bottom kbd{padding:3px 5px;margin-right:3px}.graph-inspector{background:linear-gradient(155deg,rgba(31,27,64,.95),rgba(15,18,40,.95));border:1px solid #343051;border-radius:13px;padding:28px 25px;display:flex;flex-direction:column;min-height:420px}.graph-inspector-heading{display:flex;align-items:center;gap:10px;color:#ae9bcf;font:10px 'Space Mono'}.graph-inspector-heading svg{color:#b78cfb}.inspector-type{color:#75dee7;text-transform:uppercase;font:10px 'Space Mono';letter-spacing:.12em;margin-top:54px}.graph-inspector h3{font-size:29px;line-height:1.12;margin-top:10px;overflow-wrap:anywhere}.graph-inspector>p:not(.inspector-footnote){font-size:12px;line-height:1.8;color:#969bb8;margin-top:16px}.inspector-separator{border-top:1px solid #38344e;margin:25px 0 6px}.inspector-count{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid #2c2b49}.inspector-count span{font:9px 'Space Mono';color:#858aaa}.inspector-count strong{font:20px 'Space Grotesk'}.inspector-button{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;margin-top:23px;border:1px solid #654f9a;border-radius:6px;background:#382b62;color:#e8d8ff;font-size:12px;font-weight:700}.inspector-button:hover{background:#483675}.inspector-footnote{color:#686e91;font:8px 'Space Mono';letter-spacing:.06em;margin-top:auto;padding-top:30px}
+/* Contact */
+.contact-section{padding-top:155px;min-height:640px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}.contact-halo{position:absolute;left:2%;top:13%;width:600px;height:380px;background:radial-gradient(ellipse,rgba(94,51,162,.26),transparent 70%);filter:blur(50px);z-index:-1}.contact-content{position:relative;z-index:2;max-width:775px}.contact-content h2{font-size:clamp(40px,6.3vw,77px);line-height:1.12;margin-top:25px}.contact-content p{color:#a3a5c4;max-width:520px;line-height:1.9;font-size:15px;margin-top:24px}.contact-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:33px}.contact-decoration{position:absolute;width:490px;height:490px;right:-120px;top:30px;opacity:.63;display:grid;place-items:center;pointer-events:none}.contact-ring{position:absolute;inset:15px;border:1px dashed rgba(148,107,243,.4);border-radius:50%;animation:spin 55s linear infinite}.contact-ring.ring-two{inset:85px;border:1px solid rgba(112,209,242,.3);animation:spin 36s linear reverse infinite}.contact-center{font-size:180px;color:#795bb7;text-shadow:0 0 70px #6842a7}.page-footer{margin-top:100px;position:relative;z-index:1;border-top:1px solid #33324b;padding:29px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#747b9b;font:9px 'Space Mono';letter-spacing:.11em}.page-footer span:first-child{color:#b69af2}.page-footer button{color:#a7a1cd;background:none;border:none;display:flex;align-items:center;gap:7px;font:9px 'Space Mono';letter-spacing:.1em}
+/* Modales */
+.modal-backdrop{position:fixed;inset:0;z-index:60;background:rgba(3,4,13,.8);backdrop-filter:blur(12px);display:flex;justify-content:flex-end;animation:softAppear .22s both}.project-modal{height:100%;width:min(620px,100%);overflow-y:auto;background:linear-gradient(160deg,#1d193c,#0b0d20 60%);border-left:1px solid #544173;box-shadow:-20px 0 90px rgba(0,0,0,.45);animation:slideDrawer .4s cubic-bezier(.2,.75,.2,1) both}.modal-bar{display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:1px solid #34304e;color:#b69fda;font:10px 'Space Mono';letter-spacing:.1em}.modal-close{height:38px;width:38px;border:1px solid #4b4567;border-radius:7px;background:#22203d;color:#eeeaff;display:grid;place-items:center}.modal-content{padding:38px 42px 70px}.modal-title-row{display:flex;justify-content:space-between;gap:25px}.modal-label{font:10px 'Space Mono';letter-spacing:.12em;color:#72dce6}.modal-title-row h2{font-size:clamp(37px,5vw,54px);line-height:1.1;margin:16px 0}.modal-title-row p{font-size:14px;line-height:1.8;color:#afb2cb}.modal-title-icon{display:grid;place-items:center;flex-shrink:0;height:62px;width:62px;color:#bc94ff;background:#2e2859;border:1px solid #5b4685;border-radius:14px}.modal-metadata{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:31px 0;padding:19px;background:#1e1d39;border:1px solid #353454;border-radius:8px}.modal-metadata span{display:flex;flex-direction:column;gap:9px;color:#d2d0e5;font-size:12px}.modal-metadata b{font:9px 'Space Mono';color:#8f94bc}.modal-block{margin-top:34px}.modal-block h3{font-size:17px;letter-spacing:-.02em;margin-bottom:16px}.modal-block p,.modal-block li{color:#aeb1cb;font-size:13px;line-height:1.9}.modal-block ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}.modal-block li{display:flex;align-items:flex-start;gap:12px}.modal-block li svg{color:#7fdecf;flex-shrink:0;margin-top:4px}.modal-links{display:flex;gap:11px;flex-wrap:wrap;margin-top:34px}.modal-links a{display:flex;align-items:center;gap:9px;padding:12px 17px;background:#3b3068;color:#e4ddff;border-radius:6px;border:1px solid #68519c;font-size:12px}.modal-links a:hover{background:#55418d}@keyframes slideDrawer{from{transform:translateX(50px);opacity:.6}to{transform:translateX(0);opacity:1}}.help-backdrop{justify-content:center;align-items:center}.keyboard-modal{width:min(540px,calc(100% - 28px));max-height:calc(100svh - 50px);overflow-y:auto;background:linear-gradient(150deg,#211b42,#0e1127);border:1px solid #62508c;border-radius:15px;box-shadow:0 25px 80px #0008}.keyboard-body{padding:25px 35px 37px}.keyboard-icon{width:52px;height:52px;display:grid;place-items:center;color:#cba7ff;background:#372958;border:1px solid #7655a8;border-radius:11px}.keyboard-body h2{font-size:34px;line-height:1.14;margin-top:22px}.keyboard-body>p{margin-top:13px;color:#a6a9c5;font-size:13px;line-height:1.7}.shortcut-list{margin-top:25px;display:flex;flex-direction:column}.shortcut-list>div{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0;border-top:1px solid #33314c}.shortcut-list span{flex:1;text-align:right;color:#bfc1d6;font-size:11px}.loading-screen{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:35px}.loading-screen h1{font-size:36px}.loading-screen p{color:#a6a7c5;max-width:530px;line-height:1.8}.loading-screen code{color:#bc9afd}.loading-screen a{color:#80eaf1;text-decoration:underline}.loading-icon{color:#b28aff}
+/* Responsive */
+@media(max-width:1170px){.topbar{padding-inline:30px}.topnav button{padding:9px 8px}.topnav{gap:2px}.status-badge{display:none}.hero{gap:25px}.hero-dashboard{max-width:430px}.section-shell{width:min(1100px,calc(100% - 64px))}.timeline-layout{gap:40px}.projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.graph-layout{grid-template-columns:1.4fr .7fr}}
+@media(max-width:840px){.section-shell{width:calc(100% - 38px)}.topbar{height:69px;padding:0 20px}.topnav{position:absolute;top:69px;left:15px;right:15px;display:none;flex-direction:column;background:#151429;border:1px solid #454064;box-shadow:0 30px 50px #0008;padding:10px}.topnav.is-open{display:flex}.topnav button{width:100%;padding:13px;text-align:left}.menu-toggle{display:grid}.hero{height:auto;min-height:0;grid-template-columns:1fr;padding:105px 0 120px;gap:55px}.hero-dashboard{margin:auto;max-width:510px}.hero-name{font-size:clamp(54px,9vw,79px)}.hero-scroll-cue{bottom:30px}.content-section{padding-top:96px}.section-heading{align-items:flex-start;flex-direction:column;gap:18px}.section-heading-extra{margin:0}.timeline-layout{grid-template-columns:1fr;gap:10px}.timeline-aside{position:relative;top:0;padding:5px 0 18px}.timeline-aside h3{font-size:31px}.timeline-aside-decoration{display:none}.skill-lab{grid-template-columns:1fr}.skills-board{min-height:410px;border-right:0;border-bottom:1px solid #363150}.skills-list{min-height:290px}.skill-detail{min-height:420px}.graph-layout{grid-template-columns:1fr}.graph-inspector{min-height:300px}.inspector-type{margin-top:25px}.contact-decoration{right:-260px;opacity:.35}.contact-section{min-height:560px}.page-footer span:nth-child(2){display:none}}
+@media(max-width:530px){.intro-top{top:23px}.intro-core{padding:85px 0}.intro-orb{height:155px;width:155px;margin-bottom:16px}.orb-center{height:70px;width:70px}.intro-heading{font-size:36px;line-height:1.13}.intro-eyebrow{font-size:8px;letter-spacing:.09em}.intro-subline{font-size:11px}.intro-index,.intro-corner{font-size:8px;bottom:20px}.intro-corner{display:none}.section-heading h2{font-size:39px}.hero{padding-top:77px;gap:40px}.hero-name{font-size:clamp(50px,13vw,67px)}.hero-name>span{font-size:24px}.hero-role{font-size:12px;margin-top:24px}.hero-description{font-size:14px}.hero-meta{gap:15px;flex-wrap:wrap;margin-top:34px}.primary-button,.ghost-button{padding:13px 15px;font-size:11px}.hero-dashboard{height:470px;padding:21px}.holo-avatar{height:232px}.ring-a{height:200px;width:200px}.ring-b{height:228px;width:228px}.dashboard-metrics strong{font-size:23px}.dashboard-label strong{font-size:17px}.dashboard-sideword{display:none}.filter-pills button{padding:8px 10px}.timeline-card{padding:22px 20px}.timeline-card h3{font-size:19px}.skills-board{padding:23px 17px}.skill-chip{font-size:11px;padding:11px 9px}.skill-chip:nth-child(3n + 2),.skill-chip:nth-child(4n + 1){transform:none}.skill-detail{padding:27px 23px}.projects-grid{grid-template-columns:1fr}.project-card{min-height:0}.project-filters{flex-direction:column;align-items:flex-start;gap:12px}.filter-scroll{max-width:100%}.projects-footnote{line-height:1.7;flex-wrap:wrap}.graph-toolbar{padding:15px 12px}.graph-toolbar>span{font-size:8px}.graph-svg-wrap{min-height:220px}.graph-bottom{padding:9px 12px 18px;line-height:1.5}.graph-bottom span:first-child{display:none}.contact-section{padding-top:115px;min-height:540px}.contact-content h2{font-size:42px}.contact-content p{font-size:13px}.page-footer{margin-top:130px}.modal-content{padding:27px 22px 55px}.modal-bar{padding:17px 19px}.modal-title-icon{display:none}.modal-metadata{grid-template-columns:1fr}.keyboard-body{padding:24px 20px}.shortcut-list span{font-size:10px}.shortcut-list>div{gap:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-reveal]{opacity:1;transform:none}}
+/* Retouches partagées entre l'implémentation React et l'aperçu autonome */
+.site-root{overflow:clip}.site-bg{position:fixed;inset:0}.site-bg .network-field{height:100vh}
+.simple-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}.simple-icon svg{height:1em;width:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.holo-icon{font-size:30px;color:#c59cff}.graph-node:focus{outline:none}.graph-node:focus circle:nth-child(2){stroke:#fff;stroke-width:4}.modal-backdrop:not(.is-open){display:none}
+
+</style><title>Portfolio immersif // Exploration</title></head><body><script id="demo-data" type="application/json">{
+  "candidat_slug": "lea-bernard",
+  "candidat": {
+    "candidat_slug": "lea-bernard",
+    "prenom": "Léa",
+    "nom": "Bernard",
+    "titre": "Élève-ingénieure Big Data — ESIGELEC",
+    "bio": "Passionnée par les pipelines de données temps réel et l'observabilité.",
+    "liens": {
+      "github": "https://github.com/lea-bernard",
+      "linkedin": "https://www.linkedin.com/in/lea-bernard"
+    },
+    "experiences": [
+      {
+        "entreprise": "Renault Digital",
+        "poste": "Stagiaire Data Engineer",
+        "debut": "2026-04",
+        "fin": "2026-08",
+        "description": "Mise en place d'un pipeline d'ingestion de données véhicules connectés avec Kafka et Spark Streaming.",
+        "competences": [
+          "python",
+          "kafka",
+          "spark"
+        ]
+      },
+      {
+        "entreprise": "Sopra Steria",
+        "poste": "Stagiaire développeuse",
+        "debut": "2025-06",
+        "fin": "2025-08",
+        "description": "Développement d'API internes et automatisation de tests de non-régression.",
+        "competences": [
+          "python",
+          "fastapi",
+          "git"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data (BDTN)",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      },
+      {
+        "ecole": "Lycée Corneille, Rouen",
+        "diplome": "CPGE MP*",
+        "debut": "2022-09",
+        "fin": "2024-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "kafka",
+        "nom": "Apache Kafka",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "spark",
+        "nom": "Apache Spark",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "fastapi",
+        "nom": "FastAPI",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "type": "experience",
+      "titre": "Stagiaire Data Engineer",
+      "organisation": "Renault Digital",
+      "debut": "2026-04",
+      "fin": "2026-08",
+      "description": "Mise en place d'un pipeline d'ingestion de données véhicules connectés avec Kafka et Spark Streaming."
+    },
+    {
+      "type": "experience",
+      "titre": "Stagiaire développeuse",
+      "organisation": "Sopra Steria",
+      "debut": "2025-06",
+      "fin": "2025-08",
+      "description": "Développement d'API internes et automatisation de tests de non-régression."
+    },
+    {
+      "type": "formation",
+      "titre": "Cycle ingénieur — Big Data (BDTN)",
+      "organisation": "ESIGELEC",
+      "debut": "2024-09",
+      "fin": "2027-06"
+    },
+    {
+      "type": "formation",
+      "titre": "CPGE MP*",
+      "organisation": "Lycée Corneille, Rouen",
+      "debut": "2022-09",
+      "fin": "2024-06"
+    }
+  ],
+  "projets": {
+    "candidat_slug": "lea-bernard",
+    "filtres": {
+      "competence": null,
+      "domaine_slug": null
+    },
+    "pagination": {
+      "page": 1,
+      "limit": 30,
+      "total": 5,
+      "total_pages": 1
+    },
+    "projets": [
+      {
+        "projet_slug": "smartcity-explorer",
+        "titre": "SmartCity Explorer",
+        "description": "Application d'exploration et d'analyse de données urbaines",
+        "contexte": "Projet académique NoSQL",
+        "architecture": "FastAPI, MongoDB et Neo4j",
+        "date_debut": "2026-09",
+        "date_fin": "2026-11",
+        "candidat_slugs": [
+          "hugo-lefebvre",
+          "lea-bernard"
+        ],
+        "competence_slugs": [
+          "python",
+          "fastapi",
+          "mongodb",
+          "neo4j"
+        ],
+        "domaine_slugs": [
+          "langages",
+          "web",
+          "bases-de-donnees"
+        ],
+        "technologies": [
+          "Python",
+          "FastAPI",
+          "MongoDB",
+          "Neo4j"
+        ],
+        "réalisation": [
+          "Développement d'une API REST",
+          "Intégration de plusieurs bases de données",
+          "Visualisation et exploration de données"
+        ],
+        "liens": {
+          "github": "https://github.com/hugo-lefebvre/smartcity-explorer",
+          "demo": "https://smartcity-explorer.example.com"
+        },
+        "medias": [
+          {
+            "type": "image",
+            "url": "https://example.com/smartcity-explorer.png",
+            "description": "Capture d'écran de l'application"
+          }
+        ]
+      },
+      {
+        "projet_slug": "portfolio-polyglotte",
+        "titre": "Portfolio Polyglotte",
+        "description": "Portfolio d'équipe interrogeant candidats, projets et compétences sur plusieurs bases",
+        "contexte": "Projet académique NoSQL",
+        "architecture": "FastAPI, MongoDB et Neo4j orchestrés avec Docker",
+        "date_debut": "2026-10",
+        "date_fin": "2026-12",
+        "candidat_slugs": [
+          "lea-bernard",
+          "hugo-lefebvre",
+          "jade-simon",
+          "maxime-girard"
+        ],
+        "competence_slugs": [
+          "python",
+          "fastapi",
+          "mongodb",
+          "neo4j",
+          "docker"
+        ],
+        "domaine_slugs": [
+          "langages",
+          "web",
+          "bases-de-donnees",
+          "devops"
+        ],
+        "technologies": [
+          "Python",
+          "FastAPI",
+          "MongoDB",
+          "Neo4j",
+          "Docker Compose"
+        ],
+        "réalisation": [
+          "Modélisation documentaire des candidats et des projets",
+          "Modélisation en graphe des compétences",
+          "Script de seed idempotent"
+        ],
+        "liens": {
+          "github": "https://github.com/lea-bernard/portfolio-polyglotte",
+          "demo": null
+        },
+        "medias": [
+          {
+            "type": "image",
+            "url": "https://example.com/portfolio-polyglotte.png",
+            "description": "Capture d'écran de l'application"
+          },
+          {
+            "type": "image",
+            "url": "https://example.com/portfolio-polyglotte-architecture.png",
+            "description": "Schéma d'architecture"
+          }
+        ]
+      },
+      {
+        "projet_slug": "streaming-capteurs-iot",
+        "titre": "Streaming Capteurs IoT",
+        "description": "Traitement en temps réel de mesures de capteurs industriels",
+        "contexte": "Projet de spécialité Big Data",
+        "architecture": "Kafka, Flink et Spark",
+        "date_debut": "2026-03",
+        "date_fin": "2026-06",
+        "candidat_slugs": [
+          "antoine-lambert",
+          "lea-bernard",
+          "yanis-haddad"
+        ],
+        "competence_slugs": [
+          "kafka",
+          "flink",
+          "spark",
+          "docker"
+        ],
+        "domaine_slugs": [
+          "big-data",
+          "devops"
+        ],
+        "technologies": [
+          "Apache Kafka",
+          "Apache Flink",
+          "Apache Spark",
+          "Docker"
+        ],
+        "réalisation": [
+          "Ingestion de flux simulés de capteurs",
+          "Détection d'anomalies par fenêtres glissantes",
+          "Comparaison des performances Flink et Spark Streaming"
+        ],
+        "liens": {
+          "github": "https://github.com/antoine-lambert/streaming-capteurs-iot",
+          "demo": null
+        },
+        "medias": [
+          {
+            "type": "image",
+            "url": "https://example.com/streaming-capteurs-iot.png",
+            "description": "Capture d'écran de l'application"
+          },
+          {
+            "type": "image",
+            "url": "https://example.com/streaming-capteurs-iot-architecture.png",
+            "description": "Schéma d'architecture"
+          },
+          {
+            "type": "image",
+            "url": "https://example.com/streaming-capteurs-iot-dashboard.png",
+            "description": "Tableau de bord principal"
+          }
+        ]
+      },
+      {
+        "projet_slug": "data-lake-spark",
+        "titre": "Data Lake Spark",
+        "description": "Lac de données distribué pour l'analyse de journaux applicatifs",
+        "contexte": "Projet de spécialité Big Data",
+        "architecture": "Hadoop et Spark en Scala",
+        "date_debut": "2025-09",
+        "date_fin": "2026-01",
+        "candidat_slugs": [
+          "yanis-haddad",
+          "lea-bernard"
+        ],
+        "competence_slugs": [
+          "spark",
+          "hadoop",
+          "scala",
+          "python"
+        ],
+        "domaine_slugs": [
+          "big-data",
+          "langages"
+        ],
+        "technologies": [
+          "Apache Spark",
+          "Hadoop",
+          "Scala",
+          "Python"
+        ],
+        "réalisation": [
+          "Ingestion de journaux volumineux",
+          "Traitements batch optimisés",
+          "Partitionnement et format Parquet"
+        ],
+        "liens": {
+          "github": "https://github.com/yanis-haddad/data-lake-spark",
+          "demo": "https://data-lake-spark.example.com"
+        },
+        "medias": [
+          {
+            "type": "image",
+            "url": "https://example.com/data-lake-spark.png",
+            "description": "Capture d'écran de l'application"
+          }
+        ]
+      },
+      {
+        "projet_slug": "lakehouse-gcp-spark",
+        "titre": "Lakehouse GCP et Spark",
+        "description": "Architecture lakehouse pour l'analyse de données d'usage",
+        "contexte": "Mission en entreprise",
+        "architecture": "GCP, Spark et dbt",
+        "date_debut": "2026-02",
+        "date_fin": "2026-08",
+        "candidat_slugs": [
+          "amina-benali",
+          "yanis-haddad",
+          "lea-bernard"
+        ],
+        "competence_slugs": [
+          "gcp",
+          "spark",
+          "dbt",
+          "python",
+          "airflow"
+        ],
+        "domaine_slugs": [
+          "cloud",
+          "big-data",
+          "langages"
+        ],
+        "technologies": [
+          "Google Cloud",
+          "Apache Spark",
+          "dbt",
+          "Apache Airflow",
+          "Python"
+        ],
+        "réalisation": [
+          "Stockage des données brutes sur le cloud",
+          "Transformations Spark orchestrées",
+          "Modèles analytiques documentés"
+        ],
+        "liens": {
+          "github": "https://github.com/amina-benali/lakehouse-gcp-spark",
+          "demo": null
+        },
+        "medias": [
+          {
+            "type": "image",
+            "url": "https://example.com/lakehouse-gcp-spark.png",
+            "description": "Capture d'écran de l'application"
+          },
+          {
+            "type": "image",
+            "url": "https://example.com/lakehouse-gcp-spark-architecture.png",
+            "description": "Schéma d'architecture"
+          },
+          {
+            "type": "image",
+            "url": "https://example.com/lakehouse-gcp-spark-dashboard.png",
+            "description": "Tableau de bord principal"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "candidat_slug": "lea-bernard",
+    "total_projets": 5,
+    "total_competences_utilisees": 13,
+    "statistiques": [
+      {
+        "competence_slug": "python",
+        "nom": "Python",
+        "nombre_projets": 4
+      },
+      {
+        "competence_slug": "spark",
+        "nom": "Apache Spark",
+        "nombre_projets": 3
+      },
+      {
+        "competence_slug": "fastapi",
+        "nom": "FastAPI",
+        "nombre_projets": 2
+      },
+      {
+        "competence_slug": "mongodb",
+        "nom": "Mongodb",
+        "nombre_projets": 2
+      },
+      {
+        "competence_slug": "neo4j",
+        "nom": "Neo4J",
+        "nombre_projets": 2
+      },
+      {
+        "competence_slug": "docker",
+        "nom": "Docker",
+        "nombre_projets": 2
+      },
+      {
+        "competence_slug": "kafka",
+        "nom": "Apache Kafka",
+        "nombre_projets": 1
+      },
+      {
+        "competence_slug": "flink",
+        "nom": "Flink",
+        "nombre_projets": 1
+      },
+      {
+        "competence_slug": "hadoop",
+        "nom": "Hadoop",
+        "nombre_projets": 1
+      },
+      {
+        "competence_slug": "scala",
+        "nom": "Scala",
+        "nombre_projets": 1
+      },
+      {
+        "competence_slug": "gcp",
+        "nom": "Gcp",
+        "nombre_projets": 1
+      },
+      {
+        "competence_slug": "dbt",
+        "nom": "Dbt",
+        "nombre_projets": 1
+      },
+      {
+        "competence_slug": "airflow",
+        "nom": "Airflow",
+        "nombre_projets": 1
+      }
+    ]
+  }
+}</script><div id="standalone-app"></div><script>
+// Version autonome du portfolio : aucune installation JavaScript nécessaire.
+// Le mode API utilise FastAPI ; les données d'exemple viennent du fichier data/candidats/candidats.json.
+(() => {
+  'use strict';
+  const seed = JSON.parse(document.getElementById('demo-data').textContent);
+  const query = new URLSearchParams(location.search);
+  const slug = query.get('slug') || seed.candidat_slug;
+  const apiBase = query.get('api') || 'http://localhost:8000';
+  const root = document.getElementById('standalone-app');
+  const sections = [['accueil','Accueil'],['parcours','Parcours'],['competences','Compétences'],['projets','Projets'],['reseau','Réseau'],['contact','Contact']];
+  const state = { data: slug===seed.candidat_slug ? seed:null, mode:slug===seed.candidat_slug?'demo':'loading', entered:false, active:'accueil', timeline:'tout', filter:'all', selectedSkill:null, detail:null, skillLoading:false, project:null, projectDetail:null, graph:null, graphSource:'local', selectedNode:`candidat:${slug}`, zoom:1, help:false, mobileNav:false };
+  const esc = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const key = value => String(value??'').replace(/[^a-zA-Z0-9_-]/g,'');
+  const titleCase = value => String(value??'').replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  const dateShort = value => value ? new Intl.DateTimeFormat('fr-FR',{month:'short',year:'numeric'}).format(new Date(`${value}-01`)) : 'Aujourd’hui';
+  const safeLink = url => typeof url==='string' && /^https:\/\//i.test(url) && !/\.example\.(com|org|net)(\/|$)/i.test(url);
+  const iconData = {
+    arrow:'M5 12h14m-6-6 6 6-6-6',upright:'M7 17 17 7M7 7h10v10',down:'M12 5v14m-6-6 6 6 6-6',up:'M12 19V5m-6 6 6-6 6 6',chevron:'m6 9 6 6 6-6',code:'m8 8-4 4 4 4m8-8 4 4-4 4m-5-11-2 14',network:'M5 7l6 4m2 0 6-4M5 17l6-4m2 0 6 4M3 7a2 2 0 1 0 4 0 2 2 0 1 0-4 0M11 12a2 2 0 1 0 4 0 2 2 0 1 0-4 0M17 7a2 2 0 1 0 4 0 2 2 0 1 0-4 0M3 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M17 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0',
+    database:'M12 3C7 3 4 5 4 7s3 4 8 4 8-2 8-4-3-4-8-4Zm-8 4v10c0 2 3 4 8 4s8-2 8-4V7M4 12c0 2 3 4 8 4s8-2 8-4',
+    cpu:'M8 8h8v8H8zM4 9H2m2 6H2m20-6h-2m2 6h-2M9 4V2m6 2V2M9 22v-2m6 2v-2M4 4v16h16V4z',
+    brief:'M4 8h16v12H4zM9 8V5h6v3M4 13h16M10 13v2h4v-2',book:'M5 4h13v17H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2ZM3 18a2 2 0 0 1 2-2h13',
+    graduation:'m2 10 10-5 10 5-10 5-10-5Zm5 3v5c3 2 7 2 10 0v-5m5-3v7', filter:'M4 6h16l-6 7v5l-4 2v-7z',check:'m5 12 4 4 10-10',x:'M6 6l12 12M18 6 6 18',plus:'M12 5v14m-7-7h14',minus:'M5 12h14',github:'M9 19c-4 1-4-3-6-3m6 5v-4c-5-1-7-4-7-8 0-2 1-3 2-4-.5-2 0-3 .5-4L7 3c3-1 7-1 10 0l2-2c1 2 1 3 .5 4 1 1 2 2 2 4 0 4-2 7-7 8v4',linkedin:'M5 9v11M5 5v.1M10 20v-11h5a4 4 0 0 1 4 4v7M10 13v-4',mail:'M3 5h18v14H3zM3 6l9 7 9-7',menu:'M4 7h16M4 12h16M4 17h16',mouse:'M5 3l13 9-6 1-3 6z',spark:'M12 2 9 9l-7 3 7 3 3 7 3-7 7-3-7-3z',layers:'M12 3 2 9l10 6 10-6-10-6ZM2 13l10 6 10-6',command:'M8 8h8v8H8zM8 8V6a2 2 0 1 0-2 2h2Zm8 0V6a2 2 0 1 1 2 2h-2Zm-8 8v2a2 2 0 1 1-2-2h2Zm8 0v2a2 2 0 1 0 2-2h-2Z'
+  };
+  const ico=(name,size=17)=>`<span class="simple-icon" style="font-size:${size}px" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${iconData[name]||iconData.spark}"/></svg></span>`;
+  const getProjects=()=>state.data?.projets?.projets||[];
+  const getProfile=()=>state.data?.candidat||{};
+  const getStats=()=>state.data?.stats||{};
+  const getName=()=>`${getProfile().prenom||''} ${getProfile().nom||''}`.trim();
+  const scrollToId=(id)=>document.getElementById(id)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+  async function fetchJson(path){const res=await fetch(`${apiBase}${path}`,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(6000)});if(!res.ok)throw Error(`API ${res.status}`);return res.json()}
+  function buildTimeline(){const c=getProfile();return [...(c.experiences||[]).map(e=>({type:'experience',titre:e.poste,organisation:e.entreprise,debut:e.debut,fin:e.fin,description:e.description})),...(c.formations||[]).map(e=>({type:'formation',titre:e.diplome,organisation:e.ecole,debut:e.debut,fin:e.fin}))].sort((a,b)=>b.debut.localeCompare(a.debut))}
+  function makeIntro(){return `<div class="intro-gate" role="dialog" aria-modal="true" aria-label="Introduction du portfolio"><canvas class="network-field network-field-intro" aria-hidden="true"></canvas><div class="intro-noise"></div><div class="intro-top"><span class="brand-mark">// NX</span><span>EXPÉRIENCE INTERACTIVE <span class="bright-dot">●</span></span></div><div class="intro-core"><div class="intro-orb" aria-hidden="true"><div class="orb-ring orb-ring-one"></div><div class="orb-ring orb-ring-two"></div><div class="orb-center">${ico('spark',28)}</div></div><div class="intro-eyebrow"><span class="pulse-dot"></span> INITIALISATION DU PROFIL <span class="intro-dashes">_ _ _</span></div><h1 class="intro-heading">Derrière chaque ligne de code,<br><em>une histoire à explorer.</em></h1><p class="intro-subline">${esc(getName())} · Un profil. Des idées. Un univers.</p><div class="intro-loader"><span></span></div><button class="enter-button" data-action="enter">Entrer dans mon univers ${ico('arrow')}</button><div class="intro-keyboard"><kbd>↵</kbd><span>Appuie sur Entrée pour commencer</span></div></div><span class="intro-index">01 / UNE EXPLORATION PERSONNELLE</span><span class="intro-corner">© 2026 · PORTFOLIO</span></div>`}
+  function makeHeader(){const c=getProfile();return `<header class="topbar"><button data-scroll="accueil" class="site-logo" aria-label="Retour à l'accueil"><span class="logo-symbol">N<span>✳</span></span><span class="logo-separator"></span><span class="logo-label">${esc(c.prenom||'PORTFOLIO').toUpperCase()}<br><small>PORTFOLIO.EXE</small></span></button><nav class="topnav ${state.mobileNav?'is-open':''}" aria-label="Navigation principale">${sections.map(([id,label],index)=>`<button class="${state.active===id?'active':''}" data-scroll="${id}"><span>${String(index).padStart(2,'0')}</span>${label}</button>`).join('')}</nav><div class="header-right"><span class="status-badge"><span class="online-pulse"></span>${state.mode==='live'?'API CONNECTÉE':'MODE DÉMO'}</span><button class="header-help" data-action="help" aria-label="Raccourcis clavier">${ico('command',17)} <span>?</span></button><button class="menu-toggle" data-action="menu" aria-label="Ouvrir ou fermer le menu">${ico(state.mobileNav?'x':'menu',21)}</button></div></header>`}
+  const sectionHead=(index,sub,title,desc,extra='')=>`<div class="section-heading" data-reveal><div class="section-title-block"><span class="eyebrow"><span class="eyebrow-line"></span> ${index} / ${sub}</span><h2>${title}</h2><p>${desc}</p></div>${extra?`<div class="section-heading-extra">${extra}</div>`:''}</div>`;
+  function makeHero(){const c=getProfile(),s=getStats();const intro=c.presentation?.accroche||c.bio||'Du code, de la data et des projets à explorer.';return `<section class="hero section-shell" id="accueil" aria-label="Présentation"><div class="hero-glow hero-glow-purple"></div><div class="hero-glow hero-glow-blue"></div><div class="hero-copy" data-reveal><div class="hero-kicker"><span class="online-pulse"></span> PORTFOLIO / <span>ESPACE PERSONNEL</span></div><h1 class="hero-name"><span>Bonjour, je suis</span><strong>${esc(c.prenom)}<br><em>${esc(c.nom)}.</em></strong></h1><div class="hero-role"><span class="typing-marker">&gt;</span> ${esc(c.titre)}<span class="cursor-blink">_</span></div><p class="hero-description">${esc(intro)}</p><div class="hero-actions"><button class="primary-button" data-scroll="projets">Explorer mes projets ${ico('upright',18)}</button><button class="ghost-button" data-scroll="parcours">Découvrir mon parcours ${ico('down',17)}</button></div><div class="hero-meta"><span><span class="tiny-spark">✦</span> Explorer au scroll</span><button class="keyboard-hint" data-action="help"><kbd>?</kbd> Raccourcis clavier</button></div></div><div class="hero-dashboard" data-reveal><div class="dashboard-scan">ID // ${esc(c.candidat_slug||slug).toUpperCase()}</div><div class="holo-avatar" aria-hidden="true"><div class="holo-circles ring-a"></div><div class="holo-circles ring-b"></div><span class="holo-crosshair hcx-1"></span><span class="holo-crosshair hcx-2"></span>${safeLink(c.presentation?.photo_url)?`<img class="avatar-photo" src="${esc(c.presentation.photo_url)}" alt="">`:`<span class="avatar-initials">${esc((c.prenom||'')[0]||'')}${esc((c.nom||'')[0]||'')}</span>`}<span class="avatar-planet planet-one"></span><span class="avatar-planet planet-two"></span></div><div class="dashboard-label"><div><span class="live-line"><span class="online-pulse"></span> PROFIL ACTIF</span><strong>${esc(getName())}</strong><small>${esc(c.titre)}</small></div><div class="id-icon">${ico('cpu',19)}</div></div><div class="dashboard-metrics"><div><strong>${Number(s.total_projets||getProjects().length)}</strong><span>PROJETS</span></div><div><strong>${(c.competences||[]).length}</strong><span>COMPÉTENCES</span></div><div><strong>${(c.experiences||[]).length+(c.formations||[]).length}</strong><span>ÉTAPES</span></div></div><span class="dashboard-sideword">CONNECTED // ${state.mode.toUpperCase()}</span></div><button class="hero-scroll-cue" data-scroll="parcours"><span>SCROLL TO DISCOVER</span><span class="scroll-indicator">${ico('chevron',16)}</span></button></section>`}
+  function makeTimeline(){const all=state.data.timeline||buildTimeline();const items=all.filter(e=>state.timeline==='tout'||e.type===state.timeline);const filters=[['tout','Tout'],['experience','Expériences'],['formation','Formations']];return `<section class="content-section section-shell" id="parcours">${sectionHead('01',"L'HISTOIRE",'Un parcours en <em>construction.</em>','Des premières découvertes aux défis les plus récents. Chaque étape façonne la suite.',`<div class="filter-pills" role="group" aria-label="Filtrer le parcours">${filters.map(([id,label])=>`<button data-timeline="${id}" class="${state.timeline===id?'active':''}">${label}</button>`).join('')}</div>`)}<div class="timeline-layout"><div class="timeline-aside" data-reveal><span class="aside-index">01:EXPERIENCE.LOG</span><h3>Apprendre.<br>Construire.<br><em>Évoluer.</em></h3><p>Un chemin qui mêle formation technique, expériences et envie d'aller plus loin.</p><div class="timeline-aside-decoration">${ico('code',26)}<span>HISTORY IS STILL<br>BEING WRITTEN<span class="cursor-blink">_</span></span></div></div><div class="timeline-list" aria-label="Chronologie du parcours">${items.map((e,i)=>`<article class="timeline-item" data-reveal><div class="timeline-pin"></div><div class="timeline-card"><span class="timeline-type">${ico(e.type==='formation'?'graduation':'brief',15)} ${e.type==='formation'?'FORMATION':'EXPÉRIENCE'}<span class="timeline-count">${String(i+1).padStart(2,'0')}</span></span><h3>${esc(e.titre)}</h3><p class="timeline-org">${esc(e.organisation)}</p><p class="timeline-date">${dateShort(e.debut)} — ${dateShort(e.fin)}</p>${e.description?`<p class="timeline-description">${esc(e.description)}</p>`:''}</div></article>`).join('')||'<p>Aucune étape enregistrée.</p>'}</div></div></section>`}
+  const activeSkill=()=>getProfile().competences?.find(s=>s.skill_slug===state.selectedSkill)||getProfile().competences?.[0];
+  function skillProjects(){return state.detail?.projets||getProjects().filter(p=>p.competence_slugs?.includes(activeSkill()?.skill_slug))}
+  function makeSkills(){const c=getProfile();const skills=c.competences||[];const s=activeSkill();const related=skillProjects();return `<section class="content-section section-shell" id="competences">${sectionHead('02','LE LABORATOIRE','Mon univers <em>technique.</em>','Chaque compétence est une porte d’entrée. Sélectionne-en une pour voir ce qu’elle révèle.',`<span class="section-count">${ico('spark',15)} ${skills.length} COMPÉTENCES À EXPLORER</span>`)}<div class="skill-lab" data-reveal><div class="skills-board"><div class="board-topline"><span>SKILL_EXPLORER</span><span class="board-pulse"><span class="online-pulse"></span> INTERACTIF</span></div><div class="skill-orbit-art" aria-hidden="true"><span class="orbit-inner"></span><span class="orbit-out"></span><span class="orbit-center">✳</span></div><div class="skills-list" aria-label="Choisir une compétence">${skills.map((e,i)=>`<button class="skill-chip ${s?.skill_slug===e.skill_slug?'selected':''}" data-skill="${key(e.skill_slug)}" aria-pressed="${s?.skill_slug===e.skill_slug}"><span class="skill-chip-number">${String(i+1).padStart(2,'0')}</span>${esc(e.nom)}<span class="skill-chip-dot"></span></button>`).join('')}</div><p class="board-footnote">${ico('mouse',14)} CLIQUER OU UTILISER TAB + ENTRÉE</p></div><div class="skill-detail" aria-live="polite"><div class="detail-top"><span>FICHE / COMPÉTENCE</span><span class="detail-square">${ico('code',18)}</span></div>${s?`<div class="detail-icon">${ico('spark',28)}</div><div class="detail-overline">${esc(titleCase(s.domaine_slug))}</div><h3>${esc(s.nom)}<span class="dot-title">.</span></h3><p>${esc(s.description||'Une compétence mobilisée dans mon parcours et mes réalisations. Explore les projets et expériences associés.')}</p><div class="level-bar-header"><span>MAÎTRISE DÉCLARÉE</span><span>${s.niveau?`Niveau ${Number(s.niveau)}/5`:'Niveau non renseigné'}</span></div><div class="level-track"><span style="width:${Math.max(0,Math.min(100,(Number(s.niveau)||0)*20))}%"></span></div><div class="related-head">PROJETS ASSOCIÉS <span>${related.length}</span></div>${related.length?`<div class="related-list">${related.slice(0,4).map(p=>`<button data-project="${key(p.projet_slug)}">${esc(p.titre)} ${ico('upright',16)}</button>`).join('')}</div>`:`<p class="related-empty">Pas encore de projet associé.</p>`}`:'<p>Les compétences apparaîtront après le chargement du CV.</p>'}<span class="detail-bottom-line">DATA SOURCE // CV & PROJETS</span></div></div></section>`}
+  function projectArt(i,p){const icons=['code','database','network','cpu','layers'];return `<div class="project-art project-art-${i%5}" aria-hidden="true"><div class="project-art-grid"></div><span class="project-art-gridline artline-one"></span><span class="project-art-gridline artline-two"></span><div class="project-art-emblem">${ico(icons[i%5],55)}</div><div class="art-corner art-corner-tl"></div><div class="art-corner art-corner-br"></div><span class="project-art-label">SYS:${key(p.projet_slug).toUpperCase()}</span></div>`}
+  function makeProjects(){const projects=getProjects(),opts=['all',...new Set(projects.flatMap(p=>p.domaine_slugs||[]))],visible=state.filter==='all'?projects:projects.filter(p=>p.domaine_slugs?.includes(state.filter));return `<section class="content-section section-shell" id="projets">${sectionHead('03','LE PORTFOLIO','Des idées devenues <em>réelles.</em>','Des projets pour expérimenter, résoudre des problèmes et transformer une idée en quelque chose de concret.',`<span class="section-count">${ico('layers',16)} ${projects.length} PROJETS</span>`)}<div class="project-filters" data-reveal><span>${ico('filter',14)} FILTRER PAR DOMAINE</span><div class="filter-scroll">${opts.map(o=>`<button data-filter="${key(o)}" class="${o===state.filter?'active':''}">${o==='all'?'Tous les projets':esc(titleCase(o))}</button>`).join('')}</div></div><div class="projects-grid">${visible.map((p,i)=>`<button class="project-card" data-reveal data-project="${key(p.projet_slug)}" aria-label="Détail : ${esc(p.titre)}">${projectArt(projects.indexOf(p),p)}<div class="project-card-content"><span class="project-card-id">PROJET / ${String(i+1).padStart(2,'0')} ${ico('upright',17)}</span><h3>${esc(p.titre)}</h3><p>${esc(p.description||'Découvrez ce projet.')}</p><div class="project-stack">${(p.technologies||[]).slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div></button>`).join('')||'<div class="empty-filter">Aucun projet pour ce domaine. Choisis un autre filtre.</div>'}</div><div class="projects-footnote" data-reveal><span>PROJETS ISSUS DU CV ET DE LA BASE DE DONNÉES</span><span>↗ CLIQUER POUR APPROFONDIR</span></div></section>`}
+  function localGraph(){const c=getProfile();const nodes=[{id:`candidat:${slug}`,label:getName(),type:'Candidat'}],links=[];const add=n=>{if(!nodes.some(e=>e.id===n.id))nodes.push(n)};(c.competences||[]).slice(0,10).forEach(s=>{add({id:`competence:${s.skill_slug}`,label:s.nom,type:'Competence'});links.push({source:nodes[0].id,target:`competence:${s.skill_slug}`})});getProjects().slice(0,8).forEach(p=>{add({id:`projet:${p.projet_slug}`,label:p.titre,type:'Projet'});links.push({source:nodes[0].id,target:`projet:${p.projet_slug}`});(p.competence_slugs||[]).forEach(s=>{if(nodes.some(n=>n.id===`competence:${s}`))links.push({source:`projet:${p.projet_slug}`,target:`competence:${s}`})})});return {nodes,links}}
+  function graphInfo(){const g=state.graph?.nodes?.length?state.graph:localGraph();const nodes=g.nodes.slice(0,26).map(n=>({...n}));const groups={};nodes.forEach(n=>(groups[n.type]??=[]).push(n));nodes.forEach(n=>{const arr=groups[n.type]||[],i=arr.indexOf(n),length=arr.length;if(n.type==='Candidat'){n.x=500;n.y=270}else if(n.type==='Competence'){n.x=178+(i%3)*33;n.y=70+(i+.5)*(395/Math.max(1,length))}else if(n.type==='Projet'){n.x=800-(i%2)*38;n.y=65+(i+.5)*(400/Math.max(1,length))}else{n.x=390+(i%4)*65;n.y=i%2===0?65:475}});const map=Object.fromEntries(nodes.map(n=>[n.id,n]));const id=v=>typeof v==='string'?v:v.id;const links=(g.links||[]).map(l=>({a:map[id(l.source)],b:map[id(l.target)]})).filter(l=>l.a&&l.b);return {nodes,map,links}}
+  function makeGraph(){const {nodes,map,links}=graphInfo();const selected=map[state.selectedNode]||nodes[0];const color=n=>n.type==='Candidat'?'#eee8ff':n.type==='Projet'?'#dc88ff':n.type==='Domaine'?'#ffb37e':'#69ecf6';return `<section class="content-section section-shell" id="reseau">${sectionHead('04',"L'EXPLORATION",'Tout est <em>connecté.</em>','Un graphe vivant reliant compétences, projets et parcours. Sélectionne un nœud pour découvrir ses connexions.',`<span class="section-count">${ico('network',16)} ${state.graphSource==='neo4j'?'NEO4J / LIVE':'GRAPHE / APERÇU'}</span>`)}<div class="graph-layout" data-reveal><div class="graph-space"><div class="graph-toolbar"><span><span class="online-pulse"></span> EXPLORATEUR DE RELATIONS</span><div class="graph-zoom"><button data-zoom="-" aria-label="Dézoomer">${ico('minus',15)}</button><strong>${Math.round(state.zoom*100)}%</strong><button data-zoom="+" aria-label="Zoomer">${ico('plus',15)}</button></div></div><div class="graph-svg-wrap" role="application" aria-label="Graphe interactif. Flèches pour changer de nœud, Entrée pour explorer, + et - pour zoomer." tabindex="0"><svg class="graph-svg" viewBox="0 0 1000 540" aria-label="Visualisation des compétences et projets"><defs><pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" stroke="#8d89d2" stroke-opacity=".12" fill="none"/></pattern></defs><rect width="1000" height="540" fill="url(#grid)"/><g transform="translate(${500*(1-state.zoom)} ${270*(1-state.zoom)}) scale(${state.zoom})">${links.map(l=>`<line x1="${l.a.x}" y1="${l.a.y}" x2="${l.b.x}" y2="${l.b.y}" stroke="${[l.a.id,l.b.id].includes(selected?.id)?'#b79aff':'#4b4f85'}" stroke-opacity="${[l.a.id,l.b.id].includes(selected?.id)?.7:.3}" stroke-width="${[l.a.id,l.b.id].includes(selected?.id)?1.8:1.1}"/>`).join('')}${nodes.map(n=>{const active=n.id===selected?.id,c=color(n),r=n.type==='Candidat'?29:active?17:12;return `<g class="graph-node" data-node="${esc(n.id)}" tabindex="0" role="button" aria-label="Sélectionner : ${esc(n.label)}"><circle cx="${n.x}" cy="${n.y}" r="${r+10}" fill="${c}" opacity="${active?.13:.035}"/><circle cx="${n.x}" cy="${n.y}" r="${r}" fill="#13162f" stroke="${c}" stroke-width="${active?3:1.8}"/><circle cx="${n.x}" cy="${n.y}" r="${n.type==='Candidat'?8:3}" fill="${c}"/><text x="${n.x}" y="${n.y+r+20}" fill="${active?'#fff':'#b5bbd1'}" font-size="${n.type==='Candidat'?16:13}" font-weight="${active?700:500}" text-anchor="middle">${esc(n.label.length>19?n.label.slice(0,17)+'…':n.label)}</text></g>`}).join('')}</g></svg></div><div class="graph-bottom"><span>SUIVRE LES LIENS POUR EXPLORER</span><span><kbd>←</kbd><kbd>→</kbd> <kbd>↵</kbd> NAVIGUER</span></div></div><div class="graph-inspector"><span class="graph-inspector-heading">${ico('network',16)} NŒUD SÉLECTIONNÉ</span><span class="inspector-type">${esc(selected?.type||'Réseau')}</span><h3>${esc(selected?.label||'Exploration')}</h3><p>${selected?.type==='Candidat'?'Au centre du réseau : le profil relie les réalisations aux savoir-faire.':selected?.type==='Projet'?'Une réalisation connectée aux compétences utilisées. Ouvre sa fiche pour connaître les détails.':selected?.type==='Competence'?'Une compétence qui relie les expériences et les projets.':'Un domaine qui regroupe plusieurs savoir-faire.'}</p><div class="inspector-separator"></div><div class="inspector-count"><span>CONNEXIONS</span><strong>${links.filter(l=>l.a.id===selected?.id||l.b.id===selected?.id).length}</strong></div><div class="inspector-count"><span>NŒUDS DU RÉSEAU</span><strong>${nodes.length}</strong></div>${['Projet','Competence'].includes(selected?.type)?`<button class="inspector-button" data-node-open="${esc(selected.id)}">Explorer cette entrée ${ico('upright',16)}</button>`:''}<p class="inspector-footnote">SOURCE : ${state.graphSource==='neo4j'?'NEO4J':'CV ET PROJETS (APERÇU)'}</p></div></div></section>`}
+  function makeContact(){const c=getProfile(),links=c.liens||{};return `<section class="contact-section section-shell" id="contact"><div class="contact-halo"></div><div class="contact-content" data-reveal><div class="eyebrow"><span class="eyebrow-line"></span> 05 / FIN DE L'EXPLORATION ?</div><h2>Et si on construisait<br><em>la suite ensemble ?</em></h2><p>Tu as découvert mon parcours, mes compétences et mes projets. La prochaine idée pourrait naître d'une conversation.</p><div class="contact-actions">${safeLink(links.github)?`<a href="${esc(links.github)}" target="_blank" rel="noopener noreferrer" class="primary-button">${ico('github',18)} Mon GitHub ${ico('upright',17)}</a>`:''}${safeLink(links.linkedin)?`<a href="${esc(links.linkedin)}" target="_blank" rel="noopener noreferrer" class="ghost-button">${ico('linkedin',18)} LinkedIn ${ico('upright',17)}</a>`:''}${c.contact?.email?`<a href="mailto:${esc(c.contact.email)}" class="ghost-button">${ico('mail',18)} M'écrire</a>`:''}</div></div><div class="contact-decoration" aria-hidden="true"><div class="contact-ring ring-one"></div><div class="contact-ring ring-two"></div><div class="contact-center">✳</div></div><footer class="page-footer"><span>// ${esc(getName()).toUpperCase()}</span><span>DES DONNÉES, DES IDÉES, DES CONNEXIONS.</span><button data-scroll="accueil">RETOUR EN HAUT ${ico('upright',14)}</button></footer></section>`}
+  function makeProjectModal(){if(!state.project)return '';const p=state.projectDetail||state.project,similar=p.projets_similaires||[];const results=p.resultats?.length?p.resultats:p.réalisation||[];return `<div class="modal-backdrop" data-overlay="1"><div class="project-modal" role="dialog" aria-modal="true" aria-label="Détail du projet ${esc(p.titre)}"><div class="modal-bar"><span>PROJECT_FILE // ${esc(p.projet_slug).toUpperCase()}</span><button class="modal-close" data-action="close" aria-label="Fermer la fiche">${ico('x',22)}</button></div><div class="modal-content"><div class="modal-title-row"><div><span class="modal-label">EXPLORATION / PROJET</span><h2>${esc(p.titre)}</h2><p>${esc(p.description)}</p></div><div class="modal-title-icon">${ico('code',29)}</div></div><div class="modal-metadata"><span><b>CONTEXTE</b>${esc(p.contexte||'Projet étudiant')}</span><span><b>PÉRIODE</b>${dateShort(p.date_debut)} — ${dateShort(p.date_fin)}</span></div>${p.architecture?`<div class="modal-block"><h3>Architecture</h3><p>${esc(p.architecture)}</p></div>`:''}${p.problematique?`<div class="modal-block"><h3>Problématique</h3><p>${esc(p.problematique)}</p></div>`:''}${p.role?`<div class="modal-block"><h3>Mon rôle</h3><p>${esc(p.role)}</p></div>`:''}<div class="modal-block"><h3>Technologies utilisées</h3><div class="project-stack">${(p.technologies||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>${results.length?`<div class="modal-block"><h3>Réalisations & résultats</h3><ul>${results.map(t=>`<li>${ico('check',15)}${esc(t)}</li>`).join('')}</ul></div>`:''}${similar.length?`<div class="modal-block"><h3>Projets connectés</h3><div class="related-list">${similar.map(t=>`<button data-project="${key(t.slug)}">${esc(t.titre)} ${ico('upright',15)}</button>`).join('')}</div></div>`:''}<div class="modal-links">${safeLink(p.liens?.github)?`<a href="${esc(p.liens.github)}" target="_blank" rel="noopener noreferrer">${ico('github')} Voir le code ${ico('upright')}</a>`:''}${safeLink(p.liens?.demo)?`<a href="${esc(p.liens.demo)}" target="_blank" rel="noopener noreferrer">Voir la démo ${ico('upright')}</a>`:''}</div></div></div></div>`}
+  function makeHelp(){if(!state.help)return '';const shortcuts=[['Entrée','Entrer dans le portfolio / ouvrir un élément'],['↓ / ↑','Aller à la section suivante / précédente'],['1 à 6','Accéder directement à une section'],['Tab','Sélectionner un élément cliquable'],['← / →','Explorer les nœuds du graphe'],['+ / −','Zoomer / dézoomer dans le graphe'],['Échap','Fermer une fiche ou cette aide'],['?','Afficher les raccourcis']];return `<div class="modal-backdrop help-backdrop" data-overlay="1"><div class="keyboard-modal" role="dialog" aria-modal="true" aria-label="Raccourcis clavier"><div class="modal-bar"><span>KEYBOARD // NAVIGATION</span><button class="modal-close" data-action="close-help" aria-label="Fermer l'aide">${ico('x',22)}</button></div><div class="keyboard-body"><div class="keyboard-icon">${ico('command',27)}</div><h2>Explore aussi <em>au clavier.</em></h2><p>Le portfolio a été pensé pour se parcourir avec la souris, le défilement et le clavier.</p><div class="shortcut-list">${shortcuts.map(([k,v])=>`<div><kbd>${k}</kbd><span>${v}</span></div>`).join('')}</div></div></div></div>`}
+  function makeEmpty(){return `<main class="loading-screen"><div class="loading-icon">${ico('network',42)}</div><h1>Profil indisponible</h1><p>La base ne répond pas pour le slug « ${esc(slug)} ».</p><p>Vérifie le nom de l’étudiant puis démarre FastAPI.</p><a href="?slug=${encodeURIComponent(seed.candidat_slug)}">Voir le portfolio d'exemple</a></main>`}
+  function reveal(){const items=[...document.querySelectorAll('[data-reveal]')];if(!('IntersectionObserver'in window)){items.forEach(n=>n.classList.add('is-visible'));return}const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -10px 0px'});items.forEach(n=>io.observe(n))}
+  function makeBackground(){return '<div class="site-bg" aria-hidden="true"><canvas class="network-field"></canvas></div>'}
+  let canvasCleanup=[];
+  function startCanvas(){canvasCleanup.forEach(fn=>fn());canvasCleanup=[];document.querySelectorAll('canvas.network-field').forEach(el=>{const ctx=el.getContext('2d');let points=[],raf=0,width,height;const intro=el.classList.contains('network-field-intro');const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const resize=()=>{width=el.clientWidth;height=el.clientHeight;const dpr=Math.min(devicePixelRatio||1,2);el.width=width*dpr;el.height=height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);const count=Math.min(60,Math.max(24,Math.round(width*height/20000)));points=Array.from({length:count},(_,i)=>({x:((i*83.13+i*i*31.9)%997)/997*width,y:((i*163.71+i*i*49.21)%991)/991*height,vx:(i%3-1)*.15,vy:(i%5-2)*.07,r:i%9===0?2:1}))};const draw=()=>{ctx.clearRect(0,0,width,height);points.forEach((p,i)=>{if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>width)p.vx*=-1;if(p.y<0||p.y>height)p.vy*=-1}for(let j=i+1;j<points.length;j++){const q=points[j],dist=Math.hypot(p.x-q.x,p.y-q.y),threshold=intro?165:133;if(dist<threshold){ctx.beginPath();ctx.strokeStyle=`rgba(${intro?'155,107,255':'78,116,211'},${(.2*(1-dist/threshold)).toFixed(3)})`;ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke()}}ctx.beginPath();ctx.fillStyle=i%5===0?'#cc69ff':'#60bff4';ctx.globalAlpha=.6;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1});if(!reduce)raf=requestAnimationFrame(draw)};resize();draw();addEventListener('resize',resize);canvasCleanup.push(()=>{cancelAnimationFrame(raf);removeEventListener('resize',resize)})})}
+  function render(focusSelector){const y=window.scrollY;document.body.style.overflow=state.project||state.help||!state.entered?'hidden':'';if(!state.data){root.innerHTML=makeEmpty();return}const c=getProfile();document.title=`${c.prenom} ${c.nom} | Portfolio interactif`;if(!state.selectedSkill)state.selectedSkill=c.competences?.[0]?.skill_slug;root.innerHTML=`<div class="site-root">${makeBackground()}${!state.entered?makeIntro():''}<div class="site-content ${!state.entered?'not-entered':''}">${makeHeader()}${state.mode==='demo'?`<div class="demo-note"><span class="online-pulse"></span> Démonstration avec les données d'exemple « ${esc(getName())} ». Lance l'API pour afficher ton CV. <button data-action="retry">Réessayer</button></div>`:''}<main>${makeHero()}${makeTimeline()}${makeSkills()}${makeProjects()}${makeGraph()}${makeContact()}</main></div>${makeProjectModal()}${makeHelp()}</div>`;reveal();startCanvas();requestAnimationFrame(()=>{window.scrollTo(0,y);if(focusSelector)document.querySelector(focusSelector)?.focus({preventScroll:true})})}
+  async function loadApi(){try{const data=await fetchJson(`/api/portfolio/${encodeURIComponent(slug)}?limit=100`);state.data=data;state.mode='live';render();loadGraph()}catch(err){state.mode=slug===seed.candidat_slug?'demo':'error';render()}}
+  async function loadGraph(){try{const data=await fetchJson(`/api/graph/competences/${encodeURIComponent(slug)}`);if(data.nodes?.length){state.graph=data;state.graphSource='neo4j';render()}}catch{}}
+  async function loadSkill(){const selected=state.selectedSkill;state.detail=null;try{const data=await fetchJson(`/api/portfolio/${encodeURIComponent(slug)}/competences/${encodeURIComponent(selected)}`);if(state.selectedSkill===selected){state.detail=data;render(`[data-skill="${key(selected)}"]`)}}catch{}}
+  async function openProject(id){const project=getProjects().find(p=>p.projet_slug===id);if(!project)return;state.project=project;state.projectDetail=null;render('[data-action="close"]');try{const detail=await fetchJson(`/api/projets/${encodeURIComponent(id)}`);if(state.project?.projet_slug===id){state.projectDetail=detail;render('[data-action="close"]')}}catch{}}
+  function changeSkill(id,fromGraph=false){if(!getProfile().competences?.some(c=>c.skill_slug===id))return;state.selectedSkill=id;state.detail=null;render(fromGraph?null:`[data-skill="${key(id)}"]`);loadSkill();if(fromGraph)setTimeout(()=>scrollToId('competences'),30)}
+  function nodeAction(id){if(id.startsWith('projet:'))openProject(id.replace('projet:',''));if(id.startsWith('competence:'))changeSkill(id.replace('competence:',''),true)}
+  function selectNode(id,focus=false){state.selectedNode=id;render(focus?'.graph-svg-wrap':null)}
+  function zoom(direction){state.zoom=Math.max(.75,Math.min(1.45,state.zoom+direction*.15));render('.graph-svg-wrap')}
+  document.addEventListener('click',e=>{
+    const target=e.target.closest('[data-action],[data-scroll],[data-timeline],[data-skill],[data-filter],[data-project],[data-node],[data-zoom],[data-node-open]');
+    if(!target){if(e.target.matches('[data-overlay="1"]')){state.project=null;state.projectDetail=null;state.help=false;render()}return}
+    const val=target.dataset;
+    if(val.action){switch(val.action){case'enter':state.entered=true;render();scrollToId('accueil');break;case'help':state.help=true;render('[data-action="close-help"]');break;case'menu':state.mobileNav=!state.mobileNav;render();break;case'close':state.project=null;state.projectDetail=null;render();break;case'close-help':state.help=false;render();break;case'retry':loadApi();break}return}
+    if(val.scroll){state.mobileNav=false;state.active=val.scroll;document.querySelector('.topnav')?.classList.remove('is-open');document.querySelectorAll('.topnav button').forEach(b=>b.classList.toggle('active',b.dataset.scroll===state.active));scrollToId(val.scroll);return}
+    if(val.timeline){state.timeline=val.timeline;render(`[data-timeline="${val.timeline}"]`);return}
+    if(val.skill){changeSkill(val.skill);return}
+    if(val.filter){state.filter=val.filter;render(`[data-filter="${val.filter}"]`);return}
+    if(val.project){openProject(val.project);return}
+    if(val.node){selectNode(val.node);return}
+    if(val.nodeOpen){nodeAction(val.nodeOpen);return}
+    if(val.zoom)zoom(val.zoom==='+'?1:-1)
+  });
+  document.addEventListener('keydown',e=>{
+    const isInput=['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)||e.target.isContentEditable;
+    if(!state.entered){if(e.key==='Enter'||e.key==='ArrowDown'){e.preventDefault();state.entered=true;render();scrollToId('accueil')}return}
+    if(e.key==='Escape'){if(state.project||state.help){state.project=null;state.projectDetail=null;state.help=false;render()}return}
+    if(state.help||state.project)return;
+    if(isInput||e.metaKey||e.ctrlKey||e.altKey)return;
+    const graphFocused=e.target.closest?.('.graph-svg-wrap');
+    if(graphFocused){
+      const {nodes}=graphInfo(),idx=Math.max(0,nodes.findIndex(n=>n.id===state.selectedNode));
+      if(['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();selectNode(nodes[(idx+(['ArrowRight','ArrowDown'].includes(e.key)?1:-1)+nodes.length)%nodes.length].id,true);return}
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();nodeAction(state.selectedNode);return}
+      if(['+','='].includes(e.key)){e.preventDefault();zoom(1);return}
+      if(e.key==='-'){e.preventDefault();zoom(-1);return}
+    }
+    const isButton=e.target.closest?.('button,a');
+    if(e.key==='?'&&!isButton){e.preventDefault();state.help=true;render('[data-action="close-help"]');return}
+    if(isButton)return;
+    if(/^[1-6]$/.test(e.key)){e.preventDefault();const id=sections[Number(e.key)-1][0];state.active=id;scrollToId(id);return}
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();const idx=sections.findIndex(([id])=>id===state.active),next=Math.max(0,Math.min(sections.length-1,idx+(e.key==='ArrowDown'?1:-1)));state.active=sections[next][0];scrollToId(state.active)}
+  });
+  function observeSections(){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&state.entered){state.active=entry.target.id;document.querySelectorAll('.topnav button').forEach(b=>b.classList.toggle('active',b.dataset.scroll===state.active))}})},{rootMargin:'-38% 0px -48% 0px'});const scan=()=>sections.forEach(([id])=>{const el=document.getElementById(id);if(el)observer.observe(el)});scan();const mutation=new MutationObserver(()=>scan());mutation.observe(root,{childList:true,subtree:false})}
+  render();observeSections();loadApi();
+})();
+
+</script></body></html>

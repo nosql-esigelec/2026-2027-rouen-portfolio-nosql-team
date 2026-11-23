@@ -1797,5 +1797,412 @@
         "niveau": 3
       }
     ]
+  },
+  {
+    "candidat_slug": "loic-kakou",
+    "prenom": "Loïc",
+    "nom": "Kakou",
+    "titre": "Élève-ingénieur Big Data — ESIGELEC",
+    "bio": "Étudiant ingénieur spécialisé en Big Data, passionné par l'analyse et la valorisation des données, les modèles prédictifs et le développement web. Curieux, rigoureux et autonome, je vise un poste de data scientist pour transformer les données brutes en insights stratégiques.",
+    "liens": {
+      "github": "https://github.com/kakou-project",
+      "linkedin": "https://www.linkedin.com/in/kakou"
+    },
+    "experiences": [
+      {
+        "entreprise": "AIR CIV",
+        "poste": "Stagiaire Data Analyst",
+        "debut": "2026-08",
+        "fin": "2026-10",
+        "description": "Analyse des ventes et des recettes de vols long-courrier (Abidjan–Paris CDG) sur des datasets de plus de 100 000 lignes, nettoyage des données, dashboards de suivi des KPI (Power BI, Excel) et automatisation de la production des manifestes de vols, des taux mensuels par zone et du traitement des états de ventes FRET.",
+        "competences": [
+          "python",
+          "pandas",
+          "sql",
+          "power-bi"
+        ]
+      },
+      {
+        "entreprise": "Mobile Telephone Network",
+        "poste": "Stagiaire IT",
+        "debut": "2024-04",
+        "fin": "2024-06",
+        "description": "Collecte, traitement et stockage de métriques serveurs (Python, Oracle), requêtes SQL complexes, développement d'une API Django et d'un dashboard ReactJS centralisant les données. Projet de fin d'étude : système de monitoring des serveurs.",
+        "competences": [
+          "python",
+          "oracle",
+          "sql",
+          "django",
+          "react"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC",
+        "diplome": "Cycle ingénieur — Big Data",
+        "debut": "2024-09",
+        "fin": "2027-06"
+      },
+      {
+        "ecole": "Institut National Polytechnique FHB — Yamoussoukro (CI)",
+        "diplome": "Diplôme de Technicien Supérieur — TIC",
+        "debut": "2021-09",
+        "fin": "2024-06"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "r",
+        "nom": "R",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "javascript",
+        "nom": "JavaScript",
+        "domaine_slug": "langages",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "java",
+        "nom": "Java",
+        "domaine_slug": "langages",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "c",
+        "nom": "C",
+        "domaine_slug": "langages",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "php",
+        "nom": "PHP",
+        "domaine_slug": "langages",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "pandas",
+        "nom": "Pandas",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "numpy",
+        "nom": "NumPy",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "scikit-learn",
+        "nom": "scikit-learn",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "tensorflow",
+        "nom": "TensorFlow",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "machine-learning",
+        "nom": "Machine Learning",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "deep-learning",
+        "nom": "Deep Learning",
+        "domaine_slug": "data-science",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "spark",
+        "nom": "Apache Spark",
+        "domaine_slug": "big-data",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "react",
+        "nom": "React",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "django",
+        "nom": "Django",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "nodejs",
+        "nom": "Node.js",
+        "domaine_slug": "web",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "flask",
+        "nom": "Flask",
+        "domaine_slug": "web",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "oracle",
+        "nom": "Oracle",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "mysql",
+        "nom": "MySQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 2
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais",
+        "domaine_slug": "langues",
+        "niveau": 3
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
+  },
+  
+  {
+    "candidat_slug": "dokatchenin-coulibaly",
+    "prenom": "Dokatchenin",
+    "nom": "Coulibaly",
+    "titre": "Élève-ingénieur Big Data — IA, Data & Systèmes complexes — ESIGELEC",
+    "bio": "Élève-ingénieur en dernière année à l'ESIGELEC, spécialisé en Big Data. Passionné par les systèmes complexes, l'intelligence artificielle, l'algorithmique et le Data Engineering. Je recherche un stage de fin d'études de 6 mois à partir de janvier 2027. Rigoureux et curieux, j'apprécie les problématiques nécessitant analyse, compréhension du besoin et recherche de solutions.",
+    "liens": {
+      "github": "https://github.com/Tahirou111",
+      "linkedin": "https://www.linkedin.com/in/dokatchenin-coulibaly-87137b346/"
+    },
+    "experiences": [
+      {
+        "entreprise": "JSMK-Studio",
+        "poste": "Développement web, IA et automatisation",
+        "debut": "2026-07",
+        "fin": "2026-10",
+        "description": "Développement de fonctionnalités backend et intégration de services externes via API. Mise en place d'un site connecté à un CMS, une base de données cloud et différents services externes. Utilisation de l'IA générative pour automatiser certaines tâches de création de contenu.",
+        "competences": [
+          "api-rest",
+          "ia-generative"
+        ]
+      },
+      {
+        "entreprise": "Orange — Côte d'Ivoire",
+        "poste": "Stagiaire Data Analyst",
+        "debut": "2024-05",
+        "fin": "2024-07",
+        "description": "Nettoyage, transformation et analyse de jeux de données allant jusqu'à 5 000 lignes avec Python et Pandas. Développement de 10 tableaux de bord Power BI interactifs utilisés par plus de 20 collaborateurs. Automatisation des transformations avec Power Query.",
+        "competences": [
+          "python",
+          "power-bi"
+        ]
+      },
+      {
+        "entreprise": "Samsic / SNCF",
+        "poste": "Agent d'accueil voyageurs",
+        "debut": "2025",
+        "fin": null,
+        "description": "Accueil, orientation et information des voyageurs les week-ends. Réalisation d'annonces au microphone et coordination avec les équipes opérationnelles.",
+        "competences": [
+          "communication",
+          "travail-en-equipe",
+          "adaptabilite"
+        ]
+      },
+      {
+        "entreprise": "Stellantis",
+        "poste": "Stagiaire opérateur de ligne",
+        "debut": "2025-07",
+        "fin": "2025-08",
+        "description": "Participation à l'assemblage de véhicules DS 3 et Opel Mokka dans un environnement industriel exigeant en matière de qualité, de rigueur et de respect des processus.",
+        "competences": [
+          "rigueur",
+          "travail-en-equipe"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "ecole": "ESIGELEC — Rouen",
+        "diplome": "Cycle ingénieur — Spécialisation Big Data",
+        "debut": "2024",
+        "fin": "2027"
+      },
+      {
+        "ecole": "ESTEM — Maroc",
+        "diplome": "CPGE MP",
+        "debut": "2022",
+        "fin": "2024"
+      }
+    ],
+    "competences": [
+      {
+        "skill_slug": "python",
+        "nom": "Python",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "data-engineering",
+        "nom": "Data Engineering",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "sql",
+        "nom": "SQL",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "r",
+        "nom": "R",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "c",
+        "nom": "C",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "javascript",
+        "nom": "JavaScript",
+        "domaine_slug": "langages",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "bash",
+        "nom": "Bash",
+        "domaine_slug": "langages",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "machine-learning",
+        "nom": "Machine Learning",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "ia-generative",
+        "nom": "IA générative",
+        "domaine_slug": "data-science",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "spark",
+        "nom": "Apache Spark",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "hadoop",
+        "nom": "Apache Hadoop",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "talend",
+        "nom": "Talend",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "etl",
+        "nom": "ETL / Intégration de données",
+        "domaine_slug": "big-data",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "mysql",
+        "nom": "MySQL",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "oracle",
+        "nom": "Oracle Database",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "power-bi",
+        "nom": "Power BI",
+        "domaine_slug": "data-viz",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "power-automate",
+        "nom": "Power Automate",
+        "domaine_slug": "automatisation",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "api-rest",
+        "nom": "API REST",
+        "domaine_slug": "web",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "git",
+        "nom": "Git",
+        "domaine_slug": "devops",
+        "niveau": 5
+      },
+      {
+        "skill_slug": "docker",
+        "nom": "Docker",
+        "domaine_slug": "devops",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "ros2",
+        "nom": "ROS 2",
+        "domaine_slug": "robotique",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "anglais",
+        "nom": "Anglais — B2",
+        "domaine_slug": "langues",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "francais",
+        "nom": "Français — langue maternelle",
+        "domaine_slug": "langues",
+        "niveau": 5
+      }
+    ]
   }
 ]

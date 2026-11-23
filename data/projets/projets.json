@@ -2058,5 +2058,433 @@
         "description": "Capture d'écran de l'application"
       }
     ]
-  }
+  },
+  {
+    "projet_slug": "analyse-recettes-vols-aircv",
+    "titre": "Analyse des recettes commerciales long-courrier",
+    "description": "Analyse des ventes et des recettes de vols Abidjan–Paris CDG sur de gros volumes de données, avec tableaux de bord de suivi des KPI.",
+    "contexte": "Mission en entreprise — stage Data Analyst chez AIR CIV",
+    "architecture": "Python, Pandas, SQL et Power BI",
+    "date_debut": "2026-08",
+    "date_fin": "2026-10",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "sql",
+      "power-bi"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "data-viz"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "SQL",
+      "Power BI",
+      "Excel"
+    ],
+    "réalisation": [
+      "Nettoyage et structuration de datasets de plus de 100 000 lignes",
+      "Identification des écarts, des pertes et des tendances pour aider la décision",
+      "Création et maintenance de dashboards KPI (Power BI, Excel)",
+      "Automatisation des manifestes de vols, des taux mensuels par zone et des états de ventes FRET"
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "monitoring-serveurs-mtn",
+    "titre": "Système de monitoring des serveurs",
+    "description": "Collecte, traitement et stockage de métriques serveurs, exposées via une API et un dashboard centralisé.",
+    "contexte": "Projet de fin d'étude — stage IT chez Mobile Telephone Network",
+    "architecture": "Python, Oracle, API Django et dashboard ReactJS",
+    "date_debut": "2024-04",
+    "date_fin": "2024-06",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "python",
+      "sql",
+      "oracle",
+      "django",
+      "react"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "bases-de-donnees",
+      "web"
+    ],
+    "technologies": [
+      "Python",
+      "Oracle",
+      "SQL",
+      "Django",
+      "ReactJS"
+    ],
+    "réalisation": [
+      "Collecte, traitement et stockage des métriques serveurs",
+      "Requêtes SQL complexes (jointures, agrégations)",
+      "Développement d'une API avec Django",
+      "Dashboard ReactJS centralisant les données",
+      "Contribution à la mise en place d'indicateurs de performance"
+    ],
+    "liens": {
+      "github": "https://github.com/LoicJr12/API-du-dashboard-des-metriques-MTN-CI",
+      "demo": "https://github.com/LoicJr12/DashBoard-metrics-MTN-CI"
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "chaine-logistique-ecommerce-ml",
+    "titre": "Amélioration de la chaîne logistique d'un e-commerce",
+    "description": "Détection d'anomalies sur des box et des articles commandés à partir de données RFID, pilotée via un site web et une API.",
+    "contexte": "Projet académique",
+    "architecture": "Python (Pandas, scikit-learn), API Flask, site HTML, Bootstrap et JavaScript",
+    "date_debut": "2025-10",
+    "date_fin": "2025-11",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "scikit-learn",
+      "machine-learning",
+      "flask",
+      "javascript"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science",
+      "web"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "scikit-learn",
+      "Flask",
+      "Bootstrap",
+      "JavaScript"
+    ],
+    "réalisation": [
+      "Chargement, nettoyage et préparation d'un dataset RFID de plus de 30 000 lignes",
+      "Développement de modèles prédictifs de détection d'anomalies",
+      "Réalisation d'un site web et d'une API Flask pilotant les fonctionnalités"
+    ],
+    "liens": {
+      "github": "https://github.com/Aissata26/ProjetS8",
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "site-offres-demenagement",
+    "titre": "Site de publication d'offres de déménagement",
+    "description": "Site web permettant de publier des offres de déménagement et de proposer des services.",
+    "contexte": "Projet académique",
+    "architecture": "PHP, JavaScript, HTML, CSS et MySQL",
+    "date_debut": "2026-05",
+    "date_fin": "2026-06",
+    "candidat_slugs": [
+      "loic-kakou"
+    ],
+    "competence_slugs": [
+      "php",
+      "javascript",
+      "mysql"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "web",
+      "bases-de-donnees"
+    ],
+    "technologies": [
+      "PHP",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "MySQL"
+    ],
+    "réalisation": [
+      "Mise en place du site de publication des offres",
+      "Module de proposition de services",
+      "Base de données MySQL des offres"
+    ],
+    "liens": {
+      "github": "https://github.com/LoicJr12/AppliPack-Dash",
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "prediction-salaires-metiers-ia",
+    "titre": "Prédiction des salaires dans les métiers de l'IA",
+    "description": "Développement d'un pipeline de Machine Learning permettant de prédire les salaires dans les métiers de l'intelligence artificielle à partir de plus de 15 000 offres d'emploi.",
+    "contexte": "Projet académique — Machine Learning et analyse de données",
+    "architecture": "Python, Pandas, NumPy et modèles de régression Machine Learning",
+    "date_debut": null,
+    "date_fin": null,
+    "candidat_slugs": [
+      "dokatchenin-coulibaly"
+    ],
+    "competence_slugs": [
+      "python",
+      "pandas",
+      "numpy",
+      "machine-learning"
+    ],
+    "domaine_slugs": [
+      "langages",
+      "data-science"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Machine Learning",
+      "SVR",
+      "KNN",
+      "Arbre de décision",
+      "Random Forest"
+    ],
+    "réalisation": [
+      "Préparation et traitement de plus de 15 000 offres d'emploi",
+      "Construction d'un pipeline de préparation des données pour le Machine Learning",
+      "Développement et comparaison des modèles SVR, KNN, arbre de décision et forêt aléatoire",
+      "Évaluation des performances des modèles avec MAE, RMSE et R2",
+      "Sélection du modèle Random Forest selon les performances obtenues"
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "automatisation-integration-employes",
+    "titre": "Automatisation de l'intégration des employés",
+    "description": "Conception d'un workflow automatisé permettant de simplifier l'intégration des nouveaux collaborateurs et l'envoi de leurs informations professionnelles.",
+    "contexte": "Projet d'automatisation des processus métier",
+    "architecture": "Microsoft Power Automate, Power FX et Power Query",
+    "date_debut": null,
+    "date_fin": null,
+    "candidat_slugs": [
+      "dokatchenin-coulibaly"
+    ],
+    "competence_slugs": [
+      "power-automate",
+      "power-fx",
+      "power-query"
+    ],
+    "domaine_slugs": [
+      "automatisation",
+      "data-viz"
+    ],
+    "technologies": [
+      "Power Automate",
+      "Power FX",
+      "Power Query"
+    ],
+    "réalisation": [
+      "Analyse du processus d'intégration des employés pour identifier les tâches répétitives",
+      "Conception d'un workflow d'automatisation",
+      "Automatisation de l'envoi des identifiants et des adresses professionnelles"
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": []
+  },
+  {
+    "projet_slug": "reporting-commercial-performances",
+    "titre": "Reporting commercial et suivi des performances",
+    "description": "Conception de tableaux de bord décisionnels pour analyser les performances commerciales, suivre les indicateurs financiers et automatiser les processus de reporting.",
+    "contexte": "Projet Business Intelligence — Analyse et visualisation de données commerciales",
+    "architecture": "Power BI, DAX et Power Query",
+    "date_debut": null,
+    "date_fin": null,
+    "candidat_slugs": [
+      "dokatchenin-coulibaly"
+    ],
+    "competence_slugs": [
+      "power-bi",
+      "dax",
+      "power-query"
+    ],
+    "domaine_slugs": [
+      "data-viz",
+      "automatisation"
+    ],
+    "technologies": [
+      "Microsoft Power BI",
+      "DAX",
+      "Power Query"
+    ],
+    "réalisation": [
+      "Construction de KPI de chiffre d'affaires, de marge et de dépenses",
+      "Création de tableaux de bord de suivi des performances commerciales",
+      "Identification de 15 tendances clés dans les données",
+      "Automatisation des workflows de reporting",
+      "Réduction de 50 % du temps d'analyse grâce à l'automatisation"
+    ],
+    "liens": {
+      "github": null,
+      "demo": null
+    },
+    "medias": []
+  },
+
+{
+  "projet_slug": "pipeline-etl-talend-oracle",
+  "titre": "Conception et intégration d'un pipeline ETL avec Talend et Oracle",
+  "description": "Développement de jobs ETL pour l'extraction, la transformation, le nettoyage et l'intégration de données multi-sources dans une base Oracle.",
+  "contexte": "Projet académique — Data Engineering et Business Intelligence (1 semaine)",
+  "architecture": "Talend Open Studio for Data Integration, fichiers CSV, SQL et Oracle Database",
+  "date_debut": "2026-03",
+  "date_fin": "2026-03",
+  "candidat_slugs": [
+    "dokatchenin-coulibaly"
+  ],
+  "competence_slugs": [
+    "talend",
+    "etl",
+    "sql",
+    "oracle"
+  ],
+  "domaine_slugs": [
+    "big-data",
+    "langages",
+    "bases-de-donnees"
+  ],
+  "technologies": [
+    "Talend Open Studio for Data Integration",
+    "Oracle Database",
+    "SQL",
+    "ETL",
+    "tMap",
+    "tUniqRow",
+    "tFilterRow",
+    "tFileInputDelimited",
+    "CSV"
+  ],
+  "réalisation": [
+    "Développement de jobs ETL pour l'intégration de données provenant de plusieurs fichiers CSV",
+    "Réalisation de jointures et de transformations avec le composant tMap",
+    "Nettoyage des données et suppression des doublons avec tUniqRow",
+    "Filtrage des enregistrements incohérents avec tFilterRow",
+    "Configuration d'une connexion à Oracle Database",
+    "Chargement des données transformées dans des tables Oracle",
+    "Intégration et consolidation de données pour leur exploitation décisionnelle"
+  ],
+  "liens": {
+    "github": "2026-04",
+    "demo": "2026-04"
+  },
+  "medias": []
+},
+
+{
+  "projet_slug": "analyse-mobilite-urbaine-spark",
+  "titre": "Traitement et analyse de données de mobilité urbaine avec Apache Spark",
+  "description": "Projet Big Data portant sur le traitement de données simulées d'un réseau de vélos en libre-service. Exploitation de PySpark et Spark SQL pour préparer, nettoyer, transformer et analyser des données multi-sources.",
+  "contexte": "Projet académique — Big Data et Apache Spark",
+  "architecture": "Apache Spark, PySpark, Spark SQL et fichiers CSV",
+  "date_debut": "2025-03",
+  "date_fin": "2025-03",
+  "candidat_slugs": [
+    "dokatchenin-coulibaly"
+  ],
+  "competence_slugs": [
+    "spark",
+    "python",
+    "sql"
+  ],
+  "domaine_slugs": [
+    "big-data",
+    "langages"
+  ],
+  "technologies": [
+    "Apache Spark",
+    "PySpark",
+    "Spark SQL",
+    "Python",
+    "Spark DataFrames",
+    "CSV"
+  ],
+  "réalisation": [
+    "Chargement et exploration de données CSV relatives aux cyclistes, vélos, stations et trajets avec les DataFrames Spark",
+    "Analyse des schémas et des types de données avec les API PySpark",
+    "Réalisation de filtrages, regroupements et agrégations avec Spark SQL et groupBy",
+    "Transformation des colonnes et conversion des types avec withColumn et cast",
+    "Création de fonctions UDF pour la catégorisation des salaires",
+    "Nettoyage de données multi-sources par suppression des doublons, des valeurs nulles et des en-têtes répétés",
+    "Réalisation de jointures entre les données des cyclistes et celles de la ville avec détection des correspondances manquantes",
+    "Analyse de logs de déplacements à partir des timestamps pour calculer les durées des trajets",
+    "Préparation de données pour l'analyse statistique et la visualisation"
+  ],
+  "liens": {
+    "github": null,
+    "demo": null
+  },
+  "medias": []
+},
+
+{
+  "projet_slug": "pipeline-data-engineering-robot-mobile",
+  "titre": "Pipeline de données temps réel pour la navigation d'un robot mobile",
+  "description": "Conception d'une architecture de collecte, validation, transformation et distribution des données de capteurs simulés pour alimenter la navigation autonome d'un robot mobile.",
+  "contexte": "Projet académique — Data Engineering, robotique et intelligence artificielle",
+  "architecture": "Pipeline de données ROS 2 en Python, simulation Gazebo, validation des flux de capteurs et historisation rosbag2",
+  "date_debut": "2026-05",
+  "date_fin": "2026-06",
+  "candidat_slugs": [
+    "dokatchenin-coulibaly"
+  ],
+  "competence_slugs": [
+    "python",
+    "ros2",
+    "etl"
+  ],
+  "domaine_slugs": [
+    "langages",
+    "robotique",
+    "big-data"
+  ],
+  "technologies": [
+    "Python",
+    "ROS 2",
+    "rclpy",
+    "Gazebo",
+    "TurtleBot",
+    "rosbag2",
+    "Bash"
+  ],
+  "réalisation": [
+    "Conception d'un pipeline Python de collecte et de traitement des données de capteurs sous ROS 2",
+    "Analyse des structures de messages ROS 2 et validation des données avant leur utilisation par l'agent de navigation",
+    "Traitement des anomalies : valeurs manquantes, incohérences, timestamps invalides et données périmées",
+    "Transformation et normalisation des données pour alimenter le système de navigation autonome",
+    "Gestion des erreurs et définition de mécanismes de sécurité en cas de données non fiables",
+    "Historisation des flux avec rosbag2 et préparation de données structurées pour l'analyse",
+    "Suivi de la qualité des flux et des performances du pipeline"
+  ],
+  "liens": {
+    "github": "https://github.com/Tahirou111",
+    "demo": null
+  },
+  "medias": []
+}
+
+
+
 ]

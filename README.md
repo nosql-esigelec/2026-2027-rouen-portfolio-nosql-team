@@ -49,3 +49,22 @@ Chaque membre ne modifie **que** son dossier `frontends/frontend-<pseudo>/` et s
 - [ ] **Jalon 1** — `ARCHITECTURE.md` et `API_ROUTES.md` complétés (plus aucun `TODO`) et poussés sur `main` avant l'échéance.
 - [ ] **Jalon 2 (équipe)** — `just up && just seed && just dev` fonctionne sur une machine neuve ; toutes les routes de `API_ROUTES.md` répondent.
 - [ ] **Jalon 2 (individuel)** — `frontends/frontend-<pseudo>/README.md` explique comment lancer votre frontend ; il consomme l'API d'équipe (parcours, projets, graphe de compétences).
+
+## 🪐 API pour un portfolio étudiant immersif
+
+En complément des routes de l'équipe, le backend expose :
+
+```text
+GET /api/portfolio/{slug}                           # Profil, timeline, projets et stats
+GET /api/portfolio/{slug}/competences/{skill_slug}  # Détail d'une compétence cliquée
+```
+
+L'application frontend affiche **un seul étudiant à la fois**, identifié par son slug.
+Le suspense initial, les animations au scroll, les ouvertures de cartes et les
+raccourcis clavier se réalisent côté frontend à partir de ces données.
+
+- Guide d'intégration : [`docs/PORTFOLIO_IMMERSIF_API.md`](docs/PORTFOLIO_IMMERSIF_API.md)
+- Suivi des étapes : [`SUIVI_PORTFOLIO.md`](SUIVI_PORTFOLIO.md)
+- Vérifier les données locales **sans connexion aux bases** : `just validate`
+
+Ne pas commiter de fichiers `.env` contenant des identifiants ou secrets.

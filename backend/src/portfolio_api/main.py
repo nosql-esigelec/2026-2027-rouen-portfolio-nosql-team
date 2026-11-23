@@ -14,6 +14,7 @@ from portfolio_api.models import HealthResponse
 from portfolio_api.api.routes_candidats import router as candidats_router
 from portfolio_api.api.routes_graph import router as graph_router
 from portfolio_api.api.routes_projets import router as projets_router
+from portfolio_api.api.routes_portfolio import router as portfolio_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -50,3 +51,4 @@ async def health() -> HealthResponse:
 app.include_router(candidats_router, prefix="/api")
 app.include_router(graph_router, prefix="/api")
 app.include_router(projets_router, prefix="/api")
+app.include_router(portfolio_router, prefix="/api")

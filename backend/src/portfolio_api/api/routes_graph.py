@@ -3,8 +3,7 @@
 from fastapi import APIRouter, HTTPException, Query
 
 from portfolio_api.models import GraphOut, SimilarProjetsOut,ProjetsResponse
-from portfolio_api.services import graph_service
-from portfolio_api.services import candidat_service
+from portfolio_api.services import graph_service, candidat_service
 
 
 router = APIRouter(prefix="/graph", tags=["graph"])
@@ -47,14 +46,16 @@ async def get_competence_graph(slug: str) -> GraphOut:
         )
         
     return result
-
+# R8 — Projets d'un candidat par domaine
 @router.get(
     "/{slug}/projets/domaines/{domaine_slug}",
     response_model=ProjetsResponse,
-    summary="R8 — Projets d'un candidat par domaine",
+    summary="R8 — Ancien chemin de filtrage par domaine",
+    deprecated=True,
 )
 async def get_candidat_projets_par_domaine(
     slug: str,
+    
     domaine_slug: str,
     page: int = Query(default=1, ge=1),
     limit: int = Query(default=10, ge=1, le=100),

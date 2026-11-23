@@ -37,7 +37,7 @@ async def seed_mongo(candidats: list[dict], projets: list[dict]) -> None:
     await db["candidats"].delete_many({})
     await db["candidats"].create_index("candidat_slug", unique=True)
     await db["candidats"].create_index("competences.skill_slug")
-    await db["candidats"].create_index("competences.domaine")
+    await db["candidats"].create_index("competences.domaine_slug")
     if candidats:
         await db["candidats"].insert_many(candidats)
 
@@ -167,7 +167,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine")
+                domaine = comp.get("domaine_slug") or comp.get("domaine")
 
                 if domaine:
 
@@ -321,7 +321,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
 
             for comp in candidat.get("competences", []):
 
-                domaine = comp.get("domaine")
+                domaine = comp.get("domaine_slug") or comp.get("domaine")
 
                 if domaine:
 
@@ -387,7 +387,7 @@ async def seed_neo4j(candidats: list[dict], projets: list[dict]) -> None:
                     projet_slug=projet_slug,
                     entreprise_slug=entreprise_slug
                 )
-print("Seed Neo4j terminé avec succès.")
+    print("Seed Neo4j terminé avec succès.")
 
 
 async def main() -> None:

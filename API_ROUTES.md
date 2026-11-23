@@ -380,3 +380,26 @@ Fourni. Réponse : `{"status": "ok"}`
 }
 ```
 
+
+---
+
+## 9. `GET /api/portfolio/{slug}` — Vue initiale du portfolio immersif
+
+- **Paramètres** : `slug` obligatoire ; `page` (défaut `1`, entier ≥ 1) ; `limit` (défaut `30`, entier de 1 à 100).
+- **Source** : MongoDB (sans dépendance à la disponibilité du graphe Neo4j).
+- **Écran** : introduction avec suspense, chronologie scrollable, cartes projets et statistiques.
+- **Réponse** : objet `{ "candidat_slug": "...", "candidat": {...}, "timeline": [...], "projets": {...}, "stats": {...} }`.
+- `candidat.presentation` est facultatif et peut décrire l'introduction, la photo et la couleur d'accent.
+- `timeline` combine expériences et formations triées par date de début décroissante.
+- Les projets sont paginés : demander les pages suivantes à R2 ou à cette même route.
+- **404** : candidat introuvable ; **422** : paramètres invalides.
+
+## 10. `GET /api/portfolio/{slug}/competences/{skill_slug}` — Compétence cliquée
+
+- **Paramètres** : slug du candidat, slug de la compétence.
+- **Écran** : panneau de détail/overlay ouvert lors d'un clic ou d'une activation au clavier.
+- **Réponse** : objet `{ "candidat_slug": "...", "competence": {...}, "total_projets": 0, "projets": [], "experiences": [] }`.
+- La liste renvoie jusqu'à 100 projets ; `total_projets` permet de savoir si d'autres existent.
+- **404** : candidat ou compétence introuvable.
+
+Voir [Guide du portfolio immersif](docs/PORTFOLIO_IMMERSIF_API.md) pour les données optionnelles et les interactions frontend.

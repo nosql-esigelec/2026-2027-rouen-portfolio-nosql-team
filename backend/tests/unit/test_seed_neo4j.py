@@ -160,3 +160,25 @@ class TestSeedNeo4jEdgeCases:
         with pytest.raises(RuntimeError, match="Neo4j indisponible"):
             await seed.seed_neo4j([], projets)
         neo4j_session.run.assert_awaited_once()
+
+
+async def test_seed_neo4j_supports_documented_domaine_slug(
+    neo4j_driver, neo4j_session, candidats,
+):
+    """Le document API utilise domaine_slug et non le legacy domaine."""
+    candidats[0]["competences"][0].pop("domaine")
+    candidats[0]["competences"][0]["domaine_slug"] = "langages"
+
+    await seed.seed_neo4j(candidats, [])
+    calls = neo4j_session.run.await_args_list
+    assert any(
+        "MERGE (d:Domaine" in c.args[0]
+        and c.kwargs.get("domaine_slug") == "langages"
+        for c in calls
+    )
+    assert any(
+        "MERGE (s)-[:APPARTIENT_A]->(d)" in c.args[0]
+        and c.kwargs.get("skill_slug") == "python"
+        and c.kwargs.get("domaine_slug") == "langages"
+        for c in calls
+    )
