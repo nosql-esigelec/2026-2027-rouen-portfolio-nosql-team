@@ -35,3 +35,4 @@ du candidat ou de ses projets.
 | Membre | Lien du portfolio |
 | --- | --- |
 | Yifei HE | https://yifei-portfolio-beta.vercel.app/ |
+| Xucan ZHONG | https://xucan-portfolio.vercel.app/ |
