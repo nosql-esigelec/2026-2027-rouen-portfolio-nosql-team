@@ -46,7 +46,7 @@
     ]
   },
   {
-    "projet_slug": "portfolio-polyglotte",
+    "projet_slug": "portfolio-polyglotte2",
     "titre": "Portfolio Polyglotte",
     "description": "Portfolio d'équipe interrogeant candidats, projets et compétences sur plusieurs bases",
     "contexte": "Projet académique NoSQL",
@@ -2483,8 +2483,53 @@
     "demo": null
   },
   "medias": []
+}, 
+{
+  "projet_slug": "portfolio-polyglotte",
+  "titre": "Portfolio Polyglotte — Architecture et intégration de données NoSQL",
+  "description": "Développement d'un portfolio multi-candidats reposant sur une architecture NoSQL polyglotte pour structurer, intégrer et exploiter les données de profils, compétences et projets.",
+  "contexte": "Projet académique — Big Data, NoSQL et développement backend",
+  "architecture": "FastAPI, MongoDB et Neo4j orchestrés avec Docker Compose",
+  "date_debut": "2026-10",
+  "date_fin": "2026-10",
+  "candidat_slugs": [
+    "dokatchenin-coulibaly"
+  ],
+  "competence_slugs": [
+    "python",
+    "mongodb",
+    "neo4j",
+    "api-rest",
+    "docker"
+  ],
+  "domaine_slugs": [
+    "langages",
+    "bases-de-donnees",
+    "web",
+    "devops"
+  ],
+  "technologies": [
+    "Python",
+    "FastAPI",
+    "MongoDB",
+    "Neo4j",
+    "Cypher",
+    "JSON",
+    "Docker Compose"
+  ],
+  "réalisation": [
+    "Conception d'une architecture NoSQL polyglotte combinant stockage documentaire MongoDB et relations en graphe Neo4j",
+    "Modélisation des données candidats, projets, compétences et domaines",
+    "Développement de scripts Python pour l'intégration de données JSON dans les bases NoSQL",
+    "Implémentation de services backend pour l'interrogation et l'exploitation des données",
+    "Création de routes API REST avec FastAPI pour consulter les candidats, les projets et les compétences",
+    "Utilisation de requêtes MongoDB et Cypher pour récupérer et associer les données",
+    "Configuration et conteneurisation des services avec Docker Compose"
+  ],
+  "liens": {
+    "github": "https://github.com/Tahirou111",
+    "demo": null
+  },
+  "medias": []
 }
-
-
-
 ]

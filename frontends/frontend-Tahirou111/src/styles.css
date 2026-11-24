@@ -43,10 +43,9 @@
 .telemetry-grid small,.connection-count{display:block;color:#c2aadf;font-size:.83rem}
 .telemetry-track{display:block;height:.25rem;background:#363052;border-radius:1rem;overflow:hidden}
 .telemetry-track span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#ab81ff,#6bd8f1)}
-.project-controls,.project-pagination{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin:1.2rem 0}
+.project-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin:1.2rem 0}
 .project-controls label{display:grid;gap:.35rem;flex:1 1 12rem}
-.project-controls select,.project-pagination button{border:1px solid var(--border);border-radius:.6rem;background:#181a32;color:#f2ebff;padding:.7rem;font:inherit}
-.project-pagination button:disabled{opacity:.5;cursor:default}
+.project-controls select{border:1px solid var(--border);border-radius:.6rem;background:#181a32;color:#f2ebff;padding:.7rem;font:inherit}
 .project-status{margin:.75rem 0;color:#b8bfd7}
 .latest-experience{display:grid;gap:.4rem;margin-top:1rem}
 .latest-experience span{display:flex;align-items:center;gap:.45rem;color:#c8aaff}

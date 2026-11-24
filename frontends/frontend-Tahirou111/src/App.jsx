@@ -35,17 +35,16 @@ async function getJson(path, signal) {
   return response.json()
 }
 
-const PROJECT_PAGE_SIZE = 6
 const INTRO_DURATION_MS = 4000
 const INTRO_SIGNAL_COUNT = 7
 
-function useEndpoint(path) {
+function useEndpoint(path, load = getJson) {
   const [result, setResult] = useState(null)
   useEffect(() => {
     setResult(null)
     if (!path) return
     const controller = new AbortController()
-    getJson(path, controller.signal)
+    load(path, controller.signal)
       .then(data => {
         if (!controller.signal.aborted) setResult({ path, data })
       })
@@ -53,7 +52,7 @@ function useEndpoint(path) {
         if (!controller.signal.aborted) setResult({ path, error: error.message })
       })
     return () => controller.abort()
-  }, [path])
+  }, [path, load])
   return result?.path === path ? result : { loading: Boolean(path) }
 }
 
@@ -307,33 +306,34 @@ function ProjectArt({ index, title }) {
   const Icon = ICONS[index % ICONS.length]
   return <div className={`project-art project-art-${index % 5}`} aria-hidden="true"><div className="project-art-grid"/><span className="project-art-gridline artline-one"/><span className="project-art-gridline artline-two"/><div className="project-art-emblem"><Icon size={55} strokeWidth={1.05}/></div><div className="art-corner art-corner-tl"/><div className="art-corner art-corner-br"/><span className="project-art-label">SYS:{title.replace(/\W+/g,'_').toUpperCase().slice(0,18)}</span></div>
 }
+
+async function loadProjectCatalogue(path, signal) {
+  const first = await getJson(`${path}?limit=100`, signal)
+  const projects = [...first.projets]
+  for (let page = 2; page <= first.pagination?.total_pages; page += 1) {
+    const result = await getJson(`${path}?limit=100&page=${page}`, signal)
+    projects.push(...result.projets)
+  }
+  return projects
+}
+
 function Projects({ projects, candidat, slug, stats }) {
   const [domain, setDomain] = useState('')
   const [skill, setSkill] = useState('')
-  const [page, setPage] = useState(1)
   const candidatePath = `/api/candidats/${encodeURIComponent(slug)}`
   const { data: liveStats } = useEndpoint(`${candidatePath}/stats`)
   const statistics = liveStats?.statistiques ?? stats.statistiques ?? []
   const skills = new Map((candidat.competences ?? []).map(item => [item.skill_slug, item.nom]))
   statistics.forEach(item => skills.set(item.competence_slug, item.nom))
-  const domains = [...new Set(projects.flatMap(project => project.domaine_slugs ?? []))]
-  const query = new URLSearchParams({ page, limit: PROJECT_PAGE_SIZE })
-  if (domain) query.set('domaine_slug', domain)
-  if (skill) query.set('competence', skill)
-  const { data, loading, error } = useEndpoint(`${candidatePath}/projets?${query}`)
-  const local = projects.filter(project =>
+  const { data, loading, error } = useEndpoint(`${candidatePath}/projets`, loadProjectCatalogue)
+  const catalogue = data ?? projects
+  const domains = [...new Set(catalogue.flatMap(project => project.domaine_slugs ?? []))]
+  const visible = catalogue.filter(project =>
     (!domain || project.domaine_slugs?.includes(domain)) &&
     (!skill || project.competence_slugs?.includes(skill))
   )
-  const total = data?.pagination.total ?? local.length
-  const pages = data?.pagination.total_pages ?? Math.ceil(local.length / PROJECT_PAGE_SIZE)
-  const visible = data?.projets ?? local.slice((page - 1) * PROJECT_PAGE_SIZE, page * PROJECT_PAGE_SIZE)
+  const total = visible.length
   const maxCount = Math.max(1, ...statistics.map(item => item.nombre_projets))
-
-  function selectSkill(value) {
-    setSkill(value)
-    setPage(1)
-  }
 
   return <section className="content-section section-shell" id="projets">
     <SectionHeading index="03" kicker="LE PORTFOLIO" title={<>Des idées devenues <em>réelles.</em></>}
@@ -344,18 +344,18 @@ function Projects({ projects, candidat, slug, stats }) {
       <div className="telemetry-grid">
         {statistics.slice(0, 8).map(item => <button key={item.competence_slug}
           aria-pressed={skill === item.competence_slug}
-          onClick={() => selectSkill(skill === item.competence_slug ? '' : item.competence_slug)}>
+          onClick={() => setSkill(skill === item.competence_slug ? '' : item.competence_slug)}>
           <span>{item.nom}</span><small>{item.nombre_projets} projet{item.nombre_projets === 1 ? '' : 's'}</small>
           <span className="telemetry-track" aria-hidden="true"><span style={{ width: `${item.nombre_projets / maxCount * 100}%` }}/></span>
         </button>)}
       </div>
     </div>}
     <div className="project-controls">
-      <label>Domaine<select value={domain} onChange={event => { setDomain(event.target.value); setPage(1) }}>
+      <label>Domaine<select value={domain} onChange={event => setDomain(event.target.value)}>
         <option value="">Tous les domaines</option>
         {domains.map(value => <option key={value} value={value}>{titleCase(value)}</option>)}
       </select></label>
-      <label>Compétence<select value={skill} onChange={event => selectSkill(event.target.value)}>
+      <label>Compétence<select value={skill} onChange={event => setSkill(event.target.value)}>
         <option value="">Toutes les compétences</option>
         {[...skills].map(([value, label]) => <option key={value} value={value}>{label}</option>)}
       </select></label>
@@ -370,11 +370,6 @@ function Projects({ projects, candidat, slug, stats }) {
         </div>
       </a>
     )}{!loading && visible.length === 0 && <div className="empty-filter">Aucun projet pour ces filtres.</div>}</div>
-    {(pages > 1 || page > 1) && <nav className="project-pagination" aria-label="Pages des projets">
-      <button disabled={loading || page <= 1} onClick={() => setPage(page - 1)}>Précédent</button>
-      <span>Page {page}{pages >= page ? ` / ${pages}` : ''}</span>
-      <button disabled={loading || page >= pages} onClick={() => setPage(page + 1)}>Suivant</button>
-    </nav>}
   </section>
 }
 function layoutGraph(nodes) {

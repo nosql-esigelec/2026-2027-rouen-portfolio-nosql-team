@@ -2087,19 +2087,19 @@
         "skill_slug": "r",
         "nom": "R",
         "domaine_slug": "langages",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "c",
         "nom": "C",
         "domaine_slug": "langages",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "javascript",
         "nom": "JavaScript",
         "domaine_slug": "langages",
-        "niveau": 5
+        "niveau": 4
       },
       {
         "skill_slug": "bash",
@@ -2117,25 +2117,25 @@
         "skill_slug": "ia-generative",
         "nom": "IA générative",
         "domaine_slug": "data-science",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "spark",
         "nom": "Apache Spark",
         "domaine_slug": "big-data",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "hadoop",
         "nom": "Apache Hadoop",
         "domaine_slug": "big-data",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "talend",
         "nom": "Talend",
         "domaine_slug": "big-data",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "etl",
@@ -2165,7 +2165,7 @@
         "skill_slug": "power-automate",
         "nom": "Power Automate",
         "domaine_slug": "automatisation",
-        "niveau": 4
+        "niveau": 3
       },
       {
         "skill_slug": "api-rest",
@@ -2202,6 +2202,18 @@
         "nom": "Français — langue maternelle",
         "domaine_slug": "langues",
         "niveau": 5
+      },
+      {
+        "skill_slug": "mongodb",
+        "nom": "MongoDB",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
+      },
+      {
+        "skill_slug": "neo4j",
+        "nom": "Neo4j",
+        "domaine_slug": "bases-de-donnees",
+        "niveau": 4
       }
     ]
   }
